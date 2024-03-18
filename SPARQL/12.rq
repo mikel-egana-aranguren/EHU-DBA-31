@@ -1,0 +1,14 @@
+SELECT ?lantokia
+WHERE {
+  ?person rdf:type foaf:person .
+  ?person <http://vocab.data.gov/def/drm#worksFor> ?lantokia      
+}
+ 
+
+ 
+
+SELECT DISTINCT ?lantokia
+WHERE {
+  ?person rdf:type foaf:person .
+  ?person <http://vocab.data.gov/def/drm#worksFor> ?lantokia      
+} 

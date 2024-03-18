@@ -1,0 +1,15 @@
+PREFIX gip_prop: <http://gipuzkoa.eus/prop/>
+PREFIX gip: <http://gipuzkoa.eus/resource/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT ?langile ?bizilekua
+
+WHERE {
+  # Tiene que ser una persona
+  ?langile rdf:type foaf:person .
+  # Puede vivir en un sitio o no
+  OPTIONAL {
+     ?langile gip_prop:bizilekua ?bizilekua
+  }
+}

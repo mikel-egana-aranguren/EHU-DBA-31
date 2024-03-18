@@ -1,0 +1,7 @@
+PREFIX gov:<http://vocab.data.gov/def/drm#>
+PREFIX gip:<http://gipuzkoa.eus/resource/>
+
+ASK
+WHERE {
+  ?person gov:worksFor gip:gugenheim      
+}

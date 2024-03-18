@@ -1,0 +1,8 @@
+PREFIX gip_prop: <http://gipuzkoa.eus/prop/>
+
+SELECT ?museoa ?langile_kop
+
+WHERE {
+    ?museoa gip_prop:kopurua ?langile_kop .
+    FILTER (?langile_kop > "800"^^xsd:int)
+}

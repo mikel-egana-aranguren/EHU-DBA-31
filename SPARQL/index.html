@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SPARQL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>SPARQL</h1>
+        <p>Mikel Egaña Aranguren</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>SPARQL</h2>
+        <p>Mikel Egaña Aranguren</p>
+        <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
+        <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
+        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" style="border: 1px solid #555;">
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL</h2>
+        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL</h2>
+        <p>SPARQL: SPARQL Protocol and RDF Query Language</p>
+        <p>Estándar <a href="https://www.w3.org/TR/sparql11-overview/">oficial del W3C</a> para:
+            <ul>
+                <li>Hacer consultas sobre grafos RDF</li>
+                <li>Ejecutar esas consultas sobre HTTP contra un SPARQL endpoint (Incluyendo consultas federadas)</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_1.png" alt="SPARQL" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_2.png" alt="SPARQL 2" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_3.png" alt="SPARQL 3" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_4.png" alt="SPARQL 4" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Estructura de la consulta</h2>
+        (Subir museoak.rdf a GraphDB)
+        (<a href="1.rq">1.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_basic.png" alt="SPARQL basic" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Estructura de la consulta</h2>
+        (<a href="2.rq">2.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_basic_2.png" alt="SPARQL basic 2" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Optional</h2>
+        (<a href="3.rq">3.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_optional_3.png" alt="SPARQL optional" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Optional</h2>
+        (<a href="4.rq">4.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_optional_4.png" alt="SPARQL optional" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Union</h2>
+        (<a href="5.rq">5.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_union_5.png" alt="SPARQL optional" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Ordenar resultados</h2>
+        (<a href="6.rq">6.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_order_6.png" alt="SPARQL order" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Limitar resultados</h2>
+        (<a href="7.rq">7.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_limit_7.png" alt="SPARQL limit" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Paginación</h2>
+        (<a href="8.rq">8.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_pages_8.png" alt="SPARQL pages" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Paginación</h2>
+        (<a href="9.rq">9.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_pages_9.png" alt="SPARQL pages" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Filtrar resultados</h2>
+        (<a href="10.rq">10.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_filter_10.png" alt="SPARQL filter" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Filtrar resultados</h2>
+        (<a href="11.rq">11.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_filter_11.png" alt="SPARQL filter" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Filtrar resultados</h2>
+        <p>Lógica: !, &&, ||</p>
+        <p>Calculos: +, -, *, /</p>
+        <p>Comparaciones: =, !=, >,<</p>
+    </section>
+
+    <section class="slide">
+        <h2>Filtrar resultados</h2>
+        <p>Tests SPARQL: isURI, isBlank, isLiteral, bound</p>
+        <p>Acceder a datos: str, lang, datatype</p>
+        <p>Más: sameTerm, langMatches, regex, ...</p>
+    </section>
+
+    <section class="slide">
+        <h2>Evitar duplicados</h2>
+        (<a href="12.rq">12.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_duplicate_12.png" alt="SPARQL duplicate" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Ask</h2>
+        (<a href="13.rq">13.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_ask_13.png" alt="SPARQL ask" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Describe</h2>
+        <p><pre><code>DESCRIBE &lt;http://gipuzkoa.eus/resource/mikel-aranguren&gt;</code></pre></p>
+    </section>
+
+    <section class="slide">
+        <h2>CONSTRUCT</h2>
+        (<a href="14.rq">14.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_construct_14.png" alt="SPARQL construct" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Delete data</h2>
+        <p><pre><code>DELETE DATA {
+            <http://gipuzkoa.eus/resource/aitor-labajo> rdf:type foaf:person
+          }</code></pre></p>
+          <p>DESCRIBE &lt;http://gipuzkoa.eus/resource/aitor-labajo&gt;</p>
+    </section>
+
+    <section class="slide">
+        <h2>Delete</h2>
+        <pre><code>
+            DELETE {?person rdf:type foaf:person}
+            WHERE {?person foaf:name ?name}
+            SELECT * WHERE {
+                   ?person rdf:type foaf:person
+                }
+                </code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>INSERT DATA</h2>
+        <pre><code>
+        PREFIX gip:&lt;http://gipuzkoa.eus/resource/&gt;
+        INSERT DATA {
+            gip:aitor-labajo rdf:type gip:hiritar
+        }
+        DESCRIBE &lt;http://gipuzkoa.eus/resource/aitor-labajo&gt;
+        </code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>INSERT</h2>
+        (<a href="15.rq">15.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_insert_15.png" alt="SPARQL insert" width="40%"></p>
+        <p>DESCRIBE &lt;http://gipuzkoa.eus/resource/jon-alfaro&gt;</p>
+    </section>
+
+    <section class="slide">
+        <h2>Consultas federadas</h2>
+        (<a href="16.rq">16.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_fed_16.png" alt="SPARQL fed" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>GRAFOS</h2>
+        <p>Grafo: conjunto de triples</p>
+        <p>El conjunto entero se identificada con una URI (diferente de la de los datos)</p>
+        <p>Todas las Triple Stores tienen un Default Graph</p>
+    </section>
+
+    <section class="slide">
+        <h2>GRAFOS</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_named_graphs.png" alt="Named Graphs" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>GRAFOS</h2>
+        <p>Los grafos son muy utiles para añadir datos sobre los datos (metadatos): ej. procedencia, autoria, fecha de generación</p>
+        <p>(entre otras cosas)</p>
+    </section>
+
+    <section class="slide">
+        <h2>GRAFOS</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_named_graphs_metadata.png" alt="Named Graphs metadata" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>GRAFOS</h2>
+        (<a href="17.rq">17.rq</a>)
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_insert_graphs_17.png" alt="SPARQL insert graph" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>GRAFOS</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/SPARQL_select_from_graphs_18.png" alt="SPARQL insert graph" width="40%"></p>
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="badge">
+        <a href="https://github.com/mikel-egana-aranguren/ShowerTemplate">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../ShowerTemplate/shower/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>

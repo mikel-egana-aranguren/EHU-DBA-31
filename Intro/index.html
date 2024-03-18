@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Introducción a NoSQL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Introducción a NoSQL</h1>
+        <p>Mikel Egaña Aranguren</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>Introducción a NoSQL</h2>
+        <p>Mikel Egaña Aranguren</p>
+        <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
+        <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
+        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" style="border: 1px solid #555;">
+    </section>
+
+    <section class="slide">
+        <h2>Introducción a NoSQL</h2>
+        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
+    </section>
+
+    <section class="slide">
+        <h2>Introducción a NoSQL</h2>
+        <p>NoSQL: "Non-SQL", "Not only SQL" </p>
+    </section>
+
+    <section class="slide">
+        <h2>Modelo relacional</h2>
+        <p>Modelo mas común para BBDD: MySQL, PostgreSQL, Oracle, ...</p>
+        <p>Tablas de filas y columnas, cada entidad una fila y cada atributo una columna</p>
+        <p>Esquema que decribe la estructura de las tablas</p>
+        <p>Relacionar diferentes tablas mediante claves</p>
+        <p>SQL: Structured Query Language</p>
+    </section>
+
+    <section class="slide">
+        <h2>Modelo relacional (1970)</h2>
+        <p>Había pocas BBDD: bancos, grandes compañias, ...</p>
+        <p>En entornos muy controlados</p>
+        <p>Datos muy estructurados</p>
+        <p>Cambiaban poco</p>
+        <p>Muy centralizadas y aisladas, sin problemas de integración</p>
+    </section>
+
+    <section class="slide">
+        <h2>Aplicaciones web y móviles (2000)</h2>
+        <p>Crecimiento exponencial de datos</p>
+        <p>Datos diversos, estructurados, semi-estructurados, y no estructurados</p>
+        <p>Datos distribuidos</p>
+        <p>La velocidad de respuesta se vuelve clave</p>
+        
+    </section>
+
+    <section class="slide">
+        <h2>SQL vs NoSQL</h2>
+        <p>El modelo relacional no se adaptaba tan bien a las nuevas necesidades: velocidad, volumen, variedad</p>
+        <p>Surgen nuevas BBDD adaptadas a necesidades específicas</p>
+    </section>
+
+    <section class="slide">
+        <h2>Principios Fundamentales de NoSQL</h2>
+        <p>Modelo de datos flexible (Schemaless)</p>
+        <p>Escalabilidad horizontal</p>
+        <p>Alta disponibilidad y rendimiento</p>
+        <p>Soporte para datos no estructurados o semi-estructurados</p>
+        <p>No necesariamente ACID (Atomicity, Consistency, Isolation, Durability): eventual consistency</p>
+    </section>
+
+    <section class="slide">
+        <h2>Tipos de BBDD NoSQL</h2>
+        <p>Grafos</p>
+        <p>Vectores</p>
+        <p>Documentos</p>
+        <p>Key-value</p>
+        <p>Columnas</p>
+    </section>
+
+    <section class="slide">
+        <h2>Grafos</h2>
+        <p>Grafo: conjunto de nodos y relaciones entre nodos</p>
+        <p>Triple Stores (RDF): <a href="https://virtuoso.openlinksw.com/">Virtuoso</a>, <a href="https://www.stardog.com/">Stardog</a>, <a href="https://aws.amazon.com/neptune/">Amazon Neptune</a>,<a href="https://graphdb.ontotext.com/">GraphDB</a>, ...</p>
+        <p>Property Graphs: <a href="https://neo4j.com/">Neo4J</a>, ...</p>
+    </section>
+
+    <section class="slide">
+        <h2>Vectores</h2>
+        <p>Almacenan embeddings (Vectores)</p>
+        <p>Han cobrado importancia debido al auge de LLMs y arquitecturas tipo RAG (Retrieval Augmented Generation)</p>
+        <p><a href="https://www.trychroma.com/">Chroma</a>, <a href="https://vectordb.com/">VectorDB</a>, ..</p>
+    </section>
+
+    <section class="slide">
+        <h2>Documentos</h2>
+        <p>La unidad básica de almacenamiento es un documento entero (XML, YAML, JSON,BSON)</p>
+        <p><a href="https://www.mongodb.com/">MongoDB</a>, ...</p>
+    </section>
+
+    <section class="slide">
+        <h2>Key-value</h2>
+        <p>Modelo de datos clave-valor en un diccionario</p>
+        <p>A veces se usan como base para otras BBDD (<a href="https://rocksdb.org/">RocksDB</a> como base para BBDD grafos <a href="https://www.stardog.com/">Stardog</a>)</p>
+        <p><a href="https://rocksdb.org/">RocksDB</a>, <a href="https://redis.io/">Redis</a>, ...</p>
+    </section>
+
+    <section class="slide">
+        <h2>Columnas</h2>
+        <p>Almacenan los datos en columnas en lugar de filas</p>
+        <p><a href="https://hbase.apache.org/">Apache Base</a>, ...</p>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="badge">
+        <a href="https://github.com/mikel-egana-aranguren/ShowerTemplate">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../ShowerTemplate/shower/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>

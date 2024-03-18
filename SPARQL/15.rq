@@ -1,0 +1,8 @@
+PREFIX gip:<http://gipuzkoa.eus/resource/>
+
+INSERT {
+    gip:jon-alfaro rdf:type ?type .
+}
+WHERE {
+    gip:aitor-labajo rdf:type ?type .
+}
