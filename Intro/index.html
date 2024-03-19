@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Introducción a NoSQL</title>
+    <title>NoSQL sarrera</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
@@ -18,12 +18,12 @@
 <body class="shower list">
 
     <header class="caption">
-        <h1>Introducción a NoSQL</h1>
+        <h1>NoSQL sarrera</h1>
         <p>Mikel Egaña Aranguren</p>
     </header>
 
     <section class="slide" id="cover">
-        <h2>Introducción a NoSQL</h2>
+        <h2>NoSQL sarrera</h2>
         <p>Mikel Egaña Aranguren</p>
         <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
         <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
@@ -31,97 +31,99 @@
     </section>
 
     <section class="slide">
-        <h2>Introducción a NoSQL</h2>
-        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <h2>NoSQL sarrera</h2>
+        <p><a href="https://github.com/mikel-egana-aranguren/DBA">https://github.com/mikel-egana-aranguren/DBA</a></p>
         <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
     </section>
 
     <section class="slide">
-        <h2>Introducción a NoSQL</h2>
+        <h2>NoSQL sarrera</h2>
         <p>NoSQL: "Non-SQL", "Not only SQL" </p>
     </section>
 
     <section class="slide">
-        <h2>Modelo relacional</h2>
-        <p>Modelo mas común para BBDD: MySQL, PostgreSQL, Oracle, ...</p>
-        <p>Tablas de filas y columnas, cada entidad una fila y cada atributo una columna</p>
-        <p>Esquema que decribe la estructura de las tablas</p>
-        <p>Relacionar diferentes tablas mediante claves</p>
+        <h2>Eredua erlazionala</h2>
+        <p>DB-en ohikoeredua: MySQL, PostgreSQL, Oracle, ...</p>
+        <p>Taulak lerro eta zutabeekin, entitate bakoitzeko lerro bat eta atributu bakoitzeko zutabe bat</p>
+        <p>Taulen egitura deskribatzen duen eskema</p>
+        <p>Taula desberdinak giltzen bidez lotu</p>
         <p>SQL: Structured Query Language</p>
     </section>
+    
 
     <section class="slide">
-        <h2>Modelo relacional (1970)</h2>
-        <p>Había pocas BBDD: bancos, grandes compañias, ...</p>
-        <p>En entornos muy controlados</p>
-        <p>Datos muy estructurados</p>
-        <p>Cambiaban poco</p>
-        <p>Muy centralizadas y aisladas, sin problemas de integración</p>
-    </section>
+        <h2>Eredua erlazionala (1970)</h2>
+        <p>DB gutxi zeuden: bankuak, enpresa handiak, ...</p>
+        <p>Kontextu oso kontrolatuak</p>
+        <p>Datu oso egituratuak</p>
+        <p>Gutxi aldatzen ziren</p>
+        <p>Oso zentralizatuak eta isolatuak, integratzeko arazorik gabe</p>
+</section>
+
+<section class="slide">
+    <h2>Web eta mugikor aplikazioak (2000)</h2>
+    <p>Datuen hazkunde esponentziala</p>
+    <p>Datu anitzak, egituratuak, erdi-egituratuak eta egituragabeak</p>
+    <p>Datu sakabanatuak</p>
+    <p>Erantzunaren abiadura oso garrantzitsu bihurtzen da</p>
+</section>
+
+<section class="slide">
+    <h2>SQL vs NoSQL</h2>
+    <p>Eredu erlazionala ez zen hain ondo egokitzen behar berriei: abiadura, bolumena, aniztasuna</p>
+    <p>Behar zehatzetara egokitutako DB berriak agertu ziren</p>
+</section>
+
+<section class="slide">
+    <h2>NoSQLen Oinarrizko Printzipioak</h2>
+    <p>Datu eredu malgua (Schemaless)</p>
+    <p>Eskalagarritasun horizontala</p>
+    <p>Erabilgarritasun eta errendimendu handia</p>
+    <p>Datu egituragabe edo erdi-egituratuak onartzen ditu</p>
+    <p>Ez da nahitaez ACID (Atomicity, Consistency, Isolation, Durability) behar: eventual consistency</p>
+</section>
+
 
     <section class="slide">
-        <h2>Aplicaciones web y móviles (2000)</h2>
-        <p>Crecimiento exponencial de datos</p>
-        <p>Datos diversos, estructurados, semi-estructurados, y no estructurados</p>
-        <p>Datos distribuidos</p>
-        <p>La velocidad de respuesta se vuelve clave</p>
-        
-    </section>
-
-    <section class="slide">
-        <h2>SQL vs NoSQL</h2>
-        <p>El modelo relacional no se adaptaba tan bien a las nuevas necesidades: velocidad, volumen, variedad</p>
-        <p>Surgen nuevas BBDD adaptadas a necesidades específicas</p>
-    </section>
-
-    <section class="slide">
-        <h2>Principios Fundamentales de NoSQL</h2>
-        <p>Modelo de datos flexible (Schemaless)</p>
-        <p>Escalabilidad horizontal</p>
-        <p>Alta disponibilidad y rendimiento</p>
-        <p>Soporte para datos no estructurados o semi-estructurados</p>
-        <p>No necesariamente ACID (Atomicity, Consistency, Isolation, Durability): eventual consistency</p>
-    </section>
-
-    <section class="slide">
-        <h2>Tipos de BBDD NoSQL</h2>
-        <p>Grafos</p>
-        <p>Vectores</p>
-        <p>Documentos</p>
+        <h2>NoSQL DB motak</h2>
+        <p>Grafoak</p>
+        <p>Bektoreak</p>
+        <p>Dokumentuak</p>
         <p>Key-value</p>
-        <p>Columnas</p>
+        <p>Zutabeak</p>
     </section>
 
     <section class="slide">
-        <h2>Grafos</h2>
-        <p>Grafo: conjunto de nodos y relaciones entre nodos</p>
-        <p>Triple Stores (RDF): <a href="https://virtuoso.openlinksw.com/">Virtuoso</a>, <a href="https://www.stardog.com/">Stardog</a>, <a href="https://aws.amazon.com/neptune/">Amazon Neptune</a>,<a href="https://graphdb.ontotext.com/">GraphDB</a>, ...</p>
+        <h2>Grafoak</h2>
+        <p>Grafoa: nodo eta nodoen arteko erlazioen multzoa</p>
+        <p>Triple Store (RDF): <a href="https://virtuoso.openlinksw.com/">Virtuoso</a>, <a href="https://www.stardog.com/">Stardog</a>, <a href="https://aws.amazon.com/neptune/">Amazon Neptune</a>,<a href="https://graphdb.ontotext.com/">GraphDB</a>, ...</p>
         <p>Property Graphs: <a href="https://neo4j.com/">Neo4J</a>, ...</p>
     </section>
 
     <section class="slide">
-        <h2>Vectores</h2>
-        <p>Almacenan embeddings (Vectores)</p>
-        <p>Han cobrado importancia debido al auge de LLMs y arquitecturas tipo RAG (Retrieval Augmented Generation)</p>
+        <h2>Bektoreak</h2>
+        <p>Embedding-ak gordetzen dituzte</p>
+        <p>LLM eta RAG (Retrieval Augmented Generation) motako arkitekturen gorakadaren ondorioz garrantzia lortu dute</p>
         <p><a href="https://www.trychroma.com/">Chroma</a>, <a href="https://vectordb.com/">VectorDB</a>, ..</p>
     </section>
 
     <section class="slide">
-        <h2>Documentos</h2>
-        <p>La unidad básica de almacenamiento es un documento entero (XML, YAML, JSON,BSON)</p>
+        <h2>Dokumentuak</h2>
+        <p>Biltegiratze unitate oinarrizkoa dokumentu oso bat da (XML, YAML, JSON,BSON)</p>
         <p><a href="https://www.mongodb.com/">MongoDB</a>, ...</p>
     </section>
 
     <section class="slide">
-        <h2>Key-value</h2>
-        <p>Modelo de datos clave-valor en un diccionario</p>
-        <p>A veces se usan como base para otras BBDD (<a href="https://rocksdb.org/">RocksDB</a> como base para BBDD grafos <a href="https://www.stardog.com/">Stardog</a>)</p>
+        <h2>Gako-balio (Key-value)</h2>
+        <p>Gako-balio datu eredua hiztegi batean</p>
+        <p>Batzuetan beste DB batzuen oinarri gisa erabiltzen dira (<a href="https://rocksdb.org/">RocksDB</a> grafoen DBetarako oinarri gisa <a href="https://www.stardog.com/">Stardog</a>)</p>
         <p><a href="https://rocksdb.org/">RocksDB</a>, <a href="https://redis.io/">Redis</a>, ...</p>
+        
     </section>
 
     <section class="slide">
-        <h2>Columnas</h2>
-        <p>Almacenan los datos en columnas en lugar de filas</p>
+        <h2>Zutabeak</h2>
+        <p>Datuak zutabeetan gordetzen dituzte errenkaden ordez.</p>
         <p><a href="https://hbase.apache.org/">Apache Base</a>, ...</p>
     </section>
 
