@@ -32,102 +32,106 @@
 
     <section class="slide">
         <h2>RDF</h2>
-        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <p><a href="https://github.com/mikel-egana-aranguren/DBA">https://github.com/mikel-egana-aranguren/DBA</a></p>
         <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
     </section>
 
     <section class="slide">
         <h2>RDF</h2>
         <p>RDF: Resource Description Framework</p>
-        <p>Estándar <a href="https://www.w3.org/TR/rdf11-primer/">oficial del W3C</a> para representar recursos en la web</p>
-        <p>Surgió como parte de la iniciativa para desarrollar la <a href="https://es.wikipedia.org/wiki/Web_sem%C3%A1ntica">Web Semántica</a></p>
-        <p>Actualmente su uso está creciendo en el entorno empresarial para representar datos en Knowledge Graphs (KGs) para implementar <a href="https://www.ekgf.org/">arquitecturas centradas en datos</a></p>
+        <p><a href="https://www.w3.org/TR/rdf11-primer/">W3C-ren estandar ofiziala</a> webeko baliabideak adierazteko</p>
+        <p><a href="https://es.wikipedia.org/wiki/Web_sem%C3%A1ntica">Web Semantikoa</a> garatzeko ekimenaren parte gisa sortu zen </p>
+        <p>Gaur egun bere erabilera gero eta gehiago ari da hazten enpresa ingurunean, datuak Knowledge Graphs (KGs) bidez gordetzeko, <a href="https://www.ekgf.org/">datuetan-zentratutako arkitekturak</a> inplementatzeko</p>
     </section>
+    
 
     <section class="slide">
-        <h2>Triple RDF</h2>
+        <h2>RDF triplea</h2>
         <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple.png" alt="Triple RDF" width="60%"></p>
     </section>
 
     <section class="slide">
-        <h2>Grafo RDF</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Grafo.png" alt="Grafo RDF" width="60%"></p>
+        <h2>RDF grafoa</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Grafo.png" alt="RDF grafoa" width="60%"></p>
     </section>
 
     <section class="slide">
-        <h2>Grafo RDF</h2>
-        <p>Todas las entidades del grafo se identifican mediante URIs</p>
-        <p>URI: Uniform Resource Identifier (≠ URL!). Identifica recursos
+        <h2>RDF grafoa</h2>
+        <p>Grafoaren entitate guztiak URIen bidez identifikatzen dira</p>
+        <p>URI: Uniform Resource Identifier (≠ URL!). Baliabideak identifikatzen ditu
             <ul>
                 <li>http://dbpedia.org/resource/Ataun
                 </li>
             </ul>
         </p>
-        <p>URL: Uniform Resource Locator. Una URI que indica la localización física de un recurso en la red
+        <p>URL: Uniform Resource Locator. Sarean baliabide baten kokapen fisikoa adierazten duen URI bat
             <ul>
                 <li>http://gipuzkoa.eus/ataun.html</li>
             </ul>
         </p>
     </section>
+    
 
     <section class="slide">
-        <h2>Grafo RDF: URIs</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_URIs.png" alt="Grafo RDF: URIs" width="60%"></p>
+        <h2>RDF grafoa: URIs</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_URIs.png" alt="RDF grafoa: URIs" width="60%"></p>
     </section>
 
     <section class="slide">
-        <h2>Grafo RDF</h2>
-        <p>Los sujetos y predicados sólo pueden ser recursos (URIs)</p>
-        <p>Algunos objetos pueden ser valores literales (Cadenas de caracteres)</p>
-        <p>Los valores literales pueden tener tipo (<a href="http://www.w3.org/TR/xmlschema-2/">XML Schema datatypes</a>)</p>
+        <h2>RDF grafoa</h2>
+        <p>Subjektuak eta predikatuak baliabideak soilik izan daitezke (URIak)</p>
+        <p>Zenbait objektu balio literalak izan daitezke (Karaktere kateak)</p>
+        <p>Balio literalek datatype izan dezakete (<a href="http://www.w3.org/TR/xmlschema-2/">XML Schema Datatypes</a>)</p>
+        
     </section>
 
     <section class="slide">
-        <h2>Grafo RDF: datatypes</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_datatypes.png" alt="Grafo RDF: datatypes" width="60%"></p>
+        <h2>RDF grafoa: datatypes</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_datatypes.png" alt="RDF grafoa: datatypes" width="60%"></p>
     </section>
 
     <section class="slide">
-        <h2>Grafo RDF: rdf:type</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_rdf_type.png" alt="Grafo RDF: RDF type: agrupar recursos en clases" width="60%"></p>
+        <h2>RDF grafoa: rdf:type</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_rdf_type.png" alt="RDF grafoa: RDF type: agrupar recursos en clases" width="60%"></p>
     </section>
 
     <section class="slide">
-        <h2>Vocabularios reservados</h2>
-        <p>Definen el lenguaje mismo</p>
+        <h2>Hiztegi bereziak</h2>
+        <p>Hizkuntza bera definitzen dute</p>
         <p>RDF: http://www.w3.org/1999/02/22-rdf-syntax-ns# (Ej. rdf:type = http://www.w3.org/1999/02/22-rdf-syntax-ns#type)</p>
         <p>RDFS: http://www.w3.org/2000/01/rdf-schema#</p>
         <p>OWL: http://www.w3.org/2002/07/owl#</p>
     </section>
 
     <section class="slide">
-        <h2>Vocabularios de dominio (Ontologías)</h2>
-        <p>Describen un dominio concreto</p>
-        <p>Definen propiedades generales de los datos que queremos publicar</p>
+        <h2>Domeinu hiztegiak (Ontologiak)</h2>
+        <p>Domeinu zehatza deskribatzen dute</p>
+        <p>Argitaratu nahi ditugun datuentzako hizkuntza ematen digute</p>
         <p>foaf:person, dbpedia-ont:city, dc:book, schema:person, ...</p>
     </section>
 
     <section class="slide">
-        <h2>Ontologías</h2>
+        <h2>Ontologiak</h2>
         <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_ontologias.png" alt="Ontologias" width="60%"></p>
     </section>
 
     <section class="slide">
-        <h2>Herramientas útiles</h2>
+        <h2>Tresna erabilgarriak</h2>
         <p><a href="https://prefix.cc/">Prefix.cc</a></p>
         <p><a href="https://lov.linkeddata.es/dataset/lov">Linked Open Vocabularies</a></p>
     </section>
 
     <section class="slide">
-        <h2>RDF: modelo vs sintaxis</h2>
-        <p>RDF es un modelo de datos</p>
-        <p>Ese modelo abstracto se puede representar con diferentes sintaxis: "Serializar" (escribir) en un archivo</p>
-        <p>Una de esas sintaxis es RDF/XML</p>
-        <p>No confundir el modelo con la sintaxis: ¡RDF es mucho más que un archivo XML!</p>
+        <h2>RDF: eredua eta sintaxia</h2>
+        <p>RDF datuak kodifikatzeko eredua da</p>
+        <p>Eredu abstraktu hori sintaxi desberdinen bidez irudika daiteke: Fitxategi batean "Serializatu" (idatzi)</p>
+        <p>Sintaxi horietako bat RDF/XML da</p>
+        <p>Ez nahastu eredua sintaxiarekin: RDF XML fitxategi bat baino askoz gehiago da!</p>
+        
     </section>
 
     <section class="slide">
-        <h2>Serializar RDF</h2>
+        <h2>RDF serializatu</h2>
         <p>RDF/XML (http://www.w3.org/TR/rdf-syntax-grammar/)</p>
         <p>RDFa (http://www.w3.org/TR/rdfa-core/)</p>
         <p>Turtle (http://www.w3.org/TR/turtle/)</p>
@@ -136,19 +140,19 @@
     </section>
 
     <section class="slide">
-        <h2>Serializar RDF: RDF/XML</h2>
+        <h2>RDF serializatu: RDF/XML</h2>
         <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/rdf_xml.png" alt="RDF/XML" width="60%"></p>
         <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/rdf_xml_graph.png" alt="RDF/XML" width="60%"></p>
     </section>
 
     <section class="slide">
-        <h2>Serializar RDF: Turtle</h2>
+        <h2>RDF serializatu: Turtle</h2>
         <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/rdf_ttl.png" alt="Turtle" width="60%"></p>
         <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/rdf_xml_graph.png" alt="Turtle" width="60%"></p>
     </section>
 
     <section class="slide">
-        <h2>Herramientas útiles</h2>
+        <h2>Tresna erabilgarriak</h2>
         <p><a href="https://www.w3.org/RDF/Validator/">http://www.w3.org/RDF/Validator/</a></p>
         <p><a href="https://rdf-translator.appspot.com/">http://rdf-translator.appspot.com/</a></p>
         <p><a href="https://www.easyrdf.org/converter">https://www.easyrdf.org/converter</a></p>
