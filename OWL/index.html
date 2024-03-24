@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OWL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>OWL</h1>
+        <p>Mikel Egaña Aranguren</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>OWL</h2>
+        <p>Mikel Egaña Aranguren</p>
+        <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
+        <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
+        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" style="border: 1px solid #555;">
+    </section>
+
+    <section class="slide">
+        <h2>OWL</h2>
+        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
+    </section>
+
+    <section class="slide">
+        <h2>OWL</h2>
+        <p>OWL: Web Ontology Language</p>
+        <p><a href="https://www.w3.org/TR/owl2-overview/">W3C-ren estandar ofiziala</a> web-ean ontologiak sortzeko, semantika zehatz eta formal batekin</p>
+        <p><a href="https://es.wikipedia.org/wiki/Web_sem%C3%A1ntica">Web Semantikoa</a> garatzeko ekimenaren parte gisa sortu zen </p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL</h2>
+        <p>Logika Deskriptiboan (DL) oinarritzen da</p>
+        <p>Ezagutza-arlo baten adierazpen konputazionala:
+            <ul>
+                <li>Arrazonamendu automatikoa: "berria" (*) den ezagutza ondorioztatu, kontsultak, koherentzia, ontologiaren arabera entitateak sailkatu, ...</li>
+                <li>Informazio sakabanatua integratu</li>
+            </ul>
+        </p>
+        
+    </section>
+
+
+    <section class="slide">
+        <h2>RDF/XML sintaxia</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_rdf_xml.png" alt="OWL RDF/XML" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Manchester OWL Syntax sintaxia</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_mos.png" alt="OWL Manchester Syntax" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL semantika</h2>
+        <p>Entidades: las entidades del dominio de conocimiento, identificadas con URIs, introducidas por el desarrollador ("Mikel", "participa_en", ...)</p>
+        <p>Axiomas: relacionan las entidades mediante el vocabulario lógico que ofrece OWL (namespace OWL)</p>
+        <p>Una ontología puede importar otra (owl:import) y hacer referencia a sus entidades mediante axiomas</p>
+    </section>
+
+    <section class="slide">
+        <h2>Semántica OWL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/entidades.png" alt="Entidades OWL" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Semántica OWL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/axioma.png" alt="Axioma OWL" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Individuos</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_inds.png" alt="Individuos" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Propiedades</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_props.png" alt="Propiedades" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Clases</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_clases.png" alt="Clases" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Clases</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Clase_OWL.png" alt="Clases" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Clases subclase</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Clase_SubClase_OWL.png" alt="Clase subclase" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Clases equivalentes</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Clase_equiv_OWL.png" alt="Clases equivalentes" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Jerarquía de clases (Taxonomía)</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_is_a.png" alt="Jerarquía de clases (Taxonomía)" width="30%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Condiciones necesarias</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_necessary.png" alt="Condiciones necesarias" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Condiciones necesarias y suficientes</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_necessary_and_sufficient.png" alt="Condiciones necesarias y suficientes" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Restricción existencial</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_existential.png" alt="Restricción existencial" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Restricción universal</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_universal.png" alt="Restricción universal" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Restricción un individuo (value)</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_has_value.png" alt="Restricción un individuo (value)" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Restricciones cardinales</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_cardinality.png" alt="Restricciones cardinales" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>disjointFrom, not, or, and</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/owl_boolean.png" alt="Boolean" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Expresiones complejas</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_complex_expression.png" alt="Expresiones complejas" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Propiedades</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_props.png" alt="Propiedades" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Propiedades</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/props_f_1.png" alt="Propiedades" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Propiedades</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/props_f_2.png" alt="Propiedades" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Propiedades</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/props_f_3.png" alt="Propiedades" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Individuos</h2>
+        <p>Miembro de una o más clases (Types)</p>
+        <p>Igual (SameAs) o diferente (DifferentFrom) a otro individuo</p>
+        <p>Relaciones binarias con otros individuos o datos (triples), positivas o negativas</p>
+    </section>
+
+    <section class="slide">
+        <h2>Razonamiento automático</h2>
+        <p>Un razonador infiere los "nuevos" axiomas que implican los axiomas que hemos introducido en la ontología</p>
+        <p>El razonador infiere todos los axiomas; es útil para tratar con conocimiento complejo</p>
+        <p>Open World Assumption</p>
+        <p>No Unique Name Assumption</p>
+    </section>
+
+    <section class="slide">
+        <h2>Razonamiento automático: mantener taxonomía</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Normalisation_instance.png" alt="Razonamiento automático: mantener taxonomía" width="30%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Razonamiento automático: Consistencia</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/consistencia.png" alt="Razonamiento automático: Consistencia" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Razonamiento automático: Clasificar</h2>
+        <p>Clasificar entidades: dada una entidad nueva, como se relaciona con las demas entidades (types, equivalentTo, subClassOf, triples)</p>
+        <p>Una consulta es una clase anónima que clasificamos contra la ontología como si fuese una entidad</p>
+    </section>
+
+    <section class="slide">
+        <h2>Knowledge Graphs</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Plain-KG_KG_KGI-Ok.svg" alt="Knowledge Graph" width="70%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Knowledge Graphs</h2>
+        <p>WikiData: <a href="https://www.wikidata.org/">https://www.wikidata.org/</a></p>
+        <p>DBPedia: <a href="https://www.dbpedia.org/about/">https://www.dbpedia.org/about/</a></p>
+        <p>Uniprot: <a href="https://sparql.uniprot.org/">https://sparql.uniprot.org/</a></p>
+        <p>...</p>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="badge">
+        <a href="https://github.com/mikel-egana-aranguren/ShowerTemplate">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../ShowerTemplate/shower/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
