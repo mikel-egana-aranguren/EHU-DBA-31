@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Neo4J</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Neo4J</h1>
+        <p>Mikel Egaña Aranguren</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>Neo4J</h2>
+        <p>Mikel Egaña Aranguren</p>
+        <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
+        <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
+        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" style="border: 1px solid #555;">
+    </section>
+
+    <section class="slide">
+        <h2>Neo4J</h2>
+        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
+    </section>
+
+    <section class="slide">
+        <h2>Neo4J</h2>
+        <p>Property Graphs-en datu base garrantzitsuena (Ez RDF)</p>
+        <p>Optimizatutako biltegiratze natiboa grafoentzat: oso eraginkorra (adb. Stardog RockDB-n oinarritua)</p>
+        <p>Berezko datu eredua (Ez estandarra)</p>
+    </section>
+    
+
+    <section class="slide">
+        <h2>Neo4J eredua</h2>
+        <p>Nodoak edo erlazioak:
+            <ul>
+                <li>Label-ak (Type RDF-en)</li>
+                <li>Properties: gako-balio bikoteak</li>
+                <li>Ez daukate URI-rik</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Neo4J eredua</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/sample-cypher.svg" alt="Neo4J model" width="75%"></p>
+        <p style="text-align:right;font-size:30%;"><a href="https://neo4j.com/docs/getting-started/get-started-with-neo4j/graph-database/">https://neo4j.com/docs/getting-started/get-started-with-neo4j/graph-database/</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>Neo4J eredua</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/matrix_whiteboard_model3-arr.svg" alt="Neo4J model films" width="50%"></p>
+        <p style="text-align:right;font-size:30%;"><a href="https://neo4j.com/docs/getting-started/data-modeling/guide-data-modeling/">https://neo4j.com/docs/getting-started/data-modeling/guide-data-modeling/</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>Kontsultak Neo4J-an</h2>
+        <p>Cypher: grafoak sortzeko, aldatzeko eta kontsulta egiteko hizkuntza</p>
+        <p>APOC (Awesome Procedures On Cypher): Cypher-i funtzioak gehitzen dizkio</p>
+    </section>
+
+    <section class="slide">
+        <h2>Cypher: datuak sortu</h2>
+        <p>Nodoa sortu: <b>CREATE (n:Persona {nombre: "Juan", edad: 30})</b></p>
+        <p>Erlazioa sortu: <b>CREATE (n:Persona {nombre: "Juan"})-[:AMIGO_DE]->(m:Persona {nombre: "Marta"})</b></p>
+    </section>
+
+    <section class="slide">
+        <h2>Cypher: datuen kontsultak</h2>
+        <p>Nodoak hautatu: <b>MATCH (n:Persona) RETURN n</b></p>
+        <p>Erlazio patroiak: <b>MATCH (n:Persona)-[:AMIGO_DE]->(m) RETURN n, m</b></p>
+    </section>
+
+    <section class="slide">
+        <h2>Cypher: datuak eguneratu</h2>
+        <p>Nodoa eguneratu:  <b>MATCH (n:Persona {nombre: "Juan"}) SET n.edad = 31 RETURN n</b></p>
+    </section>
+
+    <section class="slide">
+        <h2>Cypher: datuak ezabatu</h2>
+        <p>Nodoa ezabatu:  <b>MATCH (n:Persona {nombre: "Juan"}) DELETE n</b></p>
+    </section>
+
+    <section class="slide">
+        <h2>Cypher: bestelakoak</h2>
+        <p><b>MATCH (n:Persona) RETURN n.nombre, n.edad ORDER BY n.edad DESC</b></p>
+        <p><b>MATCH (n:Persona) RETURN n.nombre ORDER BY n.edad DESC LIMIT 10</b></p>
+        <p><b>MATCH (n:Persona) WHERE n.edad > 30 RETURN n</b></p>
+        <p><b>MATCH (n:Persona) RETURN count(n)</b></p>
+    </section>
+
+    
+
+    
+
+    
+
+    <!-- FOOTER -->
+
+    <footer class="badge">
+        <a href="https://github.com/mikel-egana-aranguren/ShowerTemplate">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../ShowerTemplate/shower/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
