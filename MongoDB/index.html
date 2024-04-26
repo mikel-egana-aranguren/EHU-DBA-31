@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MongoDB</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>MongoDB</h1>
+        <p>Mikel Egaña Aranguren</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>MongoDB</h2>
+        <p>Mikel Egaña Aranguren</p>
+        <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
+        <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
+        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" style="border: 1px solid #555;">
+    </section>
+
+    <section class="slide">
+        <h2>MongoDB</h2>
+        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
+    </section>
+
+    <section class="slide">
+        <h2>MongoDB</h2>
+        <p><a href="https://www.mongodb.com/">https://www.mongodb.com/</a></p>
+        <p>Dokumentuetan oinarritutako DBKS</p>
+        <p>Bere izena Humongous (“erraldoi”) hitzetik dator</p>
+    </section>
+
+    <section class="slide">
+        <h2>MongoDB</h2>
+        <ul>
+            <li>MongoDB Community Edition: bertsio librea</li>
+            <li>MongoDB Enterprise: bertsio komertziala</li>
+            <li>Atlas: hodei zerbitzua</li>
+            <li>Tresna osagarriak: Adib. Compass (GUI)</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Datuen egitura</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/modelo.svg" alt="Datuen egitura" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Datuen egitura</h2>
+        <p>Dokumentu bakoitza <a href="https://datatracker.ietf.org/doc/html/rfc4627">JSON</a> (JavaScript Object Notation) formatuan gordetzen da: barnean <a href="https://bsonspec.org/">Binary JSON</a> (BSON) formatuan</p>
+        <p>Datu bakoitza gako:balio moduan gordetzen da</p>
+        <p>Balio bat beste dokumentu bat izan daiteke</p>
+        <p>Balio bat beste dokumentuen zerrenda bat izan daiteke</p>
+    </section>
+
+    <section class="slide">
+        <h2>Datuen egitura</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/json.png" alt="Datuen egitura - JSON" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Datuen egitura</h2>
+        <p>Sistema erlazionalarekiko antzekotasuna:
+            <ul>
+                <li>Taula - Bilduma</li>
+                <li>Lerroa - Dokumentua</li>
+                <li>Zelaia - Gakoa</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Datuen egitura</h2>
+        <p>Ezberdintasun nagusiak:
+            <ul>
+                <li>Bilduma bateko dokumentu guztiek ez dituzte gako berdinak eduki behar</li>
+                <li>Ez da beharrezkoa dokumentuen arteko erlazioak adieraztea</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>Pantaila garbitu: <pre>> cls</pre></li>
+            <li>Sortutako DBak zerrendatu: <pre>> show dbs</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>Erabilpenean dagoen DBa aukeratu: <pre>> db</pre></li>
+            <li>DB-ez aldatu: <pre>> use DB-izena</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>DB eta bildumak sortu</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/crear-bd.png" alt="Crear BD" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>DB eta bildumak sortu</h2>
+        <p>Dokumentu bakoitzak identifikadore bakarra du (Sortzen denean automatikoki esleitzen da, baina eskuz adierazi daiteke)</p>
+        <p><img  src="pictures-abd-01/creado.png" alt="Sortua" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>DB eta bildumak sortu</h2>
+        <p>Dokumentua anitzak bilduma batean sartu: <pre>> db.[bilduma].insertMany( [array-docs] )</pre></p>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>Dokumentu guztiak erakutsi: <pre>> db.[bilduma].find()</pre></li>
+            <li>Patroi batekin bat egiten dituzten dokumentuak erakutsi: <pre>> db.[bilduma].find([patroia])</pre></li>
+            <li>Patroi batekin bat egiten duen lehen dokumentu erakutsi: <pre>> db.[bilduma].findOne([patroia])</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>“unai” balioa “izena” gakoan duten dokumentuak erakutsi: <pre>> db.bezeroak.find( { izena: "Unai" } )</pre></li>
+            <li>“unai” izena eta 12345 NAN zenbakia duten dokumentuak erakutsi: <pre>> db.bezeroak.find( { izena: "Unai", NAN: 12345 } )</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>Konparaketa operazioak (eq,ne,gt,gte,lt,lte): <pre>> db.bezeroak.find( { NAN: { $gt: 30000 } } )</pre></li>
+            <li>Espresio erregularrak: <pre>> db.bezeroak.find( { izena: /M./ } )</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>Erakusteko zelaiak: <pre>{ erakustekoZelaia: 1, ezErakustekoZelaia: 0}</pre></li>
+            <li>“bezeroak” bildumako dokumentuen “NAN” zelaia erakutsi: <pre>> db.bezeroak.find( {} , {NAN: 1, _id: 0})</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>Patroi batekin bat egiten duen lehen dokumentua ezabatu: <pre>> db.[bilduma].deleteOne([patroia])</pre></li>
+            <li>Patroi batekin bat egiten duten dokumentu guztiak ezabatu: <pre>> db.[bilduma].deleteMany([patroia])</pre></li>
+            <li>Bilduma bateko dokumentu guztiak ezabatu: <pre>> db.[bilduma].deleteMany( {} )</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>Bilduma bateko dokumentuak aldatu: <pre>> db.[bilduma].updateMany([patroia], {$set: [aldaketak]})</pre></li>
+            <li>22233 NAN zenbakia duten bezeroen izena aldatu, “Nagore” jarri: <pre>> db.bezeroak.updateMany({ NAN: 22233 }, {$set:{ izena: "Nagore" } })</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>Dokumentu bat beste batekin ordezkatu: <pre>> db.[bilduma].replaceOne([patroia], [dok-berria] )</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Komandoak</h2>
+        <ul>
+            <li>DB bateko bildumak erakutsi: <pre>> show collections</pre></li>
+            <li>Bilduma bat ezabatu: <pre>> db.[bilduma].drop()</pre></li>
+            <li>DB bat ezabatu: <pre>> db.dropDatabase()</pre></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Erlazioak</h2>
+        <p>Dokumentu batek txertatuko dokumentuak edo zerrendak eduki ditzazke</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/embed_listado.png" alt="Dokumentu txertatu edo zerrenda" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Erlazioak</h2>
+        <p>Normalean:
+            <ul>
+                <li>Bilduma anitz, bakoitzak entitate bat adieraziko du: “bezeroak”, “produktuak” eta ”eskariak”</li>
+                <li>Erlazioak entitate desberdineko datuen artean</li>
+            </ul>
+        </p>
+        <p>MongoDB-n ez dago teknika konkreturik bildumen arteko erlazioak adierazteko: Eskuz sortu beharko ditugu</p>
+    </section>
+
+    <section class="slide">
+        <h2>Erlazioak</h2>
+        <p>Txertatuako dokumentuak</p>
+        <p>Zelai batzuk erabili erreferentzia bezala</p>
+    </section>
+
+    <section class="slide">
+        <h2>Txertatuako dokumentuak</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/embebido.png" alt="Txertatuako dokumentuak" width="20%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Txertatuako dokumentuak</h2>
+        <p>Errepikatzen ez diren datuentzako aproposa</p>
+        <p>(+) Datuak logikoki multzokatzen dira</p>
+        <p>(-) Bikoiztasunak sortu daitezke</p>
+    </section>
+
+    <section class="slide">
+        <h2>Erreferentziak</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Erreferentziak.png" alt="Erreferentziak" width="50%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Erreferentziak</h2>
+        <p>Aproposa hainbat bildumetan erreferenziatzen diren datuentzat</p>
+        <p>(+) Ez dago datuen bikoiztasunik</p>
+        <p>(-) Kudeaketa konplexuagoa</p>
+        <p>(-) Agregazio operazioak erabili behar dira erlazionatutako datuak lortzeko</p>
+    </section>
+
+    <section class="slide">
+        <h2>Erreferentziak</h2>
+        <p>1 - N datuen arteko erlazioa: bezero batek hainbat helbide izan ditzake,
+            helbide bat soilik bezero batena da</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/ref_1_n.png" alt="Erreferentziak 1 N" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Erreferentziak</h2>
+        <p>N - N datuen arteko erlazioa: bezero batek hainbat produktu erosi ditzake,
+            produktu bat hainbat bezerok erosi dezakete</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/ref_n_n.png" alt="Erreferentziak 1 N" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Erreferentziak edo txertatutako dokumentuak</h2>
+        <p>Txertatutako dokumentuak:
+            <ul>
+                <li>Erlazionatuta baina bikoiztu gabe dauden datuak</li>
+                <li>1 - 1 erlazioak: bezero bati soilik helbide bat esleitzen zaio</li>
+                <li>Bikoiztasunik ez duten 1 - N erlazioak</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Erreferentziak edo txertatutako dokumentuak</h2>
+        <p>Erreferentziak
+            <ul>
+                <li>Entitate desberdinen datuak,
+                    baina haien artean
+                    erlazionatuta daudenak</li>
+                <li>1 - N erlazioak</li>
+                <li>N - N erlazioak</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Erlazioak</h2>
+        <p>Bilduma desberdinetako datuak konbinatu daitezke
+            agregazio operazioarekin ("Join")</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/combi.png" alt="Erreferentziak 1 N" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>$lookup bidez bildumak konbinatu</h2>
+        <p>Adibidea: Eskarien eta eskariak egin dituzten bezeroen datuak
+            konbinatzen duen datu egitura bat sortu</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/lookup.png" alt="Erreferentziak 1 N" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak</h2>
+        <p>MongoDB-n datuak kudeatu daitezke inolako datu
+            egitura ezarri gabe</p>
+        <p>Baina egoera batzuetan datuen kontrol automatiko bat
+            ezartzea aproposa izan daiteke: Adibidez, “produktuak” bilduma bateko dokumentu guztiek zenbaki den “prezioa” gako bat edukitzeko</p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak (M. Schwarzmüller)</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Eskemak.png" alt="Erreferentziak 1 N" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak</h2>
+        <p>Bilduma bateko dokumentuek bete behar duten egitura
+            definitu daiteke</p>
+        <p>Eskema batek bilduman sortu nahi den dokumentu
+            bakoitza egiaztatzen du</p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak</h2>
+        <p>validationLevel: Controla cómo de estricta es la validación
+            <ul>
+                <li>strict (valor por defecto): Egiaztapena zein zorrotza den kontrolatzen du</li>
+                <li>moderate: Bilduman dauden dokumentuei egiten diren aldaketak ez dira
+                    kontrolatzen</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak</h2>
+        <p>validationAction: Dokumentu batek eskema betetzen ez duenean zer egin adierazten du
+            <ul>
+                <li>error (onetsia): Errore bat igortzen da eta ez da bilduman sartzen</li>
+                <li>warn: Dokumentua bilduman sartzen da eta abisu bat idazten da MongoDB-ko
+                    log fitxategian</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak</h2>
+        <p><img src="pictures-abd-01/validator.png" alt="Validator" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak</h2>
+        <p>Bilduma baten eskema erakutsi: <pre>> db.getCollectionInfos({name: "markak"})</pre></p>
+        <p>Bilduma baten eskema aldatu: 
+            <img  src="pictures-abd-01/change_validator.png" alt="Change Validator" width="80%">
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak</h2>
+        <p>validationAction “warn” bada, abisua MongoDB-ko log
+            fitxategian idazten da (Onetsia /var/log/mongodb/mongod.log)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Eskemak: data types</h2>
+        <p><img  src="pictures-abd-01/data_types.png" alt="Validator" width="80%"></p>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="badge">
+        <a href="https://github.com/mikel-egana-aranguren/ShowerTemplate">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../ShowerTemplate/shower/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
