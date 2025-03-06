@@ -37,82 +37,77 @@
     </section>
 
     <section class="slide">
+        <h2>Web Semantikoa</h2>
+        <p>Web sare berri baterako proiektu utopikoa: baliabide bakoitzak bere datuak argitaratzen ditu eta agente adimendunek modu autonomoan kontsumitzen dituzte
+            </p>
+        <p>Neurri batean iadanik inplementatua (Adib. <a href="https://json-ld.org/">JSON-LD</a> + <a href="https://schema.org/">Schema</a>: <a href="https://cloud.google.com/enterprise-knowledge-graph/docs/search-api">Google Knowledge Graph</a>)</p>
+        <p>LLM-ak?</p>
+    </section>
+
+    <section class="slide">
+        <h2>Web Semantikoa</h2>
+        <p>Teknologiak:
+            <ul>
+                <li><a href="https://datatracker.ietf.org/doc/html/rfc3986">URI</a>: identifikatzaileak</li>
+                <li><a href="https://www.w3.org/TR/rdf11-concepts/">RDF</a>: datuak</li> 
+                <li><a href="https://www.w3.org/TR/sparql11-overview/">SPARQL</a>: RDF kontsultak</li>  
+                <li><a href="https://www.w3.org/TR/shacl/">SHACL</a>: RDF balioztatzea</li>
+                <li><a href="https://www.w3.org/TR/owl2-overview/">OWL</a>: RDF datuak deskribatzeko hiztegiak (ontologiak)</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
         <h2>RDF</h2>
         <p>RDF: Resource Description Framework</p>
-        <p><a href="https://www.w3.org/TR/rdf11-primer/">W3C-ren estandar ofiziala</a> webeko baliabideak adierazteko</p>
-        <p><a href="https://es.wikipedia.org/wiki/Web_sem%C3%A1ntica">Web Semantikoa</a> garatzeko ekimenaren parte gisa sortu zen </p>
-        <p>Gaur egun bere erabilera gero eta gehiago ari da hazten enpresa ingurunean, datuak Knowledge Graphs (KGs) bidez gordetzeko, <a href="https://www.ekgf.org/">datuetan-zentratutako arkitekturak</a> inplementatzeko</p>
+        <p><a href="https://www.w3.org/TR/rdf11-primer/">W3C-ren estandar ofiziala</a> baliabideak web sarean argitaratzeko</p>
+        <p>Gaur egun bere erabilera hazten ari da enpresa eremuan, datuak Knowledge Graphs (KGs) bidez gordetzeko, <a href="https://www.ekgf.org/">datuetan-zentratutako arkitekturak</a> inplementatzeko</p>
     </section>
     
 
     <section class="slide">
         <h2>RDF triplea</h2>
-        <p>https://www.linkedin.com/posts/mikeleganaaranguren_ruper-ordorika-zaindu-maite-duzun-hori-activity-7178108296443162624-LxYR?utm_source=share&utm_medium=member_desktop</p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple.png" alt="Triple RDF" width="60%"></p>
+        <p><a href="https://www.linkedin.com/posts/mikeleganaaranguren_ruper-ordorika-zaindu-maite-duzun-hori-activity-7178108296443162624-LxYR?utm_source=share&utm_medium=member_desktop">RDF tripleak subjektu-predikatu-objektu eredua erabiltzen du, Euskara ez bezala (subjektu-objektu-predikatu) </a></p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/triple.svg" alt="Triple RDF" width="60%"></p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoa</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Grafo.png" alt="RDF grafoa" width="60%"></p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/grafo.svg" alt="RDF grafoa" width="80%"></p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoa</h2>
-        <p>Grafoaren entitate guztiak URIen bidez identifikatzen dira</p>
-        <p>URI: Uniform Resource Identifier (≠ URL!). Baliabideak identifikatzen ditu: http://dbpedia.org/resource/Ataun
+        <p>Grafoaren banako guztiak URIen bidez identifikatzen dira</p>
+        <p>URI: Uniform Resource Identifier (≠ URL!). Baliabideak identifikatzen ditu: http://www.wikidata.org/entity/Q8692
         </p>
-        <p>URL: Uniform Resource Locator. Sarean baliabide baten kokapen fisikoa adierazten duen URI bat: http://gipuzkoa.eus/ataun.html
+        <p>URL: Uniform Resource Locator. Sarean baliabide baten kokapen fisikoa adierazten duen URI-a: https://www.wikidata.org/wiki/Q8692
         </p>
     </section>
     
 
     <section class="slide">
         <h2>RDF grafoa: URI-ak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_URIs.png" alt="RDF grafoa: URIs" width="60%"></p>
+        <p><img   src="pictures-abd-01/ld_bilbo_crop.svg" alt="Grafo RDF: URIs" width="90%"></p>
+        <p>(Adibidea exekutatu)</p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoa: URI-ak</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/grafo_uris.svg" alt="Grafo RDF: URIs" width="80%"></p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoa</h2>
         <p>Subjektuak eta predikatuak baliabideak soilik izan daitezke (URIak)</p>
         <p>Zenbait objektu balio literalak izan daitezke (Karaktere kateak)</p>
-        <p>Balio literalek datatype izan dezakete (<a href="http://www.w3.org/TR/xmlschema-2/">XML Schema Datatypes</a>)</p>
+        <p>Balio literalek datatype-a izan dezakete (<a href="http://www.w3.org/TR/xmlschema-2/">XML Schema Datatypes</a>)</p>
         
     </section>
 
     <section class="slide">
-        <h2>RDF grafoa: datatypes</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_datatypes.png" alt="RDF grafoa: datatypes" width="60%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>RDF grafoa: rdf:type</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_rdf_type.png" alt="RDF grafoa: RDF type: agrupar recursos en clases" width="60%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>Hiztegi bereziak</h2>
-        <p>Hizkuntza bera definitzen dute</p>
-        <p>RDF: http://www.w3.org/1999/02/22-rdf-syntax-ns# (Ej. rdf:type = http://www.w3.org/1999/02/22-rdf-syntax-ns#type)</p>
-        <p>RDFS: http://www.w3.org/2000/01/rdf-schema#</p>
-        <p>OWL: http://www.w3.org/2002/07/owl#</p>
-    </section>
-
-    <section class="slide">
-        <h2>Domeinu hiztegiak (Ontologiak)</h2>
-        <p>Domeinu zehatza deskribatzen dute</p>
-        <p>Argitaratu nahi ditugun datuentzako hizkuntza ematen digute</p>
-        <p>foaf:person, dbpedia-ont:city, dc:book, schema:person, ...</p>
-    </section>
-
-    <section class="slide">
-        <h2>Ontologiak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_ontologias.png" alt="Ontologias" width="60%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>Tresna erabilgarriak</h2>
-        <p><a href="https://prefix.cc/">Prefix.cc</a></p>
-        <p><a href="https://lov.linkeddata.es/dataset/lov">Linked Open Vocabularies</a></p>
+        <h2>RDF grafoa: datatype-ak</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/grafo_datatypes.svg" alt="Grafo RDF: datatypes" width="80%"></p>
     </section>
 
     <section class="slide">
@@ -120,8 +115,7 @@
         <p>RDF datuak kodifikatzeko eredua da</p>
         <p>Eredu abstraktu hori sintaxi desberdinen bidez irudika daiteke: Fitxategi batean "Serializatu" (idatzi)</p>
         <p>Sintaxi horietako bat RDF/XML da</p>
-        <p>Ez nahastu eredua sintaxiarekin: RDF XML fitxategi bat baino askoz gehiago da!</p>
-        
+        <p>Ez nahastu eredua sintaxiarekin: RDF XML fitxategi bat baino askoz gehiago da!</p> 
     </section>
 
     <section class="slide">
@@ -151,6 +145,137 @@
         <p><a href="https://rdf-translator.appspot.com/">http://rdf-translator.appspot.com/</a></p>
         <p><a href="https://www.easyrdf.org/converter">https://www.easyrdf.org/converter</a></p>
     </section>
+
+    <section class="slide">
+        <h2>Triple Store-ak</h2>
+        <p>RDF W3C estandar bat da (=HTML, !=SQL), RDF fitxategi batetik abiatuz:
+            <ul>
+                <li>Datu eredua: Triple Store guztiek berdina kargatzen dute</li>
+                <li>Sintaxia (RDF/XML, Turtle, ...): Triple Store guztiek berdina kargatzen dute</li>
+            </ul>
+        </p>
+        <p>Triple Store-ak internet existitzen zenean sortu ziren (NoSQL!): 
+            <ul>
+                <li>Guztiek HTTP(S) SPARQL bidez funtzionalitate bera eskaintzen dute</li>
+                <li>Federazioa</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Triple Stores</h2>
+        <p><a href="https://aws.amazon.com/neptune/">Amazon Neptune</a>:
+            <ul>
+                <li>Amazon AWS</li>
+                <li>También almacena Property Graphs</li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Triple Store-ak</h2>
+        <p><a href="https://virtuoso.openlinksw.com/">Virtuoso</a></p>
+        <p><a href="https://www.stardog.com/">Stardog</a></p>
+        <p><a href="https://graphdb.ontotext.com/">GraphDB</a></p>
+        <p><a href="https://www.oxfordsemantic.tech/rdfox">RDFox</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB</h2>
+        <ul>
+            <li>Arrazoiketa automatikoa</li>
+            <li>Lucene edo Kafka bezalako zerbitzuetarako konektoreak</li>
+            <li>Datu Base erlazionalen birtualizazioa (Ontop)</li>
+            <li>...</li>
+            <li>[1-1, 1-2 adibideak exekutatu]</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoak</h2>
+        <p>Tripleak URI batek identifikatutako "poltsa" batean biltzea (datuekiko desberdina): Named Graphs</p>
+        <p>Inplementazioaren araberakoa: Triple Store guztiek Default Graph bat dute, non triple guztiak biltzen diren</p>
+        <p>[Adibidea exekutatu]</p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoak</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/namedgraph.svg" alt="Grafo RDF" width="80%"></p>
+        <p>[Adibidea exekutatu]</p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoak</h2>
+        <p>Datuak eta metadatuak hizkuntza berdinean (NoSQL! RDF!)</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/namedgraph_metadata.svg" alt="Grafo RDF" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoak</h2>
+        <p>Datuak eta metadatuak hizkuntza berdinean (NoSQL! RDF!)</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/namedgraph_metadata_namedgraph2.svg" alt="Grafo RDF" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoak</h2>
+        <p>Default Graph</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/namedgraph_metadata_namedgraph2_default_grap.svg" alt="Grafo RDF" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoak</h2>
+        <p>[Adibidea exekutatu]</p>
+    </section>
+
+
+    <section class="slide">
+        <h2>RDF grafoak</h2>
+        <p>rdf:type prdikatua: baliabideak klaseetn taldekatu</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/rdf_type.svg" alt="Grafo RDF: RDF type: agrupar recursos en clases" width="60%"></p>
+        <p>[Adibidea exekutatu - Class hierarchy]</p>
+    </section>
+
+
+    <section class="slide">
+        <h2>Hiztegi erreserbatuak (W3C estandarrak - NoSQL!)</h2>
+        <p>Hizkuntza bera definitzen dute</p>
+        <p>RDF: http://www.w3.org/1999/02/22-rdf-syntax-ns# (Adib. rdf:type = http://www.w3.org/1999/02/22-rdf-syntax-ns#type), RDFek definitua (Bere burua definitzen du), RDFSek eta OWLek</p>
+        <p>RDFS: http://www.w3.org/2000/01/rdf-schema# RDFek, RDFSek (Bere burua definitzen du) eta OWLek definitua</p>
+    </section>
+
+
+    <section class="slide">
+        <h2>Hiztegi erreserbatuak (W3C estandarrak - NoSQL!)</h2>
+        <p>Hizkuntza bera definitzen dute</p>
+        <p>SHACL: https://www.w3.org/ns/shacl.ttl RDFek, RDFSek eta OWLek definitua</p>
+        <p>OWL: http://www.w3.org/2002/07/owl# RDFek, RDFSek eta OWLek definitua (Bere burua definitzen du)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Domeinu hiztegiak (Ontologiak)</h2>
+        <p>Domeinu zehatza deskribatzen dute: geografia, biologia, merkataritza, ...</p>
+        <p>Argitaratu nahi ditugun datuen propietate orokorrak definitzen dituzte</p>
+        <p>foaf:person, dbpedia-ont:city, dc:book, schema:person, ...</p>
+    </section>
+
+    <section class="slide">
+        <h2>Ontologiak</h2>
+        <p>RDF: datu espezifikoak (Mikel, Jon, Bilbo, ...)</p>
+        <p>Ontologiak (RDFS, OWL): datu horien propietate orokorrak (Pertsona, Hiria, ...)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Ontologiak</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Triple_ontologias.png" alt="Ontologias" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Tresna erabilgarriak</h2>
+        <p><a href="https://prefix.cc/">Prefix.cc</a></p>
+        <p><a href="https://lov.linkeddata.es/dataset/lov">Linked Open Vocabularies</a></p>
+    </section>
+
+
 
     
 
