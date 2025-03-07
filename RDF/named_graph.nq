@@ -1,0 +1,3 @@
+<https://ehu.eus/staff/pdi/mikel> <urn:eustat:property:vive_en> <https://data.euskadi.eus/resource/bilbo> <urn:data:graph:euskadi> .
+<https://data.euskadi.eus/resource/bilbo> <https://wikidata.org/prop/parte_de> <https://data.euskadi.eus/resource/bizkaia> <urn:data:graph:euskadi> .
+<https://data.euskadi.eus/resource/bilbo> <https://wikidata.org/prop/poblacion> "400000" <urn:data:graph:euskadi> .
