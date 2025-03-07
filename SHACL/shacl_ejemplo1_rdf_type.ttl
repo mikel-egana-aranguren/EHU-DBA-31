@@ -1,0 +1,34 @@
+# http://rdf4j.org/schema/rdf4j#SHACLShapeGraph
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix ehu: <https://ehu.eus/staff/pdi/> .
+@prefix eustat: <urn:eustat:property:> .
+@prefix eus: <https://data.euskadi.eus/resource/> .
+@prefix wikidata: <https://wikidata.org/prop/> .
+
+# Shape for Person
+schema:PersonShape a sh:NodeShape ;
+    sh:targetClass schema:Person ;
+    sh:property [
+        sh:path eustat:vive_en ;
+        sh:class eustat:ciudad ;
+    ] ;
+    sh:property [
+        sh:path eustat:amigo_de ;
+        sh:class schema:Person ;
+    ] .
+
+# Shape for Ciudad
+eustat:CiudadShape a sh:NodeShape ;
+    sh:targetClass eustat:ciudad ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue eustat:ciudad ;
+    ] ;
+    sh:property [
+        sh:path wikidata:poblacion ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 50000 ;
+    ] .
