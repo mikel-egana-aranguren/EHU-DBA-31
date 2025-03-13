@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SHACL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>SHACL</h1>
+        <p>Mikel Egaña Aranguren</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>SHACL</h2>
+        <p>Mikel Egaña Aranguren</p>
+        <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
+        <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
+        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" style="border: 1px solid #555;">
+    </section>
+
+    <section class="slide">
+        <h2>SHACL</h2>
+        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
+    </section>
+
+    <section class="slide">
+        <h2>SHACL</h2>
+        <p>SHApes Constraint Language</p>
+        <p>RDF grafo batek izan beharko lukeen forma definitzen du: zein erlazio, zein nodorekin, zein baliorekin, etab.</p>
+        <p>RDF datuak forma horren aurka balioztatzen dira, eta txosten bat sortzen da, datuek forma betetzen duten edo ez esaten duena (ValidationReport, RDF-n)</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL</h2>
+        <p>SHACL W3C estandarra da: (<a href="https://www.w3.org/TR/shacl/">W3C</a>)</p>
+        <p><a href="https://www.w3.org/ns/shacl.ttl">SHACL hiztegiak</a>, RDF-n definitua, SHACL hizkuntza osoa dauka</p>
+        <p>RDF hizkuntza bera datuak (RDF) eskema (SHACL) eta emaitzen txostenak (ValidationReport) definitzeko (NoSQL!RDF!)</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL vs OWL</h2>
+        <p>Oso ohikoa den nahasketa: OWL eskema hizkuntza bezala</p>
+        <p>OWL inferentzia hizkuntza bat da, ez eskema hizkuntza bat (*): adibidez, ez du esaten zenbat erlazio izan behar dituen banako batek, baizik eta erlazio horiek dituen banakoa aurkitzen badugu, klase jakin batekoa dela ondorioztatzen da</p>
+        <p>(*) OWL-n "itxi" daiteke mundua, baina axioma jakin batzuekin eta ez lehenetsita</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL vs OWL</h2>
+        <p>Oso ohikoa den nahasketa: OWL eskema hizkuntza bezala</p>
+        <p>SHACL bai dela eskema hizkuntza: adibidez, instantzia batek zenbat erlazio izan behar dituen esaten digu, eta instantzia horrek ez baditu, baliogabea da</p>
+    </section>
+
+    <section class="slide">
+        <h2>Shape SHACL</h2>
+        <p><img style="border: 1px solid #555;" src="pictures-abd-01/ejemplo_W3C.svg" alt="Shape SHACL" width="65%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL GraphDB-n</h2>
+        <ol>
+            <li>Shapes kargatu (RDF)</li>
+            <li>Datuak kargatu</li>
+            <li>Baliozkoak badira, datuak kargatzen dira</li>
+            <li>Baliogabeak badira, ez dira kargatzen eta akatsaren arrazoia Validation Report-ean agertzen da</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL GraphDB-n</h2>
+        <p>Errepositorioa sortu SHACL aukera aktibatuz</p>
+        <p>Shape-ak grafo berezian daude:
+            <ul>
+                <li>Lehenetsita http://rdf4j.org/schema/rdf4j#SHACLShapeGraph</li>
+                <li>Shape-ak edozein grafotan defini daitezke eta datuekin lotu: ex:dataGraph sh:shapesGraph ex:GraphConShapes</li>
+            </ul>
+        </p>
+
+        <p>[ex1, rdf_type adibideak exekutatu]</p>
+    </section>
+
+
+
+    
+    <!-- FOOTER -->
+
+    <footer class="badge">
+        <a href="https://github.com/mikel-egana-aranguren/ShowerTemplate">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../ShowerTemplate/shower/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>

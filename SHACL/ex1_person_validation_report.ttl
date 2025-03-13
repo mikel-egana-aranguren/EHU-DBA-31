@@ -1,0 +1,28 @@
+# org.eclipse.rdf4j.sail.shacl.GraphDBShaclSailValidationException: Failed SHACL validation
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+_:29ea2e1020b74dd9ba1872507d8dc2e75544 a sh:ValidationReport;
+  sh:conforms false;
+  rdf4j:truncated false;
+  sh:result _:29ea2e1020b74dd9ba1872507d8dc2e75545 .
+
+_:29ea2e1020b74dd9ba1872507d8dc2e75545 a sh:ValidationResult;
+  sh:focusNode <http://example.com/ns#Alice>;
+  rsx:shapesGraph rdf4j:SHACLShapeGraph;
+  sh:value 12.1;
+  sh:resultPath <http://example.com/ns#age>;
+  sh:sourceConstraintComponent sh:DatatypeConstraintComponent;
+  sh:resultSeverity sh:Violation;
+  sh:sourceShape _:07a7cfc0-b120-4078-9e17-03bb6b4951e4-1 .
+
+_:07a7cfc0-b120-4078-9e17-03bb6b4951e4-1 a sh:PropertyShape;
+  sh:path <http://example.com/ns#age>;
+  sh:datatype xsd:integer .

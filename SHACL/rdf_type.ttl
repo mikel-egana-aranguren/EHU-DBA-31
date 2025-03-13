@@ -1,0 +1,18 @@
+@prefix eus: <https://data.euskadi.eus/resource/> .
+@prefix ehu: <https://ehu.eus/staff/pdi/> .
+@prefix eustat: <urn:eustat:property:> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wikidata: <https://wikidata.org/prop/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ehu:mikel eustat:vive_en eus:bilbo ;
+    eustat:amigo_de ehu:jon ;
+    rdf:type schema:Person .
+
+ehu:jon ehu:vive_en eus:bilbo ;
+    rdf:type schema:Person .
+
+eus:bilbo rdf:type eustat:ciudad ;
+    wikidata:parte_de eus:bizkaia ;
+    wikidata:poblacion "400000" .
