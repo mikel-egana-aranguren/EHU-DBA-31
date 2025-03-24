@@ -3,5 +3,6 @@
 @prefix eustat: <urn:eustat:property:> .
 @prefix wikidata: <https://wikidata.org/prop/> .
 
-ehu:mikel eustat:amigo_de ehu:jon .
-ehu:jon ehu:vive_en eus:bilbo .
+ehu:mikel eustat:bizilekua eus:bilbo .
+eus:bilbo wikidata:parte_da eus:bizkaia ;
+    wikidata:biztanleria "400000" .
