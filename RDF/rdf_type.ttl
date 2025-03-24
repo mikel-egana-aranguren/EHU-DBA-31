@@ -4,11 +4,11 @@
 @prefix schema: <http://schema.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-ehu:mikel eustat:vive_en eus:bilbo ;
-    eustat:amigo_de ehu:jon ;
+ehu:mikel eustat:bizilekua eus:bilbo ;
+    eustat:laguna ehu:jon ;
     rdf:type schema:Person .
 
-ehu:jon ehu:vive_en eus:bilbo ;
+ehu:jon ehu:bizilekua eus:bilbo ;
     rdf:type schema:Person .
 
-eus:bilbo rdf:type eustat:ciudad .
+eus:bilbo rdf:type eustat:Hiria .
