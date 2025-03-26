@@ -1,11 +1,12 @@
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX dbpedia_ont: <http://dbpedia.org/ontology/>
 PREFIX gip: <http://gipuzkoa.eus/resource/>
 
-SELECT ?poblacion_bilbo
+SELECT ?pop 
 WHERE {
- gip:bilbo owl:sameAs ?town
- SERVICE <http://dbpedia.org/sparql> {
-  ?town dbpedia_ont:populationTotal ?poblacion_bilbo
- }
-}
+    gip:bilbo owl:sameAs ?town 
+    SERVICE <https://query.wikidata.org/sparql> {
+        ?town <http://www.wikidata.org/prop/direct/P1082> ?pop .
+    }
+} 
+
+
