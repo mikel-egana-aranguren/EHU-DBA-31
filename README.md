@@ -8,4 +8,3 @@
   * [SPARQL](SPARQL/index.html).
   * [OWL](OWL/index.html).
   * [SHACL](SHACL/index.html).
-* Dokumentuak: [MongoDB](MongoDB/index.html).

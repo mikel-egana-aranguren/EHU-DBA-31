@@ -1,5 +1,10 @@
 # Releases
 
+## 2024-2025-2
+
+* No Mongo
+* NoSQL Sarrera, Grafoak, RDF, SPARQL, OWL, SHACL
+
 ## 2024-2025-1
 
 * NoSQL Sarrera, Grafoak, RDF, SPARQL, OWL, SHACL
