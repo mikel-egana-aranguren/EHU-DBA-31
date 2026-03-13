@@ -46,7 +46,7 @@
         <p>DB-en ohiko eredua: MySQL, PostgreSQL, Oracle, ...</p>
         <p>Taulak lerro eta zutabeekin, entitate bakoitzeko lerro bat eta atributu bakoitzeko zutabe bat</p>
         <p>Taulen egitura deskribatzen duen eskema</p>
-        <p>Taula desberdinak giltzen bidez lotu</p>
+        <p>Taula desberdinak key bidez lotu</p>
         <p>SQL: Structured Query Language</p>
     </section>
     
@@ -80,7 +80,7 @@
     <p>Eskalagarritasun horizontala</p>
     <p>Prestasun eta errendimendu handia</p>
     <p>Egiturarik gabeko datuak edo datu erdi-egituratuak onartzen ditu</p>
-    <p>Ez da nahitaez ACID (Atomicity, Consistency, Isolation, Durability) izan behar: eventual consistency</p>
+    <p>Ez da nahitaez ACID izan behar (Atomicity, Consistency, Isolation, Durability): eventual consistency</p>
 </section>
 
     <section class="slide">
@@ -89,32 +89,33 @@
         <p>Grafoak</p>
         <p>Bektoreak</p>
         <p>Key-value</p>
+        <p>...</p>
     </section>
 
     <section class="slide">
         <h2>Dokumentuak</h2>
-        <p>Biltegiratze unitate oinarrizkoa dokumentua da (XML, YAML, JSON,BSON)</p>
+        <p>Gordetzeko oinarrizko unitatea dokumentu osoa da (XML, YAML, JSON, BSON)</p>
         <p><a href="https://www.mongodb.com/">MongoDB</a>, ...</p>
     </section>
 
     <section class="slide">
         <h2>Grafoak</h2>
         <p>Grafoa: nodo eta nodoen arteko erlazioen multzoa</p>
-        <p>Triple Store (RDF): <a href="https://virtuoso.openlinksw.com/">Virtuoso</a>, <a href="https://www.stardog.com/">Stardog</a>, <a href="https://aws.amazon.com/neptune/">Amazon Neptune</a>, <a href="https://graphdb.ontotext.com/">GraphDB</a>, ...</p>
-        <p>Property Graphs: <a href="https://neo4j.com/">Neo4J</a>, ...</p>
+        <p>RDF (Resource Description Framework) gordetzen duten Triple Store-ak: <a href="https://virtuoso.openlinksw.com/">Virtuoso</a>, <a href="https://www.stardog.com/">Stardog</a>, <a href="https://aws.amazon.com/neptune/">Amazon Neptune</a>, <a href="https://graphdb.ontotext.com/">GraphDB</a>, ...</p>
+        <p>Labelled Property Graph (LPG) erako DBak: <a href="https://neo4j.com/">Neo4J</a>, ...</p>
     </section>
 
     <section class="slide">
         <h2>Bektoreak</h2>
-        <p>Embedding-ak gordetzen dituzte (Bektoreak)</p>
-        <p>LLM eta RAG (Retrieval Augmented Generation) motako arkitekturen gorakadaren ondorioz garrantzia lortu dute</p>
+        <p>Embedding-ak gordetzen dituzte, testuen zenbakizko bektore-errepresentazioak: adibidez, "Bilbo Bizkaiako hiriburua da" testua [0.12, -0.44, 0.31, ..., 0.08] bezalako bektore batean adieraz daiteke</p>
+        <p>LLM eta RAG (Retrieval Augmented Generation) bezalako arkitekturen gorakadaren ondorioz garrantzi handia lortu dute</p>
         <p><a href="https://www.trychroma.com/">Chroma</a>, <a href="https://vectordb.com/">VectorDB</a>, ...</p>
     </section>
 
     <section class="slide">
         <h2>Key-value</h2>
         <p>Gako-balio datu eredua hiztegi batean</p>
-        <p>Batzuetan beste DB batzuen oinarri gisa erabiltzen dira (<a href="https://rocksdb.org/">RocksDB</a> grafoen DBetarako oinarri gisa, adibidez <a href="https://www.stardog.com/">Stardog</a>)</p>
+        <p>Batzuetan beste DB batzuen oinarri gisa erabiltzen dira (<a href="https://rocksdb.org/">RocksDB</a>, adibidez, grafo DBen oinarri gisa, hala nola <a href="https://www.stardog.com/">Stardog</a>)</p>
         <p><a href="https://rocksdb.org/">RocksDB</a>, <a href="https://redis.io/">Redis</a>, ...</p>
         
     </section>
