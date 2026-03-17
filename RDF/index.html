@@ -37,37 +37,77 @@
     </section>
 
     <section class="slide">
+        <h2>AA sinbolikoa vs AA estatistikoa</h2>
+        <p>AA sinbolikoa: aurretik eraikitako eredua aplikatzen da. Eredu hori adituek sortu dute eta ezagutza esplizitua sinboloetan (logikan) kodetzen du</p>
+        <p>AA estatistikoa: ereduak datuetatik ikasten du modu (erdi)autonomoan prozesu probabilistikoen bidez</p>
+    </section>
+
+    <section class="slide">
+        <h2>Arrazoiketa</h2>
+        <p>AA sinbolikoa: logikoa, determinista. Azalgarritasun osoa</p>
+        <p>AA estatistikoa: hurbilketa, probabilistikoa. Azalgarritasun baxua</p>
+    </section>
+
+    <section class="slide">
+        <h2>Datuak</h2>
+        <p>AA sinbolikoa: datu gutxiago behar ditu baina zarataren aurrean ahula</p>
+        <p>AA estatistikoa: kalitate handiko datu asko behar ditu, zarataren aurrean sendoagoa</p>
+    </section>
+
+        <section class="slide">
+        <h2>Eskakizunak</h2>
+        <p>AA sinbolikoa: domeinuko adituak</p>
+        <p>AA estatistikoa: datuak eta konputazio-gaitasun handia (GPUak)</p>
+    </section>
+
+    <section class="slide">
         <h2>Web Semantikoa</h2>
-        <p>Web sare berri baterako proiektu utopikoa: baliabide bakoitzak bere datuak argitaratzen ditu eta agente adimendunek modu autonomoan kontsumitzen dituzte
-            </p>
+        <p>Web sare berri baterako proiektu utopikoa: baliabide bakoitzak bere datuak argitaratzen ditu eta agente adimendunek modu autonomoan kontsumitzen dituzte</p>
+        <p>AA sinbolikoan oinarritua</p>
         <p>Neurri batean iadanik inplementatua (Adib. <a href="https://json-ld.org/">JSON-LD</a> + <a href="https://schema.org/">Schema</a>: <a href="https://cloud.google.com/enterprise-knowledge-graph/docs/search-api">Google Knowledge Graph</a>)</p>
-        <p>LLM-ak?</p>
+    </section>
+
+        <section class="slide">
+        <h2>Konbergentzia neuro-sinbolikoa</h2>
+        <p>LLMak hizkuntza naturalean oinarritutako bezero unibertsal gisa (Agenteak)</p>
+        <p>GraphRAG arkitekturak (LLM + Knowledge Graph)</p>
+        <p>...</p>
     </section>
 
     <section class="slide">
         <h2>Web Semantikoa</h2>
         <p>Teknologiak:
             <ul>
-                <li><a href="https://datatracker.ietf.org/doc/html/rfc3986">URI</a>: identifikatzaileak</li>
-                <li><a href="https://www.w3.org/TR/rdf11-concepts/">RDF</a>: datuak</li> 
-                <li><a href="https://www.w3.org/TR/sparql11-overview/">SPARQL</a>: RDF kontsultak</li>  
-                <li><a href="https://www.w3.org/TR/shacl/">SHACL</a>: RDF balioztatzea</li>
-                <li><a href="https://www.w3.org/TR/owl2-overview/">OWL</a>: RDF datuak deskribatzeko hiztegiak (ontologiak)</li>
+                <li><a href="https://datatracker.ietf.org/doc/html/rfc3986">URI</a> (IETF): Uniform Resource Identifier</li>
+                <li><a href="https://www.w3.org/TR/rdf11-concepts/">RDF</a> (W3C): Resource Description Framework</li> 
+                <li><a href="https://www.w3.org/TR/sparql11-overview/">SPARQL</a> (W3C): SPARQL Protocol and RDF Query Language</li>  
+                <li><a href="https://www.w3.org/TR/owl2-overview/">OWL</a> (W3C): Web Ontology Language</li>
+                <li><a href="https://www.w3.org/TR/shacl/">SHACL</a> (W3C): Shapes Constraint Language</li>
             </ul>
         </p>
+    </section>
+
+        <section class="slide">
+        <h2>Web Semantikoa</h2>
+        <p><img src="pictures-dba-31/sw_stack.svg" alt="SW stack" width="90%"></p>
     </section>
 
     <section class="slide">
         <h2>RDF</h2>
         <p>RDF: Resource Description Framework</p>
         <p><a href="https://www.w3.org/TR/rdf11-primer/">W3C-ren estandar ofiziala</a> baliabideak web sarean argitaratzeko</p>
-        <p>Gaur egun bere erabilera hazten ari da enpresa eremuan, datuak Knowledge Graphs (KGs) bidez gordetzeko, <a href="https://www.ekgf.org/">datuetan-zentratutako arkitekturak</a> inplementatzeko</p>
+        <p>Gaur egun bere erabilera hazten ari da enpresa eremuan, datuak Knowledge Graphs (KGs) bidez gordetzeko, <a href="https://www.ekgf.org/">datuetan-zentratutako arkitekturak</a> inplementatzeko: adibidez <a href="https://netflixtechblog.com/uda-unified-data-architecture-6a6aee261d8d">Netflix</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF SIEMENS</h2>
+        <p><img src="pictures-dba-31/SIEMENS.png" alt="SIEMENS RDF" width="60%"></p>
     </section>
     
 
     <section class="slide">
         <h2>RDF triplea</h2>
-        <p><a href="https://www.linkedin.com/posts/mikeleganaaranguren_ruper-ordorika-zaindu-maite-duzun-hori-activity-7178108296443162624-LxYR?utm_source=share&utm_medium=member_desktop">RDF tripleak subjektu-predikatu-objektu eredua erabiltzen du, Euskarak ez bezala (subjektu-objektu-predikatu) </a></p>
+        <p>RDF tripleak subjektu-predikatu-objektu eredua erabiltzen du, <a href="https://mikel-egana-aranguren.github.io/2026/03/15/RDF-minorised-languages.html">euskarak ez bezala</a>, subjektu-objektu-predikatu egitura duena</p>
         <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/triple.svg" alt="Triple RDF" width="60%"></p>
     </section>
 
@@ -78,6 +118,21 @@
 
     <section class="slide">
         <h2>RDF grafoa</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/grafo2.svg" alt="RDF grafoa" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoa Wikidata</h2>
+        <p><img src="pictures-dba-31/wikidata.png" alt="Wikidata" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoa Wikidata Bilbo (Statements)</h2>
+        <p><img src="pictures-dba-31/wikidata_bilbo.png" alt="RDF grafoa Wikidata Bilbo" width="40%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoa (Things not strings)</h2>
         <p>Grafoaren banako guztiak URIen bidez identifikatzen dira</p>
         <p>URI: Uniform Resource Identifier (≠ URL!). Baliabideak identifikatzen ditu: http://www.wikidata.org/entity/Q8692
         </p>
@@ -120,30 +175,68 @@
 
     <section class="slide">
         <h2>RDF serializatu</h2>
-        <p>RDF/XML (http://www.w3.org/TR/rdf-syntax-grammar/)</p>
-        <p>RDFa (http://www.w3.org/TR/rdfa-core/)</p>
-        <p>Turtle (http://www.w3.org/TR/turtle/)</p>
-        <p>N3 (http://www.w3.org/DesignIssues/Notation3.html)</p>
-        <p>JSON-LD (https://www.w3.org/TR/json-ld11/)</p>
+        <p>RDF/XML: <a href="http://www.w3.org/TR/rdf-syntax-grammar/">http://www.w3.org/TR/rdf-syntax-grammar/</a></p>
+        <p>Turtle: <a href="http://www.w3.org/TR/turtle/">http://www.w3.org/TR/turtle/</a></p>
+        <p>JSON-LD: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></p>
+        <p>NQuads: <a href="https://www.w3.org/TR/n-quads/">https://www.w3.org/TR/n-quads/</a></p>
     </section>
 
     <section class="slide">
         <h2>RDF serializatu: RDF/XML</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/rdf_xml.png" alt="RDF/XML" width="60%"></p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/rdf_xml_graph.png" alt="RDF/XML" width="60%"></p>
+        <div class="columns two" style="display:flex; justify-content:space-between; align-items:center;">
+            <p><img src="pictures-dba-31/rdf_xml.png" alt="RDF/XML" width="100%"></p>
+            <p><img src="pictures-dba-31/jon_bilbo.svg" alt="Jon bilbo" width="100%"></p>
+        </div>
     </section>
 
     <section class="slide">
         <h2>RDF serializatu: Turtle</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/rdf_ttl.png" alt="Turtle" width="60%"></p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/rdf_xml_graph.png" alt="Turtle" width="60%"></p>
+        <div class="columns two" style="display:flex; justify-content:space-between; align-items:center;">
+            <p><img src="pictures-dba-31/rdf_ttl.png" alt="Turtle" width="100%"></p>
+            <p><img src="pictures-dba-31/jon_bilbo.svg" alt="Jon bilbo" width="100%"></p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>RDF serializatu: JSON-LD</h2>
+        <div class="columns two" style="display:flex; justify-content:space-between; align-items:center;">
+            <p><img src="pictures-dba-31/rdf_jsonld.png" alt="JSON-LD" width="80%"></p>
+            <p><img src="pictures-dba-31/jon_bilbo.svg" alt="Jon bilbo" width="100%"></p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>RDF: JSON-LD</h2>
+        <p>RDF serializazioa JSON-en: web garatzaileentzat erraza</p>
+        <p>@context-ek JSON giltzak RDF URIetara mapatzea definitzen du</p>
+        <p><a href="https://schema.org/">Schema.org</a>-ek (Google) web orrietako metadatuetarako erabiltzen du</p>
+        <p>Google, Bing, Yahoo-k prozesatzen dute bilaketak hobetzeko</p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF: JSON-LD</h2>
+        <p><img src="pictures-dba-31/structured-data-explainer.png" alt="Google Structured Data" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF serializatu: NQuads</h2>
+        <p><img src="pictures-dba-31/rdf_nq.png" alt="NQuads" width="80%"></p>
+        <p><img src="pictures-dba-31/jon_bilbo_graph.svg" alt="Jon bilbo" width="60%"></p>
+    </section>
+
+        <section class="slide">
+        <h2>RDF: N-Quads serializazioa</h2>
+        <p>N-Triples-en hedapena Named Graphs-entzat</p>
+        <p>Lerro bakoitza: &lt;subjektua&gt; &lt;predikatua&gt; &lt;objektua&gt; &lt;grafoa&gt; .</p>
+        <p>Formatu sinplea hainbat grafo esportatu/inportatzeko</p>
+        <p>Datu-base handien dump-etan erabilia (DBpedia, Wikidata)</p>
     </section>
 
     <section class="slide">
         <h2>Tresna erabilgarriak</h2>
-        <p><a href="https://www.w3.org/RDF/Validator/">http://www.w3.org/RDF/Validator/</a></p>
-        <p><a href="https://rdf-translator.appspot.com/">http://rdf-translator.appspot.com/</a></p>
-        <p><a href="https://www.easyrdf.org/converter">https://www.easyrdf.org/converter</a></p>
+        <p><a href="https://www.w3.org/RDF/Validator/">RDF Validator</a></p>
+        <p><a href="https://www.easyrdf.org/converter">RDF converter</a></p>
+        <p><a href="https://json-ld.org/playground/">JSON-LD playground</a></p>
     </section>
 
     <section class="slide">
@@ -163,21 +256,22 @@
     </section>
 
     <section class="slide">
-        <h2>Triple Stores</h2>
-        <p><a href="https://aws.amazon.com/neptune/">Amazon Neptune</a>:
-            <ul>
-                <li>Amazon AWS</li>
-                <li>Property Graph-ak biltegiratzeko balio du ere</li>
-            </ul>
-        </p>
-    </section>
-
-    <section class="slide">
         <h2>Triple Store-ak</h2>
-        <p><a href="https://virtuoso.openlinksw.com/">Virtuoso</a></p>
-        <p><a href="https://www.stardog.com/">Stardog</a></p>
-        <p><a href="https://graphdb.ontotext.com/">GraphDB</a></p>
-        <p><a href="https://www.oxfordsemantic.tech/rdfox">RDFox</a></p>
+        <p>
+            Komertzialak: <a href="https://graphdb.ontotext.com/">GraphDB</a>, 
+            <a href="https://virtuoso.openlinksw.com/">Virtuoso</a>, 
+            <a href="https://www.stardog.com/">Stardog</a>, 
+            <a href="https://aws.amazon.com/neptune/">Amazon Neptune</a>, 
+            <a href="https://www.oxfordsemantic.tech/rdfox">RDFox</a>, 
+            <a href="https://allegrograph.com">AllegroGraph</a>,
+            <a href="https://www.progress.com/marklogic">MarkLogic</a></p>
+
+        <p>Kode irekikoak:
+            <a href="https://jena.apache.org/">Apache Jena</a>,
+            <a href="https://rdf4j.org/">Eclipse RDF4J</a>,
+            <a href="https://docs.rs/oxigraph/latest/oxigraph/">Oxigraph</a>,
+            <a href="https://docs.qlever.dev">QLever</a>
+        </p>
     </section>
 
     <section class="slide">
@@ -186,9 +280,15 @@
             <li>Arrazoiketa automatikoa</li>
             <li>Lucene edo Kafka bezalako zerbitzuetarako konektoreak</li>
             <li>Datu Base erlazionalen birtualizazioa (Ontop)</li>
+            <li>GraphRAG</li>
             <li>...</li>
-            <li>[1-1, 1-2 adibideak exekutatu]</li>
         </ul>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB</h2>
+            <p><i>eGela; Laborategiko gidoiak; NoSQL; Beharrezko softwarea</i></p>
+            <p>Kontuan hartzekoa: fitxategiak (taula) vs grafoak, entitatearen bateragarritasuna URI berdinarekin, baliabideak vs literalak</p>
     </section>
 
     <section class="slide">
@@ -223,16 +323,88 @@
     </section>
 
     <section class="slide">
-        <h2>RDF grafoak</h2>
-        <p>[Adibideak exekutatu]</p>
+        <h2>Blank Nodes</h2>
+        <p>URIrik gabeko nodo anonimoak: identifikatzaile globalik gabeko baliabideak</p>
+        <p>Baliabidea kanpotik erreferentziatu behar ez dugunean erabiltzen dira (ezin dira kanpoko zerbitzarietako grafoetatik lotu)</p>
+        <p>Turtle sintaxia: _:b1, _:b2, ... edo []</p>
+        <p>"Jon" baliabideak ez du URI propiorik</p>
     </section>
 
+    <section class="slide">
+        <h2>RDF: erreifikazioa</h2>
+        <p>Triple bati buruzko informazioa: <i>Mikel eta Jon 1997tik lagunak dira</i></p>
+        <p>RDF triplea: <b>Mikel laguna_da Jon</b>. <i>1997tik?</i></p>
+    </section>
 
     <section class="slide">
-        <h2>RDF grafoak</h2>
-        <p>rdf:type prdikatua: baliabideak klaseetan taldekatu</p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/rdf_type.svg" alt="Grafo RDF: RDF type: agrupar recursos en clases" width="60%"></p>
-        <p>[Adibidea exekutatu - Class hierarchy]</p>
+        <h2>Erreifikazioa: Named Graphs</h2>
+        <p><img src="pictures-dba-31/reificacion_namedgraph.svg" alt="Erreifikazioa Named Graphs" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Erreifikazioa: tarteko nodoa</h2>
+        <p><img src="pictures-dba-31/reificacion_nodo.svg" alt="Erreifikazioa tarteko nodoa" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF Star (RDF*)</h2>
+        <p>Erreifikazioa sinplifikatzen du: Named Graphs baino intuitiboagoa, tarteko nodoa baino sinpleago</p>
+        <p>RDFren hedapen berria: tripleak subjektu edo objektu gisa onartzea</p>
+        <p>Sintaxia: &lt;&lt; subjektua predikatua objektua &gt;&gt;</p>
+        <p>W3C estandarra garapenean</p>
+    </section>
+
+    <section class="slide">
+        <h2>UPSERT (UPDATE INSERT)</h2>
+        <p>SQLko eragiketa: eguneratzen du existitzen bada, txertatzen du ez bada</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+INSERT INTO maskotak (id, izena, kolorea)<br>
+VALUES (2, "Fluffy", "beltza")<br>
+ON DUPLICATE KEY UPDATE kolorea = VALUES(kolorea);<br>
+        </pre>
+        <p>Helburua: errenkada baterako balio eguneratu bakarra mantentzea</p>
+                <p style="font-size:12px">Oinarritua: <a href="https://medium.com/@skontopo2009/upsert-vs-rdf-same-goal-different-rules-ac503ff4f8ed" target="_blank">Stratos Kontopoulos (Medium)</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDFn datuak kargatzea gehigarria da</h2>
+        <p>Datuak kargatzean, hirukoitza berriak gehitzen dira</p>
+        <p>Adibidea: <em>ex:kolorea "beltza"</em> gehitzeak ez du <em>ex:kolorea "marroia"</em> ezabatzen</p>
+        <p>Emaitza: baliabideak hainbat balio izan ditzake propietate berarentzat</p>
+    </section>
+
+    <section class="slide">
+        <h2>"Balio bakar"-aren semantikarik gabe</h2>
+        <p>RDF ereduak propietate bakoitzeko hainbat balio onartzen ditu baliabide batean</p>
+        <p><em>owl:FunctionalProperty</em>-rekin (OWL) ere, murrizketa logikoa da: Triple Store-ak ez du automatikoki ezabatzen</p>
+        <p>Triple Store-ek onartu, ohartarazi (SHACL) edo inferitu (OWL) dezakete; ez dute automatikoki ezabatzen</p>
+    </section>
+
+    <section class="slide">
+        <h2>Open World Assumption (OWA)</h2>
+        <p>RDFn (eta OWLn), datu bat falta izateak ez du esan nahi faltsua edo zaharkitua denik (Informaziorik ez izateak ez du ukapena inplikatzen, informazioa beste nonbaiten edo etorkizunean egon daitekeelako interneten)</p>
+        <p>Balio bat ordezkatzeko, ezabaketa esplizitua adierazi behar da</p>
+        <p>Aukerak: SPARQL Update (DELETE/INSERT) edo grafo osoa ordezkatu</p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF type</h2>
+        <p>rdf:type predikatua - instantziak (RDF) eta klaseak (RDFS)</p>
+        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/rdf_type.svg" alt="Grafo RDF: RDF type: baliabideak klaseetan taldekatu" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF: RDFS Hiztegia</h2>
+        <p>rdfs:Class - klaseak definitu</p>
+        <p>rdfs:subClassOf - klaseen hierarkiak</p>
+        <p>rdfs:Property - propietateak definitu</p>
+        <p>rdfs:subPropertyOf - propietateen hierarkiak</p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF: RDFS Hiztegia</h2>
+        <p>rdfs:domain, rdfs:range - propietateen murrizketak</p>
+        <p>rdfs:label, rdfs:comment - anotazioak</p>
     </section>
 
 
@@ -273,6 +445,92 @@
         <h2>Tresna erabilgarriak</h2>
         <p><a href="https://prefix.cc/">Prefix.cc</a></p>
         <p><a href="https://lov.linkeddata.es/dataset/lov">Linked Open Vocabularies</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Data</h2>
+        <p>Web sarean datu egituratuak argitaratzea, makinak lotu eta interpreta ditzaten</p>
+        <p>Web estandarretan oinarritua: URI, HTTP(S), RDF, SPARQL</p>
+        <p>Tim Berners-Lee-k (Web-aren asmatzaileak) proposatua 2006an</p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Data-ren printzipioak</h2>
+        <ol>
+            <li>URIak erabili baliabideak identifikatzeko</li>
+            <li>HTTP(S) URIak erabili baliabide horietara sartzeko</li>
+            <li>Baliabide batera sartzean, bere datuak estandarrak erabiliz eman (RDF, SPARQL)</li>
+            <li>Beste URIetarako estekak jaso, baliabide gehiago aurkitzeko</li>
+        </ol>
+        <p><a href="https://www.w3.org/DesignIssues/LinkedData.html">https://www.w3.org/DesignIssues/LinkedData.html</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Data: Eduki-negoziaketa</h2>
+        <p>URI batek bezeroaren arabera adierazpen desberdinak itzul ditzake</p>
+        <p>Web nabigatzailea → HTML (gizakientzat)</p>
+        <p>RDF bezeroa → RDF/XML, Turtle, JSON-LD (makinentzat)</p>
+        <p>HTTP Content Negotiation bidez (Accept goiburua)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Data: Wikidata</h2>
+        <p>Baliabidearen URIa: <a href="http://www.wikidata.org/entity/Q8692">http://www.wikidata.org/entity/Q8692</a></p>
+        <p>Web orria (Gizakiak - HTML): <a href="https://www.wikidata.org/wiki/Q8692">https://www.wikidata.org/wiki/Q8692</a></p>
+        <p>RDF datuak (Agenteak): [curl_wikidata.sh]</p>
+        <p>SPARQL endpoint-a (Gizakiak eta agenteak): <a href="https://query.wikidata.org/">https://query.wikidata.org/</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Data: DBpedia</h2>
+        <p>Baliabidearen URIa: <a href="http://dbpedia.org/resource/Bilbao">http://dbpedia.org/resource/Bilbao</a></p>
+        <p>Web orria (Gizakiak - HTML): <a href="https://dbpedia.org/page/Bilbao">https://dbpedia.org/page/Bilbao</a></p>
+        <p>RDF datuak (Agenteak): <a href="https://dbpedia.org/data/Bilbao">https://dbpedia.org/data/Bilbao</a></p>
+        <p>SPARQL endpoint-a (Gizakiak eta agenteak): <a href="https://dbpedia.org/sparql">https://dbpedia.org/sparql</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Open Data Cloud</h2>
+        <p><img src="pictures-dba-31/lod-cloud.png" alt="LOD Cloud" width="40%"></p>
+        <p style="font-size:10px;"><a href="https://lod-cloud.net/">https://lod-cloud.net/</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>5 star Open Data</h2>
+        <p>★ Datuak web sarean eskuragarri (edozein formatutan) lizentzia irekiarekin</p>
+        <p>★★ Datu egituratuak eta makinaz irakurgarriak (adib. Excel irudiaren ordez)</p>
+        <p>★★★ Formatu ez jabeduna (adib. CSV Excel-en ordez)</p>
+        <p>★★★★ W3C estandarrak erabili (RDF, SPARQL) baliabideak identifikatzeko</p>
+        <p>★★★★★ Zure datuak beste datuekin estekatu (testuingurua)</p>
+    </section>
+
+    <section class="slide">
+        <h2>5 star Open Data</h2>
+        <p><img src="pictures-dba-31/5-star-steps.png" alt="5 star Open Data" width="80%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Data: Aplikazioak</h2>
+        <p>Enpresa Knowledge Graphs-ak: datu heterogeneoen integrazioa</p>
+        <p>Open Data: gobernuko datu publikoak (adib. <a href="https://datos.gob.es/">datos.gob.es</a>)</p>
+        <p>Liburutegiak eta artxiboak: estekatutako katalogo bibliografikoak</p>
+        <p>Zientzia: FAIR datu zientifikoak (Findable, Accessible, Interoperable, Reusable)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Data: Tresnak</h2>
+        <p><a href="https://github.com/zazuko/trifid">Trifid</a>: Linked Data zerbitzari arina</p>
+        <p><a href="https://solidproject.org/">Solid</a>: datu pertsonalen pod deszentralizatuak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Linked Data</h2>
+        <p><img src="pictures-dba-31/ld_trifid.svg" alt="Linked Data" width="80%"></p>
+    </section>
+
+        <section class="slide">
+        <h2>Linked Data</h2>
+        <p><img src="pictures-dba-31/ld_trifid_URI.svg" alt="Linked Data" width="90%"></p>
     </section>
 
     <!-- FOOTER -->
