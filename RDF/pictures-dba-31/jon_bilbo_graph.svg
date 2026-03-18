@@ -54,10 +54,10 @@
       <text x="707.4617" xml:space="preserve" y="454.102" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">urn:graph:data:ehu</text>
       <path fill="none" d="M322.0656 449.446 L344.4872 440.0905 L366.9088 433.4081 L389.3304 429.3986 L411.752 428.0621 L434.1736 429.3986 L456.5951 433.4081 L479.0167 440.0905 L494.0114 446.3471" clip-path="url(#clipPath2)"/>
       <path d="M501.3945 449.4277 L492.2452 440.1924 L493.0885 445.962 L488.3945 449.4212 Z" clip-path="url(#clipPath2)" stroke="none"/>
-      <text x="362.1014" xml:space="preserve" y="420.9904" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">eustat:amigo_de</text>
+      <text x="370.2975" xml:space="preserve" y="420.9904" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">eustat:laguna</text>
       <path fill="none" d="M570.4499 464.476 L576.3914 479.821 L580.6435 495.196 L583.1948 510.571 L584.0452 525.946 L583.1948 541.321 L580.6435 556.696 L576.3914 572.071 L573.3268 579.9857" clip-path="url(#clipPath2)"/>
       <path d="M570.4383 587.446 L579.4338 578.0609 L573.6879 579.0531 L570.1084 574.4502 Z" clip-path="url(#clipPath2)" stroke="none"/>
-      <text x="619.1447" xml:space="preserve" y="526.1212" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">ehu:vive_en</text>
+      <text x="615.1126" xml:space="preserve" y="526.1212" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">ehu:bizilekua</text>
     </g>
   </g>
 </svg>

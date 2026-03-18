@@ -27,7 +27,7 @@
         <p>Mikel Egaña Aranguren</p>
         <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
         <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
-        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" style="border: 1px solid #555;">
+        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" >
     </section>
 
     <section class="slide">
@@ -108,17 +108,17 @@
     <section class="slide">
         <h2>RDF triplea</h2>
         <p>RDF tripleak subjektu-predikatu-objektu eredua erabiltzen du, <a href="https://mikel-egana-aranguren.github.io/2026/03/15/RDF-minorised-languages.html">euskarak ez bezala</a>, subjektu-objektu-predikatu egitura duena</p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/triple.svg" alt="Triple RDF" width="60%"></p>
+        <p><img    src="pictures-dba-31/triple.svg" alt="Triple RDF" width="60%"></p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoa</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/grafo.svg" alt="RDF grafoa" width="80%"></p>
+        <p><img    src="pictures-dba-31/grafo.svg" alt="RDF grafoa" width="80%"></p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoa</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/grafo2.svg" alt="RDF grafoa" width="80%"></p>
+        <p><img    src="pictures-dba-31/grafo2.svg" alt="RDF grafoa" width="80%"></p>
     </section>
 
     <section class="slide">
@@ -134,22 +134,21 @@
     <section class="slide">
         <h2>RDF grafoa (Things not strings)</h2>
         <p>Grafoaren banako guztiak URIen bidez identifikatzen dira</p>
-        <p>URI: Uniform Resource Identifier (≠ URL!). Baliabideak identifikatzen ditu: http://www.wikidata.org/entity/Q8692
+        <p>URI: Uniform Resource Identifier (≠ URL!). Baliabideak identifikatzen ditu: http://www.wikidata.org/<b>entity</b>/Q8692
         </p>
-        <p>URL: Uniform Resource Locator. Sarean (Baliabide bat deskribatzen duen) dokumentu baten kokapen fisikoa adierazten duen URI-a: https://www.wikidata.org/wiki/Q8692
+        <p>URL: Uniform Resource Locator. Sarean (Baliabide bat deskribatzen duen) dokumentu baten kokapen fisikoa adierazten duen URI-a: https://www.wikidata.org/<b>wiki</b>/Q8692
         </p>
     </section>
     
-
     <section class="slide">
         <h2>RDF grafoa: URI-ak</h2>
-        <p><img   src="pictures-dba-31/ld_bilbo_crop.svg" alt="Grafo RDF: URIs" width="90%"></p>
-        <p>(Adibidea exekutatu)</p>
+        <p><img   src="pictures-dba-31/ld_bilbo_crop.svg" alt="Grafo RDF: URI-ak" width="90%"></p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/curl_wikidata.sh]</p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoa: URI-ak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/grafo_uris.svg" alt="Grafo RDF: URIs" width="80%"></p>
+        <p><img    src="pictures-dba-31/grafo_uris.svg" alt="Grafo RDF: URIs" width="80%"></p>
     </section>
 
     <section class="slide">
@@ -162,19 +161,19 @@
 
     <section class="slide">
         <h2>RDF grafoa: datatype-ak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/grafo_datatypes.svg" alt="Grafo RDF: datatypes" width="80%"></p>
+        <p><img    src="pictures-dba-31/grafo_datatypes.svg" alt="Grafo RDF: datatypes" width="80%"></p>
     </section>
 
     <section class="slide">
         <h2>RDF: eredua eta sintaxia</h2>
-        <p>RDF datuak kodifikatzeko eredua da</p>
-        <p>Eredu abstraktu hori sintaxi desberdinen bidez irudika daiteke: Fitxategi batean "Serializatu" (idatzi)</p>
+        <p>RDF datuak semantika jakin batekin adierazteko eredua da (grafo moduan)</p>
+        <p>Eredu abstraktu hori sintaxi desberdinen bidez inplementatu daiteke: Fitxategi batean "Serializatu" edo idatzi</p>
         <p>Sintaxi horietako bat RDF/XML da</p>
         <p>Ez nahastu eredua sintaxiarekin: RDF XML fitxategi bat baino askoz gehiago da!</p> 
     </section>
 
     <section class="slide">
-        <h2>RDF serializatu</h2>
+        <h2>RDF serializatu (W3C)</h2>
         <p>RDF/XML: <a href="http://www.w3.org/TR/rdf-syntax-grammar/">http://www.w3.org/TR/rdf-syntax-grammar/</a></p>
         <p>Turtle: <a href="http://www.w3.org/TR/turtle/">http://www.w3.org/TR/turtle/</a></p>
         <p>JSON-LD: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></p>
@@ -207,8 +206,8 @@
 
     <section class="slide">
         <h2>RDF: JSON-LD</h2>
-        <p>RDF serializazioa JSON-en: web garatzaileentzat erraza</p>
-        <p>@context-ek JSON giltzak RDF URIetara mapatzea definitzen du</p>
+        <p>RDF serializazioa JSON baliatuz: web garatzaileentzat erraza</p>
+        <p>@context-ek JSON key-ak RDF URIetara mapeatzen ditu</p>
         <p><a href="https://schema.org/">Schema.org</a>-ek (Google) web orrietako metadatuetarako erabiltzen du</p>
         <p>Google, Bing, Yahoo-k prozesatzen dute bilaketak hobetzeko</p>
     </section>
@@ -241,7 +240,7 @@
 
     <section class="slide">
         <h2>Triple Store-ak</h2>
-        <p>RDF W3C estandar bat da (=HTML, !=SQL), RDF fitxategi batetik abiatuz:
+        <p>RDF W3C-k definitutako estandarra da (=HTML, !=SQL), RDF fitxategi batetik:
             <ul>
                 <li>Datu eredua: Triple Store guztiek berdina kargatzen dute</li>
                 <li>Sintaxia (RDF/XML, Turtle, ...): Triple Store guztiek berdina kargatzen dute</li>
@@ -288,6 +287,9 @@
     <section class="slide">
         <h2>GraphDB</h2>
             <p><i>eGela; Laborategiko gidoiak; NoSQL; Beharrezko softwarea</i></p>
+            <p style="font-size:10px;font-family: monospace">[adibideak/./graphdb]</p>
+            <p style="font-size:10px;font-family: monospace">[adibideak/jon_bilbo.ttl]</p>
+            <p style="font-size:10px;font-family: monospace">[adibideak/mikel_bilbo.ttl]</p>
             <p>Kontuan hartzekoa: fitxategiak (taula) vs grafoak, entitatearen bateragarritasuna URI berdinarekin, baliabideak vs literalak</p>
     </section>
 
@@ -295,31 +297,32 @@
         <h2>RDF grafoak</h2>
         <p>Tripleak URI batek identifikatutako "poltsa" batean biltzea (datuekiko desberdina): Named Graphs</p>
         <p>Inplementazioaren araberakoa: Triple Store guztiek Default Graph bat dute, non triple guztiak biltzen diren</p>
-        <p>[Adibidea exekutatu]</p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/namedgraph.svg" alt="Grafo RDF" width="80%"></p>
-        <p>[Adibidea exekutatu]</p>
-    </section>
-
-    <section class="slide">
-        <h2>RDF grafoak</h2>
-        <p>Datuak eta metadatuak hizkuntza berdinean (NoSQL! RDF!)</p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/namedgraph_metadata.svg" alt="Grafo RDF" width="80%"></p>
+        <p><img    src="pictures-dba-31/namedgraph.svg" alt="Grafo RDF" width="80%"></p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/named_graph.nq]</p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoak</h2>
         <p>Datuak eta metadatuak hizkuntza berdinean (NoSQL! RDF!)</p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/namedgraph_metadata_namedgraph2.svg" alt="Grafo RDF" width="60%"></p>
+        <p><img    src="pictures-dba-31/namedgraph_metadata.svg" alt="Grafo RDF" width="80%"></p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/named_graph_metadatuak.nq]</p>
+    </section>
+
+    <section class="slide">
+        <h2>RDF grafoak</h2>
+        <p>Datuak eta metadatuak hizkuntza berdinean (NoSQL! RDF!)</p>
+        <p><img    src="pictures-dba-31/namedgraph_metadata_namedgraph2.svg" alt="Grafo RDF" width="60%"></p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/gizarte_segurantza.nq]</p>
     </section>
 
     <section class="slide">
         <h2>RDF grafoak</h2>
         <p>Default Graph</p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/namedgraph_metadata_namedgraph2_default_grap.svg" alt="Grafo RDF" width="80%"></p>
+        <p><img    src="pictures-dba-31/namedgraph_metadata_namedgraph2_default_grap.svg" alt="Grafo RDF" width="80%"></p>
     </section>
 
     <section class="slide">
@@ -390,7 +393,7 @@ ON DUPLICATE KEY UPDATE kolorea = VALUES(kolorea);<br>
     <section class="slide">
         <h2>RDF type</h2>
         <p>rdf:type predikatua - instantziak (RDF) eta klaseak (RDFS)</p>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/rdf_type.svg" alt="Grafo RDF: RDF type: baliabideak klaseetan taldekatu" width="60%"></p>
+        <p><img    src="pictures-dba-31/rdf_type.svg" alt="Grafo RDF: RDF type: baliabideak klaseetan taldekatu" width="60%"></p>
     </section>
 
     <section class="slide">
@@ -438,7 +441,7 @@ ON DUPLICATE KEY UPDATE kolorea = VALUES(kolorea);<br>
 
     <section class="slide">
         <h2>Ontologiak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/ontologia.svg" alt="Ontologiak" width="60%"></p>
+        <p><img    src="pictures-dba-31/ontologia.svg" alt="Ontologiak" width="60%"></p>
     </section>
 
     <section class="slide">
