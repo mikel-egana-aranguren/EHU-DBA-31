@@ -1,0 +1,6 @@
+@prefix schema: <https://schema.org/> .
+
+<urn:data:graph:euskadi> <http://vocab.bne.org/prop/arloa> <http://data.eu.org/temas/estadistica> .
+<urn:data:graph:euskadi> schema:author "Mikel Egaña Aranguren" .
+
+<https://data.seguridad-social/trabajo> <http://vocab.bne.org/prop/arloa> <http://data.eu.org/temas/estadistica> .

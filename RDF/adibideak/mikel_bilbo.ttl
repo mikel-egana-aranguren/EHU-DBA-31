@@ -1,0 +1,8 @@
+@prefix eus: <https://data.euskadi.eus/resource/> .
+@prefix ehu: <https://ehu.eus/staff/pdi/> .
+@prefix eustat: <urn:eustat:property:> .
+@prefix wikidata: <https://wikidata.org/prop/> .
+
+ehu:mikel eustat:vive_en eus:bilbo .
+eus:bilbo wikidata:parte_de eus:bizkaia ;
+    wikidata:poblacion "400000" .

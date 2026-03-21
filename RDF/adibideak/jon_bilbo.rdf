@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:eustat="urn:eustat:property:"
+         xmlns:ehu="https://ehu.eus/staff/pdi/">
+
+  <rdf:Description rdf:about="https://ehu.eus/staff/pdi/mikel">
+    <eustat:laguna>
+      <rdf:Description rdf:about="https://ehu.eus/staff/pdi/jon">
+        <ehu:bizilekua rdf:resource="https://data.euskadi.eus/resource/bilbo"/>
+      </rdf:Description>
+    </eustat:laguna>
+  </rdf:Description>
+</rdf:RDF>
+
+
+
+
+
+
+

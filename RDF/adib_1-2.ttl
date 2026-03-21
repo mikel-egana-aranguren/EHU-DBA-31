@@ -1,8 +1,0 @@
-@prefix eus: <https://data.euskadi.eus/resource/> .
-@prefix ehu: <https://ehu.eus/staff/pdi/> .
-@prefix eustat: <urn:eustat:property:> .
-@prefix wikidata: <https://wikidata.org/prop/> .
-
-ehu:mikel eustat:bizilekua eus:bilbo .
-eus:bilbo wikidata:parte_da eus:bizkaia ;
-    wikidata:biztanleria "400000" .

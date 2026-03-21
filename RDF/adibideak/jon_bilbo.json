@@ -1,0 +1,25 @@
+[
+	{
+		"@id": "https://data.euskadi.eus/resource/bilbo"
+	},
+	{
+		"@id": "https://ehu.eus/staff/pdi/jon",
+		"https://ehu.eus/staff/pdi/bizilekua": [
+			{
+				"@id": "https://data.euskadi.eus/resource/bilbo"
+			}
+		]
+	},
+	{
+		"@id": "https://ehu.eus/staff/pdi/mikel",
+		"urn:eustat:property:laguna": [
+			{
+				"@id": "https://ehu.eus/staff/pdi/jon"
+			}
+		]
+	}
+]
+
+
+
+

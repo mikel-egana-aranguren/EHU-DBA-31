@@ -1,0 +1,10 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mikel Egaña",
+  "jobTitle": "Profesor",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "UPV/EHU"
+  }
+}

@@ -1,0 +1,41 @@
+@prefix eus: <https://data.euskadi.eus/resource/> .
+@prefix ehu: <https://ehu.eus/staff/pdi/> .
+@prefix eustat: <urn:eustat:property:> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ehu:jon ehu:bizilekua eus:bilbo .
+<< ehu:mikel eustat:laguna ehu:jon >> eustat:noiztik "1997"^^xsd:gYear .
+
+# PREFIX eustat: <urn:eustat:property:>
+# PREFIX ehu: <https://ehu.eus/staff/pdi/>
+# SELECT ?year
+# WHERE {
+#    << ehu:mikel eustat:laguna ehu:jon >> eustat:noiztik ?year
+# }
+
+# PREFIX eustat: <urn:eustat:property:>
+# PREFIX ehu: <https://ehu.eus/staff/pdi/>
+# SELECT ?triple ?year
+# WHERE {
+#    ?triple eustat:noiztik ?year
+# }
+
+# PREFIX eustat: <urn:eustat:property:>
+# PREFIX ehu: <https://ehu.eus/staff/pdi/>
+# SELECT ?year ?bizileku
+# WHERE {
+#    ehu:jon ehu:bizilekua ?bizileku .
+#    << ehu:mikel eustat:laguna ehu:jon >> eustat:noiztik ?year
+# }
+
+# PREFIX eustat: <urn:eustat:property:>
+# PREFIX ehu: <https://ehu.eus/staff/pdi/>
+# SELECT ?amigo ?year
+# WHERE {
+#    << ?amigo eustat:laguna ehu:jon >> eustat:noiztik ?year
+# }
+
+
+
+
+

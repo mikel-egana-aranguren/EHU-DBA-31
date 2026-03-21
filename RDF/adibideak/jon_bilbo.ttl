@@ -1,0 +1,8 @@
+@prefix eus: <https://data.euskadi.eus/resource/> .
+@prefix ehu: <https://ehu.eus/staff/pdi/> .
+@prefix eustat: <urn:eustat:property:> .
+
+ehu:mikel eustat:laguna ehu:jon .
+ehu:jon ehu:bizilekua eus:bilbo .
+
+
