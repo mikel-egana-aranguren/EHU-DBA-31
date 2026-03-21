@@ -331,12 +331,13 @@
         <p>Baliabidea kanpotik erreferentziatu behar ez dugunean erabiltzen dira (ezin dira kanpoko zerbitzarietako grafoetatik lotu)</p>
         <p>Turtle sintaxia: _:b1, _:b2, ... edo []</p>
         <p>"Jon" baliabideak ez du URI propiorik</p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/jon_bilbo.ttl >> jon_bilbo_blank.ttl]</p>
     </section>
 
     <section class="slide">
         <h2>RDF: erreifikazioa</h2>
         <p>Triple bati buruzko informazioa: <i>Mikel eta Jon 1997tik lagunak dira</i></p>
-        <p>RDF triplea: <b>Mikel laguna_da Jon</b>. <i>1997tik?</i></p>
+        <p>RDF triplea: <b>Mikel laguna Jon</b>. <i>1997tik?</i></p>
     </section>
 
     <section class="slide">
@@ -355,6 +356,7 @@
         <p>RDFren hedapen berria: tripleak subjektu edo objektu gisa onartzea</p>
         <p>Sintaxia: &lt;&lt; subjektua predikatua objektua &gt;&gt;</p>
         <p>W3C estandarra garapenean</p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/rdfstar.ttl - SPARQL kodean]</p>
     </section>
 
     <section class="slide">
@@ -452,7 +454,7 @@ ON DUPLICATE KEY UPDATE kolorea = VALUES(kolorea);<br>
 
     <section class="slide">
         <h2>Linked Data</h2>
-        <p>Web sarean datu egituratuak argitaratzea, makinak lotu eta interpreta ditzaten</p>
+        <p>Web sarean datu egituratuak argitaratzea, makinek estekatu eta "uler" ditzaten</p>
         <p>Web estandarretan oinarritua: URI, HTTP(S), RDF, SPARQL</p>
         <p>Tim Berners-Lee-k (Web-aren asmatzaileak) proposatua 2006an</p>
     </section>
@@ -461,9 +463,9 @@ ON DUPLICATE KEY UPDATE kolorea = VALUES(kolorea);<br>
         <h2>Linked Data-ren printzipioak</h2>
         <ol>
             <li>URIak erabili baliabideak identifikatzeko</li>
-            <li>HTTP(S) URIak erabili baliabide horietara sartzeko</li>
+            <li>HTTP(S) URIak erabili baliabide horiek eskuratzeko</li>
             <li>Baliabide batera sartzean, bere datuak estandarrak erabiliz eman (RDF, SPARQL)</li>
-            <li>Beste URIetarako estekak jaso, baliabide gehiago aurkitzeko</li>
+            <li>Datuotan beste URIetarako estekak jaso, baliabide gehiago aurkitzeko</li>
         </ol>
         <p><a href="https://www.w3.org/DesignIssues/LinkedData.html">https://www.w3.org/DesignIssues/LinkedData.html</a></p>
     </section>
@@ -480,7 +482,7 @@ ON DUPLICATE KEY UPDATE kolorea = VALUES(kolorea);<br>
         <h2>Linked Data: Wikidata</h2>
         <p>Baliabidearen URIa: <a href="http://www.wikidata.org/entity/Q8692">http://www.wikidata.org/entity/Q8692</a></p>
         <p>Web orria (Gizakiak - HTML): <a href="https://www.wikidata.org/wiki/Q8692">https://www.wikidata.org/wiki/Q8692</a></p>
-        <p>RDF datuak (Agenteak): [curl_wikidata.sh]</p>
+        <p>RDF datuak (Agenteak): [adibideak/curl_wikidata.sh]</p>
         <p>SPARQL endpoint-a (Gizakiak eta agenteak): <a href="https://query.wikidata.org/">https://query.wikidata.org/</a></p>
     </section>
 
