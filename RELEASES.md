@@ -1,5 +1,9 @@
 # Releases
 
+## 2025-2026-1
+
+* NoSQL Sarrera, Grafoak, RDF
+
 ## 2024-2025-2
 
 * No Mongo
