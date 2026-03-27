@@ -1,0 +1,1 @@
+curl -H "Accept: text/turtle" "http://localhost:7200/repositories/ABD-01_25-26_ejemplos_RDF/rdf-graphs/service?graph=urn:count"

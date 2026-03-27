@@ -1,0 +1,15 @@
+@prefix gip: <http://gipuzkoa.eus/resource/> .
+@prefix gip_prop: <http://gipuzkoa.eus/prop/> .
+
+gip:jm-barandiaran gip_prop:kokalekua gip:ataun ;
+    rdf:type <http://dbpedia.org/ontology/museum> .
+gip:ataungo-udala gip_prop:kokalekua gip:ataun ;
+    rdf:type <http://dbpedia.org/ontology/museum> .
+gip:san-telmo gip_prop:kokalekua gip:donostia ;
+    rdf:type <http://dbpedia.org/ontology/museum> .
+gip:tabakalera gip_prop:kokalekua gip:donostia ;
+    rdf:type <http://dbpedia.org/ontology/museum> .
+gip:aquarium gip_prop:kokalekua gip:donostia ;
+    rdf:type <http://dbpedia.org/ontology/museum> .
+gip:gugenheim gip_prop:kokalekua gip:bilbo ;
+    rdf:type <http://dbpedia.org/ontology/museum> .

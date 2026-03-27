@@ -1,0 +1,10 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex: <http://example.org/> .
+
+ex:MikelEganaAranguren a foaf:Person ;
+    foaf:firstName "Mikel" ;
+    foaf:lastName "Egaña Aranguren" .
+
+ex:UnaiLopezNovoa a foaf:Person ;
+    foaf:firstName "Unai" ;
+    foaf:lastName "Lopez Novoa" .

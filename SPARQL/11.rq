@@ -1,6 +1,0 @@
-SELECT ?langile ?izena
-
-WHERE {
-    ?langile foaf:name ?izena .
-    FILTER regex(?izena,'Mi.*')
-}
