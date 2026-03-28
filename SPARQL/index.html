@@ -448,7 +448,7 @@ WHERE {<br>
         <h2>EXISTS vs MINUS</h2>
         <p>EXISTS/NOT EXISTS: filtroa, ez ditu binding-ak ezabatzen</p>
         <p>MINUS: soluzio osoak ezabatzen ditu</p>
-        <p>NOT EXISTS eraginkorragoa da baliozkotzarako</p>
+        <p>NOT EXISTS eraginkorragoa da balioztatzerako</p>
         <p>MINUS erabilgarriagoa da patroi konplexuen bazterketarako</p>
     </section>
 
@@ -495,7 +495,7 @@ DELETE DATA {<br>
     </section>
 
     <section class="slide">
-        <h2>DELETE</h2>
+        <h2>DELETE WHERE</h2>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
 DELETE {?person rdf:type foaf:person}<br>
 WHERE {?person foaf:name ?name}<br>
@@ -588,7 +588,7 @@ DROP GRAPH &lt;http://example.org/myGraph&gt;<br>
         <h2>COPY / MOVE / ADD</h2>
         <p>COPY: grafo bat beste batera kopiatu (helburua gainidazten du)</p>
         <p>MOVE: grafoa mugitu (kopiatu + jatorrizkoa ezabatu)</p>
-        <p>ADD: hiru-koitzak helburura gehitu (gainidatzi gabe)</p>
+        <p>ADD: tripleak helburura gehitu (gainidatzi gabe)</p>
     </section>
 
     <section class="slide">
@@ -611,7 +611,8 @@ TO &lt;urn:backup&gt;
         <h2>SPARQL 1.1 Protocol</h2>
         <p>HTTP GET query parametroarekin: <code>GET /sparql?query=SELECT...</code></p>
         <p>HTTP POST (kontsulta luzeagoetarako): <code>POST /sparql</code> body URL-encoded-ekin</p>
-        <p>Eduki-negoziaketa (Accept header): application/sparql-results+json, text/csv, application/rdf+xml, text/turtle</p>
+        <p>Content negotiation (Accept header): application/sparql-results+json, text/csv, application/rdf+xml, text/turtle</p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/post.sh]</p>
     </section>
 
     <section class="slide">
@@ -639,6 +640,7 @@ TO &lt;urn:backup&gt;
     <section class="slide">
         <h2>SPARQL 1.1 Service Description</h2>
         <p><code>curl -H "Accept: text/turtle" https://dbpedia.org/sparql/</code></p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/dbpedia_service_description.ttl]</p>
     </section>
 
     <section class="slide">
@@ -648,8 +650,8 @@ TO &lt;urn:backup&gt;
 
     <section class="slide">
         <h2>Kontsulta federatuak</h2>
-        <p>Hainbat SPARQL endpoint kontsultatzea ahalbidetzen dute query bakar batean</p>
-        <p>Iturri banatuetako datuak konbinatu <code>SERVICE</code> hitz gakoa erabiliz</p>
+        <p>Hainbat SPARQL endpoint kontsultatzea ahalbidetzen dute kontsulta bakarrean</p>
+        <p>Jatorri desberdinetako datuak konbinatu <code>SERVICE</code> hitz gakoa erabiliz</p>
     </section>
 
     <section class="slide">
@@ -680,10 +682,10 @@ WHERE {<br>
         <h2>Eragiketak</h2>
         <p><b>RDF grafoak kudeatu</b> HTTP bidez:</p>
         <ul>
-            <li><b>GET</b>: Grafo zehatz bat berreskuratu</li>
-            <li><b>PUT</b>: Grafo oso bat ordeztu (Suntsitzailea)</li>
-            <li><b>DELETE</b>: Grafo bat ezabatu</li>
-            <li><b>POST</b>: Hiru-koitzak grafo bati gehitu</li>
+            <li><b>GET</b>: Grafoa berreskuratu</li>
+            <li><b>PUT</b>: Grafoa ordeztu (Suntsitzailea)</li>
+            <li><b>DELETE</b>: Grafoa ezabatu</li>
+            <li><b>POST</b>: Tripleak grafoari gehitu</li>
         </ul>
     </section>
 
@@ -692,8 +694,8 @@ WHERE {<br>
         <p><b>Oinarrizko endpoint-a</b>: konfigurazioaren arabera</p>
         <p><b>Parametroak</b>:</p>
         <ul>
-            <li><code>graph=&lt;URI&gt;</code>: Izendun grafoa zehaztu</li>
-            <li><code>graph</code> gabe: Defektuzko grafoaren gaineko eragiketa</li>
+            <li><code>graph=&lt;URI&gt;</code>: Named Graph zehaztu</li>
+            <li><code>graph</code> gabe: Default Graph-ean du eragina</li>
         </ul>
         <p><b>Content-Type</b>: RDF/XML, Turtle, N-Triples, etab.</p>
     </section>
@@ -719,7 +721,7 @@ WHERE {<br>
             <tr>
                 <td style="border: 1px solid #ccc; padding: 8px;">Granularitatea</td>
                 <td style="border: 1px solid #ccc; padding: 8px;">Grafo osoa</td>
-                <td style="border: 1px solid #ccc; padding: 8px;">Hiru-koitz indibidualak</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Triple zehatzak</td>
             </tr>
             <tr>
                 <td style="border: 1px solid #ccc; padding: 8px;">Interfazea</td>
