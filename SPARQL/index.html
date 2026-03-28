@@ -52,45 +52,30 @@
 
     <section class="slide">
         <h2>SPARQL ikasteko baliabideak</h2>
-        <p><a href="https://www.learningsparql.com/">Learning SPARQL (liburua)</a></p>
+        <p><a href="https://www.learningsparql.com/">Learning SPARQL</a> (liburua)</p>
         <p><a href="https://www.wikidata.org/wiki/Wikidata:SPARQL_tutorial">Wikidata SPARQL Tutorial</a></p>
         <p><a href="https://query.wikidata.org/">Wikidata Query Service</a> (adibideekin)</p>
     </section>
 
     <section class="slide">
-        <h2>SPARQL W3C</h2>
-        <a href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/">SPARQL 1.1 Query Language</a>: RDF grafoetan SPARQL bidezko kontsultak<br>
-        <a href="https://www.w3.org/TR/2013/REC-sparql11-update-20130321/">SPARQL 1.1 Update</a>: RDF aldatu SPARQL bidez<br>
-        <a href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL 1.1 Protocol</a>: SPARQL kontsultak HTTP bidez exekutatu<br>
+        <h2>SPARQL W3C (=HTML, !=SQL)</h2>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/">SPARQL 1.1 Query Language</a>: SPARQL kontsultak RDF grafoetan<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-update-20130321/">SPARQL 1.1 Update</a>: RDF grafoak aldatu SPARQL bidez<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL 1.1 Protocol</a>: SPARQL kontsultak HTTP bidez<br>
         <a href="https://www.w3.org/TR/2013/REC-sparql11-http-rdf-update-20130321/">SPARQL 1.1 Graph Store HTTP Protocol</a>: RDF grafoak HTTP bidez aldatu<br>
-        <a href="https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/">SPARQL 1.1 Service Description</a>: SPARQL endpoint-ak RDFn deskribatu<br>
-        <a href="https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/">SPARQL 1.1 Federated Query</a>: endpoint-ak SPARQL kontsulta batean konbinatu<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/">SPARQL 1.1 Service Description</a>: SPARQL endpoint-ak RDF bidez deskribatu<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/">SPARQL 1.1 Federated Query</a>: SPARQL endpoint-ak konbinatu<br>
         <a href="https://graphdb.ontotext.com/documentation/10.8/w3c-specs.html#sparql-protocol-and-query-language">GraphDB SPARQL 1.1 compliance</a> (<strike>SPARQL 1.1 Service Description</strike>)
     </section>
 
-    <section class="slide">
-        <h1>SPARQL 1.1 Query Language</h1>
-        <p>W3C-ren estandarra (=HTML, !=SQL)</p>
+<section class="slide">
+        <h2>SPARQL</h2>
+        <p><img src="pictures-dba-31/SPARQL_1_2.svg" alt="SPARQL" width="90%"></p>
     </section>
 
     <section class="slide">
         <h2>SPARQL</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_1.png" alt="SPARQL" width="40%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>SPARQL</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_2.png" alt="SPARQL 2" width="40%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>SPARQL</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_3.png" alt="SPARQL 3" width="60%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>SPARQL</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_4.png" alt="SPARQL 4" width="60%"></p>
+        <p><img src="pictures-dba-31/SPARQL_1_4.svg" alt="SPARQL" width="90%"></p>
     </section>
 
     <section class="slide">
@@ -102,7 +87,7 @@
     <section class="slide">
         <h2>Museoen dataset-a</h2>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
-# Aurrizkiak<br>
+# Prefix-ak<br>
 PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;<br>
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br>
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;<br>
@@ -137,31 +122,28 @@ WHERE {<br>
         <h2>OPTIONAL</h2>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
 SELECT ?langilea ?bizilekua<br>
-<br><br>
+<br>
 WHERE {<br>
 &nbsp;&nbsp;# Pertsona izan behar du<br>
-&nbsp;&nbsp;?langilea rdf:type foaf:person .<br>
-<br><br>
+&nbsp;&nbsp;?langilea rdf:type foaf:person .<br><br>
 &nbsp;&nbsp;# Nonbaiten bizi behar du<br>
 &nbsp;&nbsp;?langilea gip_prop:bizilekua ?bizilekua<br>
-}<br>
+}
         </pre>
     </section>
 
     <section class="slide">
         <h2>OPTIONAL</h2>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
-        SELECT ?langilea ?bizilekua<br>
-<br><br>
+        SELECT ?langilea ?bizilekua<br><br>
 WHERE {<br>
 &nbsp;&nbsp;# Pertsona izan behar du<br>
-&nbsp;&nbsp;?langilea rdf:type foaf:person .<br>
-<br><br>
+&nbsp;&nbsp;?langilea rdf:type foaf:person .<br><br>
 &nbsp;&nbsp;# Leku batean bizi daiteke edo ez<br>
 &nbsp;&nbsp;OPTIONAL {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;?langilea gip_prop:bizilekua ?bizilekua<br>
-&nbsp;&nbsp;}<br>
-}<br>
+&nbsp;&nbsp;}
+}
         </pre>
     </section>
 
@@ -169,12 +151,12 @@ WHERE {<br>
         <h2>UNION</h2>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
 SELECT ?entitatea ?izena<br>
-<br><br>
+<br>
 WHERE {<br>
 &nbsp;&nbsp;{ ?entitatea rdfs:label ?izena }<br>
 &nbsp;&nbsp;UNION<br>
 &nbsp;&nbsp;{ ?entitatea foaf:name ?izena }<br>
-}<br>
+}
         </pre>
     </section>
 
@@ -282,6 +264,7 @@ WHERE {<br>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
         DESCRIBE &lt;http://gipuzkoa.eus/resource/mikel-aranguren&gt;
         </pre>
+        <p>[Visual]</p>
     </section>
 
     <section class="slide">
@@ -300,10 +283,6 @@ INSERT DATA{<br>
 &nbsp;&nbsp;}<br>
 } 
         </pre>
-    </section>
-
-    <section class="slide">
-        <h2>GRAFOAK</h2>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
 SELECT * <br>
 FROM &lt;http://example/bookStore&gt; # Grafo URI gabe probatu<br>
@@ -312,6 +291,7 @@ WHERE {<br>
 }<br>
         </pre>
     </section>
+
 
     <section class="slide">
         <h2>Agregazio funtzioak</h2>
