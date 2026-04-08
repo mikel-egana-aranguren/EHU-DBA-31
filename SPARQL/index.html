@@ -369,15 +369,15 @@ BIND(CONCAT(?first, " ", ?last) AS ?fullName)<br>
 
     <section class="slide">
         <h2>Kate-funtzioak</h2>
-        <p>CONCAT: string-ak kateatu</p>
-        <p>STRLEN: string-aren luzera</p>
+        <p>CONCAT: kateak batu</p>
+        <p>STRLEN: katearen luzera</p>
         <p>SUBSTR: azpikatea</p>
         <p>UCASE / LCASE: maiuskulak / minuskulak</p>
     </section>
 
     <section class="slide">
         <h2>Kate-funtzioak</h2>
-        <p>STRSTARTS / STRENDS / CONTAINS: string-etan bilatu</p>
+        <p>STRSTARTS / STRENDS / CONTAINS: kateetan bilatu</p>
         <p>REPLACE: testua ordeztu</p>
         <p>REGEX: adierazpen erregularrak</p>
     </section>
@@ -472,8 +472,7 @@ WHERE {<br>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
 SELECT ?person ?city<br>
 WHERE {<br>
-&nbsp;&nbsp;?person rdf:type foaf:person .<br>
-&nbsp;&nbsp;?person gov:worksFor/gip_prop:kokalekua ?city .<br>
+&nbsp;&nbsp;?person gov:worksFor/gip_prop:kokalekua ?city . # deskonposatu<br>
 }
         </pre>
     </section>
@@ -488,7 +487,7 @@ WHERE {<br>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
 DELETE DATA {<br>
 &nbsp;&nbsp;&lt;http://gipuzkoa.eus/resource/aitor-labajo&gt; <br>
-&nbsp;&nbsp;rdf:type foaf:person<br>
+&nbsp;&nbsp;rdf:type gip:hiritar<br>
 }<br>
 # DESCRIBE &lt;http://gipuzkoa.eus/resource/aitor-labajo&gt;
         </pre>
@@ -497,11 +496,11 @@ DELETE DATA {<br>
     <section class="slide">
         <h2>DELETE WHERE</h2>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
-DELETE {?person rdf:type foaf:person}<br>
+DELETE {?person rdf:type gip:hiritar}<br>
 WHERE {?person foaf:name ?name}<br>
 <br>
 #SELECT * WHERE {<br>
-#&nbsp;&nbsp;?person rdf:type foaf:person<br>
+#&nbsp;&nbsp;?person rdf:type gip:hiritar<br>
 #}
         </pre>
     </section>
@@ -510,7 +509,7 @@ WHERE {?person foaf:name ?name}<br>
         <h2>INSERT DATA</h2>
         <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
 INSERT DATA {<br>
-&nbsp;&nbsp;gip:aitor-labajo rdf:type gip:hiritar<br>
+&nbsp;&nbsp;gip:aitor-labajo rdf:type foaf:person<br>
 }<br>
 # DESCRIBE gip:aitor-labajo
         </pre>
@@ -698,6 +697,7 @@ WHERE {<br>
             <li><code>graph</code> gabe: Default Graph-ean du eragina</li>
         </ul>
         <p><b>Content-Type</b>: RDF/XML, Turtle, N-Triples, etab.</p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/graph_store_protocol.sh]</p>
     </section>
 
     <section class="slide">
@@ -739,6 +739,242 @@ WHERE {<br>
                 <td style="border: 1px solid #ccc; padding: 8px;">SPARQL INSERT/DELETE</td>
             </tr>
         </table>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Ontop: Datu erlazionalen birtualizazioa</h2>
+        <p><a href="https://graphdb.ontotext.com/documentation/10.8/ontop.html">Ontop</a> SQL datu-base erlazionalak SPARQL bidez kontsultatzeko GraphDB plugin-a</p>
+        <p>Datuak <strong>ez dira kopiatzen</strong> triplestore-ra: denbora errealean eskuratzen dira (birtualizazioa)</p>
+        <p>Ontop-ek SPARQL kontsultak SQLra automatikoki itzultzen ditu: erabiltzaileak SPARQL erabiltzen du datuak SQLn daudela jakin gabe</p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Ontop: Arkitektura</h2>
+        <ul>
+            <li><strong>Datu-base erlazionala</strong>: dagoen SQL datu-iturria</li>
+            <li><strong>Ontologia</strong>: RDF hiztegia definitzen du (klaseak eta propietateak)</li>
+            <li><strong>R2RML mapping-a</strong>: SQL taula/zutabeen eta RDF grafoaren arteko mapeoa</li>
+            <li><strong>Ontop/GraphDB</strong>: SPARQL → SQL denbora errealean itzultzen duen motorea</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>R2RML: RDB to RDF Mapping Language</h2>
+        <p><a href="https://www.w3.org/TR/r2rml/">R2RML</a> W3C estandar bat da, datu-base erlazionaletatik RDFra mapeoak definitzeko</p>
+        <ul>
+            <li><strong>Triples Map</strong>: SQL taula edo kontsulta batetik RDF tripleak nola sortu definitzen du</li>
+            <li><strong>Logical Table</strong>: jatorrizko SQL taula edo SQL kontsulta</li>
+            <li><strong>Subject Map</strong>: subjektuaren URIa nola sortu</li>
+            <li><strong>Predicate-Object Map</strong>: predikatuak eta objektuak nola sortu</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>R2RML: Mapeo adibidea</h2>
+        <p>SQL taula: <code>empleados(id, nombre, dept_id)</code></p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+&lt;#TriplesMap1&gt; a rr:TriplesMap ; <br/>
+&nbsp;&nbsp;rr:logicalTable [ rr:tableName "empleados" ] ; <br/>
+&nbsp;&nbsp;rr:subjectMap [ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:template "http://ejemplo.org/empleado/{id}" ; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:class ex:Empleado <br/>
+&nbsp;&nbsp;] ; <br/>
+&nbsp;&nbsp;rr:predicateObjectMap [ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:predicate ex:nombre ; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:objectMap [ rr:column "nombre" ] <br/>
+&nbsp;&nbsp;] ; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:predicateObjectMap [ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rr:predicate ex:departamento ; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rr:objectMap [ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rr:template "http://ejemplo.org/dept/{dept_id}" ] <br/>
+&nbsp;&nbsp;] . <br/>
+</pre>
+    </section>
+
+    <section class="slide">
+        <h2>R2RML: Mapeoaren emaitza</h2>
+        <table>
+            <tr><th>id</th><th>nombre</th><th>dept_id</th></tr>
+            <tr><td>1</td><td>Ana</td><td>10</td></tr>
+            <tr><td>2</td><td>Luis</td><td>20</td></tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>R2RML: Mapeoaren emaitza</h2>
+        <p><img src="pictures-dba-31/r2rml_result.svg" alt="R2RML RDF grafoa" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Ontop: Abantailak</h2>
+        <ul>
+            <li>Datuak ez dira bikoizten: datuek datu-base erlazionalean jarraitzen dute</li>
+            <li>Datuak beti eguneratuta (denbora errealeko sarbidea)</li>
+            <li>W3C estandarra (R2RML): motorren artean eramangarria</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Ontop: Mugak</h2>
+        <ul>
+            <li>Errendimendua datu-base erlazionalaren araberakoa da</li>
+            <li>SPARQL funtzio guztiek ez dute SQLrako itzulpen zuzenik</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p>GraphDB join flow: partekatutako aldagaiekin patroien arteko join-ak ebaluatu (SPARQL: inner join inplizitua)</p>
+        <p>GraphDB <a href="https://graphdb.ontotext.com/documentation/10.8/explain-plan.html">Explain Plan</a>: ebaluazio ordena optimizatua aztertu</p>
+        <p>Kontsultari <code>FROM onto:explain</code> gehituta aktibatzen da</p>
+        <p>(<code>onto:measure</code> aukerak exekuzio-denborak ematen ditu)</p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p><pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+PREFIX onto: &lt;http://www.ontotext.com/&gt;<br>
+SELECT * FROM onto:explain # onto:measure<br>
+WHERE {<br>
+&nbsp;&nbsp;?s ?p ?o.<br>
+}<br>
+        </pre></p>
+
+        <p><img src="pictures-dba-31/explain_plan.png" alt="GraphDB Explain Plan" width="70%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p><b>Optimization group</b>: tripleen taldea, optimizazioaren arabera ordenatua</p>
+        <p><b>Collection size</b>: patroiarekin bat datozen triple kopurua</p>
+        <p><b>Predicate collection size</b>: predikatu hori duten errepositorioko triple guztien kopurua</p>
+        <p><b>Unique subjects</b>: patroiarekin bat datozen subjektu bakarren kopurua</p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p><b>Unique objects</b>: patroiarekin bat datozen objektu bakarren kopurua</p>
+        <p><b>Current complexity</b>: datu-baseak patroi horretarako egin beharko dituen bilaketa atomikoen konplexutasuna</p>
+        <p><b>Estimated number of iterations</b>: talde honetarako exekutatuko diren iterazioak</p>
+
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p>Talde barruko tripleen ordena selektibitatearen arabera</p>
+        <p>Patroi baten selektibitatea: collection size (predikatuaren karga), join-ak (subjektu/objektu bakarrak), eta aurreko patroian ebatzitako aldagaiak</p>
+
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+PREFIX onto: &lt;http://www.ontotext.com/&gt;<br>
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;<br>
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;<br>
+PREFIX gov: &lt;http://vocab.data.gov/def/drm#&gt;<br>
+<br>
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?person rdf:type foaf:person .<br>
+&nbsp;&nbsp;?person gov:worksFor ?museo .<br>
+&nbsp;&nbsp;?person foaf:name ?nombre .<br>
+}<br>
+        </pre>
+        <p style="font-size:10px;font-family: monospace">[INSERT {?person rdf:type foaf:person . } WHERE { ?person gov:worksFor ?museo . ?person foaf:name ?nombre . }]</p>
+    </section>
+    
+
+    <section class="slide">
+        <h2>Explain Plan: Patroien ordena</h2>
+        <p>foaf:name: collection size 13 (txikiena) eta predicate collection size ere 13: foaf:name triple horietan bakarrik agertzen da, oso selektiboa</p>
+        <p>gov:worksFor collection size 16, baina ?person dagoeneko ebatzita dago</p>
+        <p>rdf:type collection size 54, 45 subjektu bakar eta objektu bakarrekin</p>
+        <p>Konplexutasuna = collection size / selektibitatea (ebatzitako aldagaiak barne)</p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p>Talde barruko tripleak: automatikoki optimizatzen dira</p>
+        <p>Taldeen ordena: ez da automatikoki optimizatzen, kontsultan agertzen diren ordenan ebaluatzen dira (erabiltzaileak optimizatu behar du)</p>
+        <p>Taldeak join flow-a eteten denean agertzen dira</p>
+    </section>
+
+    <section class="slide">
+        <h2>Join flow-a eteten dute</h2>
+        <p>OPTIONAL: left join osoa lehenik ebatzi behar da eta gero aukerako zatia</p>
+        <p>UNION: adar bakoitzaebaluatu eta ondoren konbinatu</p>
+        <p>sub-SELECT: beti lehenengo ebaluatzen da</p>
+        <p>FILTER, BIND, VALUES: aurreko aldagaien menpe daude</p>
+    </section>
+
+    <section class="slide">
+        <h2>Join flow-a eteten dute</h2>
+        <p>* edo + duten property paths: hedapen errekurtsiboa</p>
+        <p>Aldagai partekaturik gabeko patroi deskonektatuak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan: FILTER goiztiarra vs berantiarra</h2>
+        <p>A kontsulta: FILTER amaieran (eraginkortasun txikia)</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?person rdf:type foaf:person .<br>
+&nbsp;&nbsp;?person gov:worksFor ?museo .<br>
+&nbsp;&nbsp;?person foaf:name ?nombre .<br>
+&nbsp;&nbsp;FILTER regex(?nombre, "Mi.*")<br>
+}<br>
+        </pre>
+        <p>Lehenik konbinazio GUZTIAK sortzen ditu, eta ondoren iragazten du</p>
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan: FILTER goiztiarra vs berantiarra</h2>
+        <p>B kontsulta: FILTER ?nombre-ren ondoren berehala (eraginkorra)</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?person foaf:name ?nombre .<br>
+&nbsp;&nbsp;FILTER regex(?nombre, "Mi.*")<br>
+&nbsp;&nbsp;?person rdf:type foaf:person .<br>
+&nbsp;&nbsp;?person gov:worksFor ?museo .<br>
+}<br>
+        </pre>
+        <p>Goiz iragazi → tarteko emaitza gutxiago → join gutxiago</p>
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan: OPTIONAL-en eragina</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?museo rdf:type dbpedia:museum .<br>
+&nbsp;&nbsp;?museo rdfs:label ?nombre .<br>
+&nbsp;&nbsp;OPTIONAL {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?museo gip_prop:kopurua ?obras .<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;OPTIONAL {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?museo gip_prop:kokalekua ?ciudad .<br>
+&nbsp;&nbsp;}<br>
+}<br>
+        </pre>
+        <p>OPTIONAL bakoitzak Left Join bat gehitzen du → kostu handiagoa</p>
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan: Beharrezkoa ez den OPTIONAL saihestu</h2>
+        <p>Badakigunean museo guztiek kokalekua eta kopurua dutela:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?museo rdf:type dbpedia:museum .<br>
+&nbsp;&nbsp;?museo rdfs:label ?nombre .<br>
+&nbsp;&nbsp;?museo gip_prop:kopurua ?obras .<br>
+&nbsp;&nbsp;?museo gip_prop:kokalekua ?ciudad .<br>
+}<br>
+        </pre>
+        <p>OPTIONAL gabe: Inner Join, eraginkorragoa</p>
     </section>
 
     <!-- FOOTER -->
