@@ -1,0 +1,26 @@
+digraph RDF {
+    rankdir=LR;
+    bgcolor="transparent";
+    node [fontname="Helvetica", fontsize=12];
+    edge [fontname="Helvetica", fontsize=10];
+
+    // Resource nodes (URIs) - ellipses
+    emp1 [label="ex:empleado/1", shape=ellipse, style=filled, fillcolor="#6CA6CD", fontcolor=white];
+    emp2 [label="ex:empleado/2", shape=ellipse, style=filled, fillcolor="#6CA6CD", fontcolor=white];
+    clsEmp [label="ex:Empleado", shape=ellipse, style=filled, fillcolor="#FFD700", fontcolor="black"];
+    dept10 [label="ex:dept/10", shape=ellipse, style=filled, fillcolor="#DDA0DD", fontcolor="black"];
+    dept20 [label="ex:dept/20", shape=ellipse, style=filled, fillcolor="#DDA0DD", fontcolor="black"];
+
+    // Literal nodes - rectangles
+    ana [label="\"Ana\"", shape=box, style=filled, fillcolor="#98FB98", fontcolor="black"];
+    luis [label="\"Luis\"", shape=box, style=filled, fillcolor="#98FB98", fontcolor="black"];
+
+    // Edges
+    emp1 -> clsEmp [label="a"];
+    emp1 -> ana [label="ex:nombre"];
+    emp1 -> dept10 [label="ex:departamento"];
+
+    emp2 -> clsEmp [label="a"];
+    emp2 -> luis [label="ex:nombre"];
+    emp2 -> dept20 [label="ex:departamento"];
+}

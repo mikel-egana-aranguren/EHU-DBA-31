@@ -1,0 +1,19 @@
+@prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ns1:	<https://dbpedia.org/sparql#> .
+@prefix sd:	<http://www.w3.org/ns/sparql-service-description#> .
+ns1:service	rdf:type	sd:Service .
+@prefix ns3:	<https://dbpedia.org/> .
+ns1:service	sd:endpoint	ns3:sparql ;
+	sd:feature	sd:DereferencesURIs ,
+		sd:UnionDefaultGraph .
+@prefix formats:	<http://www.w3.org/ns/formats/> .
+ns1:service	sd:resultFormat	formats:RDFa ,
+		formats:N-Triples ,
+		formats:N3 ,
+		formats:RDF_XML ,
+		formats:SPARQL_Results_CSV ,
+		formats:SPARQL_Results_JSON ,
+		formats:SPARQL_Results_XML ,
+		formats:Turtle ;
+	sd:supportedLanguage	sd:SPARQL10Query ;
+	sd:url	ns3:sparql .

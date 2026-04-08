@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eu">
 <head>
     <title>SPARQL</title>
     <meta charset="utf-8">
@@ -38,107 +38,190 @@
 
     <section class="slide">
         <h2>SPARQL</h2>
-        <p>SPARQL: SPARQL Protocol and RDF Query Language</p>
-        <p><a href="https://www.w3.org/TR/sparql11-overview/">W3C-aren estandar ofiziala</a>:
-            <ul>
-                <li>RDF grafoetan kontsultak egiteko</li>
-                <li>Kontsulta horiek HTTP(S) bidez exekutatu SPARQL endpoint baten kontra (Federatutako kontsultak barne)</li>
+        <p><b>S</b>PARQL <b>P</b>rotocol and <b>R</b>DF <b>Q</b>uery <b>L</b>anguage</p>
+    </section>
 
-            </ul>
-        </p>
+    <section class="slide">
+        <h2>SPARQL Endpoint publikoak</h2>
+        <p><a href="https://query.wikidata.org/">Wikidata Query Service</a></p>
+        <p><a href="https://dbpedia.org/sparql">DBpedia SPARQL</a></p>
+        <p><a href="https://sparql.uniprot.org/">UniProt SPARQL</a></p>
+        <p><a href="https://opendata.euskadi.eus/lod/-/linked-open-data/">Open Data Euskadi</a></p>
+        <p><a href="https://datos.gob.es/es/sparql">datos.gob.es</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL ikasteko baliabideak</h2>
+        <p><a href="https://www.learningsparql.com/">Learning SPARQL</a> (liburua)</p>
+        <p><a href="https://www.wikidata.org/wiki/Wikidata:SPARQL_tutorial">Wikidata SPARQL Tutorial</a></p>
+        <p><a href="https://query.wikidata.org/">Wikidata Query Service</a> (adibideekin)</p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL W3C (=HTML, !=SQL)</h2>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/">SPARQL 1.1 Query Language</a>: SPARQL kontsultak RDF grafoetan<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-update-20130321/">SPARQL 1.1 Update</a>: RDF grafoak aldatu SPARQL bidez<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL 1.1 Protocol</a>: SPARQL kontsultak HTTP bidez<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-http-rdf-update-20130321/">SPARQL 1.1 Graph Store HTTP Protocol</a>: RDF grafoak HTTP bidez aldatu<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/">SPARQL 1.1 Service Description</a>: SPARQL endpoint-ak RDF bidez deskribatu<br>
+        <a href="https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/">SPARQL 1.1 Federated Query</a>: SPARQL endpoint-ak konbinatu<br>
+        <a href="https://graphdb.ontotext.com/documentation/10.8/w3c-specs.html#sparql-protocol-and-query-language">GraphDB SPARQL 1.1 compliance</a> (<strike>SPARQL 1.1 Service Description</strike>)
+    </section>
+
+<section class="slide">
+        <h2>SPARQL</h2>
+        <p><img src="pictures-dba-31/SPARQL_1_2.svg" alt="SPARQL" width="90%"></p>
     </section>
 
     <section class="slide">
         <h2>SPARQL</h2>
-        <p>SPARQL ezagutza eskatzen duten enpresak: <a href="https://sparql.club/">https://sparql.club/</a>  (Datuak: indeed.com eta monster.com)</p>
-        <p>Liburuak: <a href="https://www.learningsparql.com/">https://www.learningsparql.com/</a></p>
+        <p><img src="pictures-dba-31/SPARQL_1_4.svg" alt="SPARQL" width="90%"></p>
     </section>
 
     <section class="slide">
-        <h2>SPARQL</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_1.png" alt="SPARQL" width="40%"></p>
+        <h2>Museoen dataset-a</h2>
+        <p style="font-size:10px;font-family: monospace">[Museoak.rdf]</p>
+        <p><img src="pictures-dba-31/Museoak-graph.png" alt="Museoen grafoa" width="70%"></p>
     </section>
 
     <section class="slide">
-        <h2>SPARQL</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_2.png" alt="SPARQL 2" width="40%"></p>
+        <h2>Museoen dataset-a</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Prefix-ak<br>
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;<br>
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br>
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;<br>
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;<br>
+PREFIX gip_prop: &lt;http://gipuzkoa.eus/prop/&gt;<br>
+PREFIX gip: &lt;http://gipuzkoa.eus/resource/&gt;<br>
+PREFIX dbpedia: &lt;http://dbpedia.org/ontology/&gt;<br>
+PREFIX gov: &lt;http://vocab.data.gov/def/drm#&gt;<br>
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>SPARQL</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_3.png" alt="SPARQL 3" width="60%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>SPARQL</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_4.png" alt="SPARQL 4" width="60%"></p>
+        <h2>GraphDB namespace-ak</h2>
+        <p><img src="pictures-dba-31/graphdb_namespaces.png" alt="GraphDB namespaces" width="70%"></p>
     </section>
 
     <section class="slide">
         <h2>Kontsultaren egitura</h2>
-        (<a href="Museoak.rdf">museoak.rdf</a> GraphDB-ra igo)
-        (<a href="1.rq">1.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_basic.png" alt="SPARQL basic" width="40%"></p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Jaso nahi ditugun aldagaiak (Denak = "*")<br>
+SELECT ?subjektua ?klasea<br>
+<br>
+# Grafo nagusitik atera nahi dugun grafo-patroia<br>
+WHERE {<br>
+&nbsp;&nbsp;?subjektua gip_prop:bizilekua gip:donostia .<br>
+&nbsp;&nbsp;?subjektua rdf:type ?klasea<br>
+}<br>
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Kontsultaren egitura</h2>
-        (<a href="2.rq">2.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_basic_2.png" alt="SPARQL basic 2" width="40%"></p>
+        <h2>OPTIONAL</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?langilea ?bizilekua<br>
+<br>
+WHERE {<br>
+&nbsp;&nbsp;# Pertsona izan behar du<br>
+&nbsp;&nbsp;?langilea rdf:type foaf:person .<br><br>
+&nbsp;&nbsp;# Nonbaiten bizi behar du<br>
+&nbsp;&nbsp;?langilea gip_prop:bizilekua ?bizilekua<br>
+}
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Optional</h2>
-        (<a href="3.rq">3.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_optional_3.png" alt="SPARQL optional" width="40%"></p>
+        <h2>OPTIONAL</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+        SELECT ?langilea ?bizilekua<br><br>
+WHERE {<br>
+&nbsp;&nbsp;# Pertsona izan behar du<br>
+&nbsp;&nbsp;?langilea rdf:type foaf:person .<br><br>
+&nbsp;&nbsp;# Leku batean bizi daiteke edo ez<br>
+&nbsp;&nbsp;OPTIONAL {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?langilea gip_prop:bizilekua ?bizilekua<br>
+&nbsp;&nbsp;}
+}
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Optional</h2>
-        (<a href="4.rq">4.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_optional_4.png" alt="SPARQL optional" width="40%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>Union</h2>
-        (<a href="5.rq">5.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_union_5.png" alt="SPARQL optional" width="40%"></p>
+        <h2>UNION</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?entitatea ?izena<br>
+<br>
+WHERE {<br>
+&nbsp;&nbsp;{ ?entitatea rdfs:label ?izena }<br>
+&nbsp;&nbsp;UNION<br>
+&nbsp;&nbsp;{ ?entitatea foaf:name ?izena }<br>
+}
+        </pre>
     </section>
 
     <section class="slide">
         <h2>Emaitzak ordenatu</h2>
-        (<a href="6.rq">6.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_order_6.png" alt="SPARQL order" width="40%"></p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?pertsona ?izena<br>
+<br>
+WHERE {<br>
+&nbsp;&nbsp;?pertsona foaf:name ?izena <br>
+}<br>
+ <br>
+ORDER BY DESC (?izena) # DESC edo ASC izan daiteke
+        </pre>
     </section>
 
     <section class="slide">
         <h2>Emaitzak mugatu</h2>
-        (<a href="7.rq">7.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_limit_7.png" alt="SPARQL limit" width="40%"></p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+        SELECT ?pertsona ?izena
+<br><br>
+WHERE {<br>
+&nbsp;&nbsp;?pertsona foaf:name ?izena <br>
+}<br><br>
+ORDER BY DESC (?izena) <br>
+LIMIT 3<br>
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Orrialdeak</h2>
-        (<a href="8.rq">8.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_pages_8.png" alt="SPARQL pages" width="40%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>Orrialdeak</h2>
-        (<a href="9.rq">9.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_pages_9.png" alt="SPARQL pages" width="40%"></p>
+        <h2>Orrialdekatzea</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+        SELECT ?pertsona ?izena<br>
+  <br>         
+WHERE {<br>
+&nbsp;&nbsp;?pertsona foaf:name ?izena <br>
+}<br><br>
+ORDER BY DESC (?izena) <br>
+LIMIT 3<br>
+OFFSET 3 # OFFSET 6<br>
+        </pre>
     </section>
 
     <section class="slide">
         <h2>Emaitzak filtratu</h2>
-        (<a href="10.rq">10.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_filter_10.png" alt="SPARQL filter" width="40%"></p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+        SELECT ?museoa ?langile_kop<br>
+<br>
+WHERE {<br>
+&nbsp;&nbsp;?museoa gip_prop:kopurua ?langile_kop .<br>
+&nbsp;&nbsp;FILTER (?langile_kop > "800"^^xsd:int)<br>
+}<br>
+        </pre>
     </section>
 
     <section class="slide">
         <h2>Emaitzak filtratu</h2>
-        (<a href="11.rq">11.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_filter_11.png" alt="SPARQL filter" width="40%"></p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+        SELECT ?langilea ?izena<br>
+<br>
+WHERE {<br>
+&nbsp;&nbsp;?langilea foaf:name ?izena .<br>
+&nbsp;&nbsp;FILTER regex(?izena,'Mi.*')<br>
+}<br>
+        </pre>
     </section>
 
     <section class="slide">
@@ -157,63 +240,31 @@
 
     <section class="slide">
         <h2>Duplikatuak ekidin</h2>
-        (<a href="12.rq">12.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_duplicate_12.png" alt="SPARQL duplicate" width="40%"></p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?lantokia # DISTINCT<br>
+WHERE {<br>
+&nbsp;&nbsp;?person rdf:type foaf:person .<br>
+&nbsp;&nbsp;?person gov:worksFor ?lantokia      <br>
+}
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Ask</h2>
-        (<a href="13.rq">13.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_ask_13.png" alt="SPARQL ask" width="40%"></p>
+        <h2>ASK</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+        ASK <br>
+WHERE {<br>
+&nbsp;&nbsp;?person gov:worksFor gip:gugenheim <br>    
+}
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Describe</h2>
-        <p><pre><code>DESCRIBE &lt;http://gipuzkoa.eus/resource/mikel-aranguren&gt;</code></pre></p>
-    </section>
-
-    <section class="slide">
-        <h2>CONSTRUCT</h2>
-        (<a href="14.rq">14.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_construct_14.png" alt="SPARQL construct" width="40%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>Delete data</h2>
-        <p><pre><code>DELETE DATA {
-            &lt;http://gipuzkoa.eus/resource/aitor-labajo&gt; 
-                rdf:type foaf:person
-          }</code></pre></p>
-          <p>DESCRIBE &lt;http://gipuzkoa.eus/resource/aitor-labajo&gt;</p>
-    </section>
-
-    <section class="slide">
-        <h2>Delete</h2>
-        <pre><code>
-            DELETE {?person rdf:type foaf:person}
-            WHERE {?person foaf:name ?name}
-            SELECT * WHERE {
-                   ?person rdf:type foaf:person
-                }
-                </code></pre>
-    </section>
-
-    <section class="slide">
-        <h2>INSERT DATA</h2>
-        <pre><code>
-        PREFIX gip:&lt;http://gipuzkoa.eus/resource/&gt;
-        INSERT DATA {
-            gip:aitor-labajo rdf:type gip:hiritar
-        }
-        DESCRIBE &lt;http://gipuzkoa.eus/resource/aitor-labajo&gt;
-        </code></pre>
-    </section>
-
-    <section class="slide">
-        <h2>INSERT</h2>
-        (<a href="15.rq">15.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_insert_15.png" alt="SPARQL insert" width="40%"></p>
-        <p>DESCRIBE &lt;http://gipuzkoa.eus/resource/jon-alfaro&gt;</p>
+        <h2>DESCRIBE</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+        DESCRIBE &lt;http://gipuzkoa.eus/resource/mikel-aranguren&gt;
+        </pre>
+        <p>[Visual]</p>
     </section>
 
     <section class="slide">
@@ -222,42 +273,709 @@
         <p>Multzo osoa URI batekin identifikatzen da (datuena ez dena)</p>
         <p>Triple Store guztiek Default Graph bat dute</p>
     </section>
-    
-    <section class="slide">
-        <h2>GRAFOAK</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_named_graphs.png" alt="Named Graphs" width="40%"></p>
-    </section>
 
     <section class="slide">
         <h2>GRAFOAK</h2>
-        <p>GRAFOAK oso baliagarriak dira datuei buruzko datuak gehitzeko (metadatuak): adib. jatorria, egilea, sorrera data</p>
-        <p>(beste gauza batzuen artean)</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+INSERT DATA{<br>
+&nbsp;&nbsp;GRAPH &lt;http://example/bookStore&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;http://example/book1&gt;  gip_prop:price  42<br>
+&nbsp;&nbsp;}<br>
+} 
+        </pre>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * <br>
+FROM &lt;http://example/bookStore&gt; # Grafo URI gabe probatu<br>
+WHERE {<br>
+&nbsp;&nbsp;?s ?p  ?o .<br>
+}<br>
+        </pre>
     </section>
-    
+
 
     <section class="slide">
-        <h2>GRAFOAK</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_named_graphs_metadata.png" alt="Named Graphs metadata" width="40%"></p>
+        <h2>Agregazio funtzioak</h2>
+        <p>COUNT: elementuak zenbatu</p>
+        <p>SUM: balioen batura</p>
+        <p>AVG: batez bestekoa</p>
     </section>
 
     <section class="slide">
-        <h2>GRAFOAK</h2>
-        (<a href="17.rq">17.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_insert_graphs_17.png" alt="SPARQL insert graph" width="40%"></p>
+        <h2>Agregazio funtzioak</h2>
+        <p>MIN / MAX: minimoa eta maximoa</p>
+        <p>GROUP_CONCAT: balioak kateatu</p>
+        <p>SAMPLE: adibide-balio bat lortu</p>
     </section>
 
     <section class="slide">
-        <h2>GRAFOAK</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_select_from_graphs_18.png" alt="SPARQL insert graph" width="40%"></p>
+        <h2>COUNT</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT (COUNT(?person) AS ?guztira)<br>
+WHERE {<br>
+&nbsp;&nbsp;?person rdf:type foaf:person<br>
+}
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>GROUP BY</h2>
+        <p>Emaitzak aldagai baten balioaren arabera multzokatu</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?hiria (COUNT(?museo) AS ?museoKop)<br>
+WHERE {<br>
+&nbsp;&nbsp;GRAPH &lt;urn:count&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?museo rdf:type dbpedia:museum ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gip_prop:kokalekua ?hiria .<br>
+&nbsp;&nbsp;}<br>
+}<br>
+GROUP BY ?hiria<br>
+ORDER BY DESC(?museoKop)<br>
+        </pre>
+        <p style="font-size:10px;font-family: monospace">[Museoak-count.ttl]</p>
+    </section>
+
+    <section class="slide">
+        <h2>HAVING</h2>
+        <p>Taldeak filtratu agregazioaren ondoren</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?hiria (COUNT(?museo) AS ?museoKop)<br>
+WHERE {<br>
+&nbsp;&nbsp;GRAPH &lt;urn:count&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?museo rdf:type dbpedia:museum ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gip_prop:kokalekua ?hiria .<br>
+&nbsp;&nbsp;}<br>
+}<br>
+GROUP BY ?hiria<br>
+HAVING (COUNT(?museo) > 1)<br>
+ORDER BY DESC(?museoKop)<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>BIND</h2>
+        <p>Balioak aldagaiei esleitu kontsultaren barruan</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?person ?fullName<br>
+WHERE {<br>
+&nbsp;&nbsp;GRAPH &lt;urn:name-surname&gt;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?person foaf:firstName ?first ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;foaf:lastName ?last .<br>
+&nbsp;&nbsp;}<br>
+BIND(CONCAT(?first, " ", ?last) AS ?fullName)<br>
+}
+        </pre>
+        <p style="font-size:10px;font-family: monospace">[Museoak-name-surname.ttl]</p>
+    </section>
+
+    <section class="slide">
+        <h2>Kate-funtzioak</h2>
+        <p>CONCAT: kateak batu</p>
+        <p>STRLEN: katearen luzera</p>
+        <p>SUBSTR: azpikatea</p>
+        <p>UCASE / LCASE: maiuskulak / minuskulak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Kate-funtzioak</h2>
+        <p>STRSTARTS / STRENDS / CONTAINS: kateetan bilatu</p>
+        <p>REPLACE: testua ordeztu</p>
+        <p>REGEX: adierazpen erregularrak</p>
+    </section>
+
+    <section class="slide">
+        <h2>REGEX</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?museo ?izena<br>
+WHERE {<br>
+&nbsp;&nbsp;?museo rdf:type dbpedia:museum ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rdfs:label ?izena .<br>
+&nbsp;&nbsp;FILTER REGEX(?izena, "Gugen")<br>
+}<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Funtzio numerikoak</h2>
+        <p>ABS: balio absolutua</p>
+        <p>ROUND / CEIL / FLOOR: biribiltzea</p>
+        <p>RAND: ausazko zenbakia</p>
+        <p>Eragileak: +, -, *, /</p>
+    </section>
+
+    <section class="slide">
+        <h2>Data/ordu funtzioak</h2>
+        <p>NOW(): uneko data eta ordua</p>
+        <p>YEAR / MONTH / DAY: osagaiak atera</p>
+        <p>HOURS / MINUTES / SECONDS: ordu zehatza</p>
+    </section>
+
+    <section class="slide">
+        <h2>VALUES</h2>
+        <p>Inline balioak aldagaiei eman (Kontsulta parametrizatuetarako baliagarria)</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?museo ?obrak<br>
+WHERE {<br>
+&nbsp;&nbsp;VALUES ?museo {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;http://gipuzkoa.eus/resource/gugenheim&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;http://gipuzkoa.eus/resource/san-telmo&gt;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;?museo gip_prop:kopurua ?obrak<br>
+}
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>MINUS</h2>
+        <p>Patroi batekin bat datozen emaitzak baztertu: museo guztiak, 300 obra baino gehiago dituzten museoak kenduta</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?museo ?obrak<br>
+WHERE {<br>
+&nbsp;&nbsp;?museo rdf:type dbpedia:museum .<br>
+&nbsp;&nbsp;MINUS {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?museo gip_prop:kopurua ?obrak .<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FILTER (?obrak > 300)<br>
+&nbsp;&nbsp;}<br>
+}<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>NOT EXISTS</h2>
+        <p>Patroi baten existentzia ezaren arabera filtratu</p>
+    </section>
+
+    <section class="slide">
+        <h2>EXISTS vs MINUS</h2>
+        <p>EXISTS/NOT EXISTS: filtroa, ez ditu binding-ak ezabatzen</p>
+        <p>MINUS: soluzio osoak ezabatzen ditu</p>
+        <p>NOT EXISTS eraginkorragoa da balioztatzerako</p>
+        <p>MINUS erabilgarriagoa da patroi konplexuen bazterketarako</p>
+    </section>
+
+    <section class="slide">
+        <h2>Property Paths</h2>
+        <p>^: alderantzizkoa (ex:parent^ seme-alabak aurkitzen ditu)</p>
+        <p>*: zero edo gehiago (ex:knows* ezagunen sarea)</p>
+        <p>+: bat edo gehiago (ex:subClassOf+ hierarkiarako)</p>
+        <p>!: edozein erlazio hori izan ezik</p>
+    </section>
+
+    <section class="slide">
+        <h2>Property Paths</h2>
+        <p>?: aukerakoa (zero edo bat)</p>
+        <p>|: alternatiboa (ex:email|ex:phone)</p>
+        <p>/: sekuentzia (ex:livesIn/ex:country)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Property paths</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?person ?city<br>
+WHERE {<br>
+&nbsp;&nbsp;?person gov:worksFor/gip_prop:kokalekua ?city . # deskonposatu<br>
+}
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h1>SPARQL 1.1 Update</h1>
+        <p>W3C-ren estandarra (=HTML, !=SQL)</p>
+    </section>
+
+    <section class="slide">
+        <h2>DELETE DATA</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+DELETE DATA {<br>
+&nbsp;&nbsp;&lt;http://gipuzkoa.eus/resource/aitor-labajo&gt; <br>
+&nbsp;&nbsp;rdf:type gip:hiritar<br>
+}<br>
+# DESCRIBE &lt;http://gipuzkoa.eus/resource/aitor-labajo&gt;
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>DELETE WHERE</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+DELETE {?person rdf:type gip:hiritar}<br>
+WHERE {?person foaf:name ?name}<br>
+<br>
+#SELECT * WHERE {<br>
+#&nbsp;&nbsp;?person rdf:type gip:hiritar<br>
+#}
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>INSERT DATA</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+INSERT DATA {<br>
+&nbsp;&nbsp;gip:aitor-labajo rdf:type foaf:person<br>
+}<br>
+# DESCRIBE gip:aitor-labajo
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>INSERT WHERE</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+INSERT {<br>
+&nbsp;&nbsp;gip:jon-alfaro rdf:type ?type .<br>
+}<br>
+WHERE {<br>
+&nbsp;&nbsp;gip:aitor-labajo rdf:type ?type .<br>
+}<br>
+# DESCRIBE &lt;http://gipuzkoa.eus/resource/jon-alfaro&gt;
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>DELETE/INSERT konbinatua (UPSERT)</h2>
+        <p>Email-a modu transakzionalean eguneratu:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+DELETE { ?person ex:email ?oldEmail } <br>
+INSERT { ?person ex:email ?newEmail } <br>
+WHERE { <br>
+&nbsp;&nbsp;?person foaf:name "Mikel" ; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;ex:email ?oldEmail . <br>
+&nbsp;&nbsp;BIND("mikel@new.com" AS ?newEmail) <br>
+}
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>CONSTRUCT</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+CONSTRUCT {<br>
+&nbsp;&nbsp;?langilea rdf:type gip:gugenheim_langilea<br>
+}<br>
+WHERE {<br>
+&nbsp;&nbsp;?langilea gov:worksFor gip:gugenheim<br>
+}
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>LOAD</h2>
+        (=HTML, !=SQL)
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+LOAD &lt;https://rest.uniprot.org/uniprotkb/P01308.rdf&gt;<br>
+INTO GRAPH &lt;urn:uniprot&gt;
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>CLEAR</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+CLEAR GRAPH &lt;urn:uniprot&gt;<br>
+<br>
+# CLEAR DEFAULT<br>
+<br>
+# CLEAR ALL
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>DROP</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+DROP GRAPH &lt;http://example.org/myGraph&gt;<br>
+<br>
+# DROP ALL
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>COPY / MOVE / ADD</h2>
+        <p>COPY: grafo bat beste batera kopiatu (helburua gainidazten du)</p>
+        <p>MOVE: grafoa mugitu (kopiatu + jatorrizkoa ezabatu)</p>
+        <p>ADD: tripleak helburura gehitu (gainidatzi gabe)</p>
+    </section>
+
+    <section class="slide">
+        <h2>COPY / MOVE / ADD</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+COPY &lt;urn:name-surname&gt;<br>
+TO &lt;urn:nombre-apellidos&gt;<br>
+<br>
+COPY DEFAULT<br>
+TO &lt;urn:backup&gt;
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h1>SPARQL 1.1 Protocol</h1>
+        <p>W3C-ren estandarra (=HTML, !=SQL)</p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL 1.1 Protocol</h2>
+        <p>HTTP GET query parametroarekin: <code>GET /sparql?query=SELECT...</code></p>
+        <p>HTTP POST (kontsulta luzeagoetarako): <code>POST /sparql</code> body URL-encoded-ekin</p>
+        <p>Content negotiation (Accept header): application/sparql-results+json, text/csv, application/rdf+xml, text/turtle</p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/post.sh]</p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL 1.1 Protocol</h2>
+        <p>Python: <a href="https://rdflib.readthedocs.io/">RDFLib</a>, <a href="https://sparqlwrapper.readthedocs.io/">SPARQLWrapper</a></p>
+        <p>Java: <a href="https://jena.apache.org/">Apache Jena</a>, <a href="https://rdf4j.org/">RDF4J</a></p>
+    </section>
+
+    <section class="slide">
+        <h1>SPARQL 1.1 Service Description</h1>
+        <p>W3C-ren estandarra (=HTML, !=SQL)</p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL 1.1 Service Description</h2>
+        <p>SPARQL endpoint-ei buruzko metadatuak eskaintzen ditu bezeroei laguntzeko:</p>
+        <ul>
+            <li><b>Gaitasunak aurkitu</b>: Zer funtzionalitate onartzen ditu? (agregazioak, property path-ak, ezeztapena, etab.)</li>
+            <li><b>Dataset eskuragarriak aurkitu</b>: Zer Named Graph daude eskuragarri?</li>
+            <li><b>Formatu bateragarriak zehaztu</b>: JSON, XML, CSV, ...</li>
+            <li><b>Inferentzia-erregimenak ikusi</b>: RDFS, OWL, ...</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL 1.1 Service Description</h2>
+        <p><code>curl -H "Accept: text/turtle" https://dbpedia.org/sparql/</code></p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/dbpedia_service_description.ttl]</p>
+    </section>
+
+    <section class="slide">
+        <h1>SPARQL 1.1 Federated Query</h1>
+        <p>W3C-ren estandarra (=HTML, !=SQL)</p>
     </section>
 
     <section class="slide">
         <h2>Kontsulta federatuak</h2>
-        (<a href="16.rq">16.rq</a>)
-        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/SPARQL_fed_16.png" alt="SPARQL fed" width="40%"></p>
-        (bilbo_wikidata.ttl)
+        <p>Hainbat SPARQL endpoint kontsultatzea ahalbidetzen dute kontsulta bakarrean</p>
+        <p>Jatorri desberdinetako datuak konbinatu <code>SERVICE</code> hitz gakoa erabiliz</p>
     </section>
 
+    <section class="slide">
+        <h2>Kontsulta federatuak</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+INSERT DATA {<br>
+&nbsp;&nbsp;&lt;http://gipuzkoa.eus/resource/bilbo&gt; owl:sameAs &lt;http://dbpedia.org/resource/Bilbao&gt; . <br>
+}
+        </pre>
+
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT ?pop <br>
+WHERE {<br>
+&nbsp;&nbsp;gip:bilbo owl:sameAs ?town . <br>
+&nbsp;&nbsp;SERVICE &lt;https://dbpedia.org/sparql/&gt; { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;?town &lt;http://dbpedia.org/ontology/populationTotal&gt; ?pop . <br>
+&nbsp;&nbsp;} <br>
+} 
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h1>SPARQL 1.1 Graph Store HTTP Protocol</h1>
+        <p>W3C-ren estandarra (=HTML, !=SQL)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Eragiketak</h2>
+        <p><b>RDF grafoak kudeatu</b> HTTP bidez:</p>
+        <ul>
+            <li><b>GET</b>: Grafoa berreskuratu</li>
+            <li><b>PUT</b>: Grafoa ordeztu (Suntsitzailea)</li>
+            <li><b>DELETE</b>: Grafoa ezabatu</li>
+            <li><b>POST</b>: Tripleak grafoari gehitu</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Eragiketak: Parametroak</h2>
+        <p><b>Oinarrizko endpoint-a</b>: konfigurazioaren arabera</p>
+        <p><b>Parametroak</b>:</p>
+        <ul>
+            <li><code>graph=&lt;URI&gt;</code>: Named Graph zehaztu</li>
+            <li><code>graph</code> gabe: Default Graph-ean du eragina</li>
+        </ul>
+        <p><b>Content-Type</b>: RDF/XML, Turtle, N-Triples, etab.</p>
+        <p style="font-size:10px;font-family: monospace">[adibideak/graph_store_protocol.sh]</p>
+    </section>
+
+    <section class="slide">
+        <h2>Abantailak</h2>
+        <ul>
+            <li><b>RESTful</b>: HTTP estandarrean oinarritutako interfaze sinplea</li>
+            <li><b>Automatizazioa</b>: Script eta CLI tresnekin integratzea</li>
+            <li><b>SPARQL UPDATE gabe eguneratzeak</b>: INSERT/DELETE-ren alternatiba</li>
+            <li><b>Bertsioen kudeaketa</b>: Grafoen bertsio osoak ordeztu</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Graph Store vs SPARQL UPDATE</h2>
+        <table style="border-collapse: collapse; width: 100%; text-align: left;">
+            <tr style="background-color: #f0f0f0;">
+                <th style="border: 1px solid #ccc; padding: 8px;"><b>Alderdia</b></th>
+                <th style="border: 1px solid #ccc; padding: 8px;"><b>Graph Store HTTP</b></th>
+                <th style="border: 1px solid #ccc; padding: 8px;"><b>SPARQL UPDATE</b></th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Granularitatea</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Grafo osoa</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Triple zehatzak</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Interfazea</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">REST/HTTP</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">SPARQL kontsulta</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Ohiko erabilera</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Bertsio osoak ordeztu</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Aldaketa zehatzak</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Formatua</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">RDF (TTL, RDF/XML, etab.)</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">SPARQL INSERT/DELETE</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Ontop: Datu erlazionalen birtualizazioa</h2>
+        <p><a href="https://graphdb.ontotext.com/documentation/10.8/ontop.html">Ontop</a> SQL datu-base erlazionalak SPARQL bidez kontsultatzeko GraphDB plugin-a</p>
+        <p>Datuak <strong>ez dira kopiatzen</strong> triplestore-ra: denbora errealean eskuratzen dira (birtualizazioa)</p>
+        <p>Ontop-ek SPARQL kontsultak SQLra automatikoki itzultzen ditu: erabiltzaileak SPARQL erabiltzen du datuak SQLn daudela jakin gabe</p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Ontop: Arkitektura</h2>
+        <ul>
+            <li><strong>Datu-base erlazionala</strong>: dagoen SQL datu-iturria</li>
+            <li><strong>Ontologia</strong>: RDF hiztegia definitzen du (klaseak eta propietateak)</li>
+            <li><strong>R2RML mapping-a</strong>: SQL taula/zutabeen eta RDF grafoaren arteko mapeoa</li>
+            <li><strong>Ontop/GraphDB</strong>: SPARQL → SQL denbora errealean itzultzen duen motorea</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>R2RML: RDB to RDF Mapping Language</h2>
+        <p><a href="https://www.w3.org/TR/r2rml/">R2RML</a> W3C estandar bat da, datu-base erlazionaletatik RDFra mapeoak definitzeko</p>
+        <ul>
+            <li><strong>Triples Map</strong>: SQL taula edo kontsulta batetik RDF tripleak nola sortu definitzen du</li>
+            <li><strong>Logical Table</strong>: jatorrizko SQL taula edo SQL kontsulta</li>
+            <li><strong>Subject Map</strong>: subjektuaren URIa nola sortu</li>
+            <li><strong>Predicate-Object Map</strong>: predikatuak eta objektuak nola sortu</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>R2RML: Mapeo adibidea</h2>
+        <p>SQL taula: <code>empleados(id, nombre, dept_id)</code></p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+&lt;#TriplesMap1&gt; a rr:TriplesMap ; <br/>
+&nbsp;&nbsp;rr:logicalTable [ rr:tableName "empleados" ] ; <br/>
+&nbsp;&nbsp;rr:subjectMap [ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:template "http://ejemplo.org/empleado/{id}" ; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:class ex:Empleado <br/>
+&nbsp;&nbsp;] ; <br/>
+&nbsp;&nbsp;rr:predicateObjectMap [ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:predicate ex:nombre ; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:objectMap [ rr:column "nombre" ] <br/>
+&nbsp;&nbsp;] ; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;rr:predicateObjectMap [ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rr:predicate ex:departamento ; <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rr:objectMap [ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rr:template "http://ejemplo.org/dept/{dept_id}" ] <br/>
+&nbsp;&nbsp;] . <br/>
+</pre>
+    </section>
+
+    <section class="slide">
+        <h2>R2RML: Mapeoaren emaitza</h2>
+        <table>
+            <tr><th>id</th><th>nombre</th><th>dept_id</th></tr>
+            <tr><td>1</td><td>Ana</td><td>10</td></tr>
+            <tr><td>2</td><td>Luis</td><td>20</td></tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>R2RML: Mapeoaren emaitza</h2>
+        <p><img src="pictures-dba-31/r2rml_result.svg" alt="R2RML RDF grafoa" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Ontop: Abantailak</h2>
+        <ul>
+            <li>Datuak ez dira bikoizten: datuek datu-base erlazionalean jarraitzen dute</li>
+            <li>Datuak beti eguneratuta (denbora errealeko sarbidea)</li>
+            <li>W3C estandarra (R2RML): motorren artean eramangarria</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Ontop: Mugak</h2>
+        <ul>
+            <li>Errendimendua datu-base erlazionalaren araberakoa da</li>
+            <li>SPARQL funtzio guztiek ez dute SQLrako itzulpen zuzenik</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p>GraphDB join flow: partekatutako aldagaiekin patroien arteko join-ak ebaluatu (SPARQL: inner join inplizitua)</p>
+        <p>GraphDB <a href="https://graphdb.ontotext.com/documentation/10.8/explain-plan.html">Explain Plan</a>: ebaluazio ordena optimizatua aztertu</p>
+        <p>Kontsultari <code>FROM onto:explain</code> gehituta aktibatzen da</p>
+        <p>(<code>onto:measure</code> aukerak exekuzio-denborak ematen ditu)</p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p><pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+PREFIX onto: &lt;http://www.ontotext.com/&gt;<br>
+SELECT * FROM onto:explain # onto:measure<br>
+WHERE {<br>
+&nbsp;&nbsp;?s ?p ?o.<br>
+}<br>
+        </pre></p>
+
+        <p><img src="pictures-dba-31/explain_plan.png" alt="GraphDB Explain Plan" width="70%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p><b>Optimization group</b>: tripleen taldea, optimizazioaren arabera ordenatua</p>
+        <p><b>Collection size</b>: patroiarekin bat datozen triple kopurua</p>
+        <p><b>Predicate collection size</b>: predikatu hori duten errepositorioko triple guztien kopurua</p>
+        <p><b>Unique subjects</b>: patroiarekin bat datozen subjektu bakarren kopurua</p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p><b>Unique objects</b>: patroiarekin bat datozen objektu bakarren kopurua</p>
+        <p><b>Current complexity</b>: datu-baseak patroi horretarako egin beharko dituen bilaketa atomikoen konplexutasuna</p>
+        <p><b>Estimated number of iterations</b>: talde honetarako exekutatuko diren iterazioak</p>
+
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p>Talde barruko tripleen ordena selektibitatearen arabera</p>
+        <p>Patroi baten selektibitatea: collection size (predikatuaren karga), join-ak (subjektu/objektu bakarrak), eta aurreko patroian ebatzitako aldagaiak</p>
+
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+PREFIX onto: &lt;http://www.ontotext.com/&gt;<br>
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;<br>
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;<br>
+PREFIX gov: &lt;http://vocab.data.gov/def/drm#&gt;<br>
+<br>
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?person rdf:type foaf:person .<br>
+&nbsp;&nbsp;?person gov:worksFor ?museo .<br>
+&nbsp;&nbsp;?person foaf:name ?nombre .<br>
+}<br>
+        </pre>
+        <p style="font-size:10px;font-family: monospace">[INSERT {?person rdf:type foaf:person . } WHERE { ?person gov:worksFor ?museo . ?person foaf:name ?nombre . }]</p>
+    </section>
+    
+
+    <section class="slide">
+        <h2>Explain Plan: Patroien ordena</h2>
+        <p>foaf:name: collection size 13 (txikiena) eta predicate collection size ere 13: foaf:name triple horietan bakarrik agertzen da, oso selektiboa</p>
+        <p>gov:worksFor collection size 16, baina ?person dagoeneko ebatzita dago</p>
+        <p>rdf:type collection size 54, 45 subjektu bakar eta objektu bakarrekin</p>
+        <p>Konplexutasuna = collection size / selektibitatea (ebatzitako aldagaiak barne)</p>
+    </section>
+
+    <section class="slide">
+        <h2>GraphDB Explain Plan</h2>
+        <p>Talde barruko tripleak: automatikoki optimizatzen dira</p>
+        <p>Taldeen ordena: ez da automatikoki optimizatzen, kontsultan agertzen diren ordenan ebaluatzen dira (erabiltzaileak optimizatu behar du)</p>
+        <p>Taldeak join flow-a eteten denean agertzen dira</p>
+    </section>
+
+    <section class="slide">
+        <h2>Join flow-a eteten dute</h2>
+        <p>OPTIONAL: left join osoa lehenik ebatzi behar da eta gero aukerako zatia</p>
+        <p>UNION: adar bakoitzaebaluatu eta ondoren konbinatu</p>
+        <p>sub-SELECT: beti lehenengo ebaluatzen da</p>
+        <p>FILTER, BIND, VALUES: aurreko aldagaien menpe daude</p>
+    </section>
+
+    <section class="slide">
+        <h2>Join flow-a eteten dute</h2>
+        <p>* edo + duten property paths: hedapen errekurtsiboa</p>
+        <p>Aldagai partekaturik gabeko patroi deskonektatuak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan: FILTER goiztiarra vs berantiarra</h2>
+        <p>A kontsulta: FILTER amaieran (eraginkortasun txikia)</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?person rdf:type foaf:person .<br>
+&nbsp;&nbsp;?person gov:worksFor ?museo .<br>
+&nbsp;&nbsp;?person foaf:name ?nombre .<br>
+&nbsp;&nbsp;FILTER regex(?nombre, "Mi.*")<br>
+}<br>
+        </pre>
+        <p>Lehenik konbinazio GUZTIAK sortzen ditu, eta ondoren iragazten du</p>
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan: FILTER goiztiarra vs berantiarra</h2>
+        <p>B kontsulta: FILTER ?nombre-ren ondoren berehala (eraginkorra)</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?person foaf:name ?nombre .<br>
+&nbsp;&nbsp;FILTER regex(?nombre, "Mi.*")<br>
+&nbsp;&nbsp;?person rdf:type foaf:person .<br>
+&nbsp;&nbsp;?person gov:worksFor ?museo .<br>
+}<br>
+        </pre>
+        <p>Goiz iragazi → tarteko emaitza gutxiago → join gutxiago</p>
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan: OPTIONAL-en eragina</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?museo rdf:type dbpedia:museum .<br>
+&nbsp;&nbsp;?museo rdfs:label ?nombre .<br>
+&nbsp;&nbsp;OPTIONAL {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?museo gip_prop:kopurua ?obras .<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;OPTIONAL {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?museo gip_prop:kokalekua ?ciudad .<br>
+&nbsp;&nbsp;}<br>
+}<br>
+        </pre>
+        <p>OPTIONAL bakoitzak Left Join bat gehitzen du → kostu handiagoa</p>
+    </section>
+
+    <section class="slide">
+        <h2>Explain Plan: Beharrezkoa ez den OPTIONAL saihestu</h2>
+        <p>Badakigunean museo guztiek kokalekua eta kopurua dutela:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+SELECT * FROM onto:explain<br>
+WHERE {<br>
+&nbsp;&nbsp;?museo rdf:type dbpedia:museum .<br>
+&nbsp;&nbsp;?museo rdfs:label ?nombre .<br>
+&nbsp;&nbsp;?museo gip_prop:kopurua ?obras .<br>
+&nbsp;&nbsp;?museo gip_prop:kokalekua ?ciudad .<br>
+}<br>
+        </pre>
+        <p>OPTIONAL gabe: Inner Join, eraginkorragoa</p>
+    </section>
 
     <!-- FOOTER -->
 
