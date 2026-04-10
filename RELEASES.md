@@ -1,5 +1,11 @@
 # Releases
 
+## 2025-2026-3
+
+* NoSQL Sarrera, Grafoak, RDF
+* SPARQL
+* OWL
+
 ## 2025-2026-2
 
 * NoSQL Sarrera, Grafoak, RDF
