@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eu">
 <head>
     <title>OWL</title>
     <meta charset="utf-8">
@@ -32,184 +32,766 @@
 
     <section class="slide">
         <h2>OWL</h2>
-        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <p><a href="https://github.com/mikel-egana-aranguren/DBA">https://github.com/mikel-egana-aranguren/DBA</a></p>
         <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
     </section>
 
     <section class="slide">
         <h2>OWL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/LEGO-ontology.png" alt="LEGO" width="60%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/AstraZeneca.png" alt="AstraZeneca" width="30%"></p>
+    </section>
+
+        <section class="slide">
+        <h2>OWL</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/IKEA_OWL.png" alt="IKEA" width="30%"></p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL</h2>
         <p>OWL: Web Ontology Language</p>
-        <p><a href="https://www.w3.org/TR/owl2-overview/">W3C-ren estandar ofiziala</a> web-ean ontologiak sortzeko, semantika zehatz eta formal batekin</p>
+        <p><a href="https://www.w3.org/TR/owl2-overview/">W3C-ren estandar ofiziala</a> web-ean ontologiak sortzeko, semantika zehatz eta formal batekin (=HTML, !=SQL)</p>
+        <p>Ontologia: interes-eremu bati buruzko deskribapen zehatzen multzoa</p>
+        <p>Giza komunikazioan gaizki-ulertuak ekiditen ditu</p>
+        <p>Softwareak modu uniforme eta aurreikusgarrian jokatzea bermatu</p>
+    </section>
+
+    <!-- <section class="slide">
+        <h2>OWL 2: W3C Dokumentuak</h2>
+        <a href="https://www.w3.org/TR/2012/REC-owl2-primer-20121211/">OWL 2 Primer</a>: hizkuntzaren sarrera<br>
+        <a href="https://www.w3.org/TR/owl2-syntax/">OWL 2 Structural Specification</a>: sintaxi formala<br>
+        <a href="https://www.w3.org/TR/owl2-direct-semantics/">OWL 2 Direct Semantics</a>: Description Logics-en oinarritutako semantika<br>
+        <a href="https://www.w3.org/TR/owl2-rdf-based-semantics/">OWL 2 RDF-Based Semantics</a>: RDF-n oinarritutako semantika<br>
+        <a href="https://www.w3.org/TR/owl2-mapping-to-rdf/">OWL 2 Mapping to RDF</a>: RDF-n serializazioa<br>
+        <a href="https://www.w3.org/TR/owl2-profiles/">OWL 2 Profiles</a>: azpihizkuntza tratagarriak<br>
+        <a href="https://www.w3.org/TR/owl2-quick-reference/">OWL 2 Quick Reference</a>: erreferentzia azkarra
     </section>
 
     <section class="slide">
-        <h2>OWL</h2>
-        <p>Logika Deskriptiboan (DL) oinarritzen da ezagutza-arlo baten adierazpen konputazionala sortzeko:
-            <ul>
-                <li>Arrazonamendu automatikoa: "berria" (*) den ezagutza ondorioztatu, kontsultak, koherentzia, ontologiaren arabera entitateak sailkatu, ...</li>
-                <li>Informazio sakabanatua integratu hiztegi amankomun bat erabiliz</li>
-            </ul>
-        </p>     
-    </section>
+        <h1>Zer da OWL 2?</h1>
+        <p><a href="https://www.w3.org/TR/2012/REC-owl2-primer-20121211/">OWL 2 Primer (W3C Rec.)</a>-n oinarrituta</p>
+    </section> -->
 
-    <section class="slide">
+    <!-- <section class="slide">
+        <h2>Zer da OWL 2?</h2>
+        <p>OWL 2 <b>ontologiak</b> adierazteko hizkuntza bat da</p>
+        <p>Ontologia: munduko zati bati buruzko deskribapen zehatzen multzoa (<b>interes-eremua</b>)</p>
+        <p>Giza komunikazioan gaizki-ulertuak ekiditen ditu</p>
+        <p>Softwareak modu uniforme eta aurreikusgarrian jokatzen duela bermatzen du</p>
+    </section> -->
+
+        <section class="slide">
         <h2>OWL</h2>
-        <p>Ez da murrizketak ezartzen dituen eskema-lengoaia, inferentzian oinarritzen dena baino (Horretarako SHACL dago)</p>
         <p>RDF hizkuntza bera datuak eta bere hiztegia definitzeko* (NoSQL!RDF!)</p>
+        <p>1. funtzioa: datuen integraziorako hiztegia</p>
+        <p>2. funtzioa: interes-eremua deskribatzeko eta arrazonamendu automatikoa aplikatzeko lengoaia</p>
+        </p>
     </section>
 
     <section class="slide">
-        <h2>RDF/XML sintaxia</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_rdf_xml.png" alt="OWL RDF/XML" width="60%"></p>
+        <h2>OWL</h2>
+        <p><b>Ez da programazio-lengoaia</b>: deklaratiboa da, domeinuaren egoera bat deskribatzen du</p>
+        <p><b>Ez da eskema-lengoaia</b>: ez du dokumentu baten egitura agintzen (adib. XML/JSON schema) ezta datuen egitura - Horretarako SHACL dago</p>
+        <p><b>Ez da datu-baseen framework bat</b>: <b>Open World Assumption</b> jarraitzen du (ez dagoen informazioa egia izan daiteke, ez da faltsu bezala suposatzen)</p>
     </section>
 
     <section class="slide">
-        <h2>Manchester OWL Syntax</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_mos.png" alt="OWL Manchester Syntax" width="60%"></p>
+        <h2>Closed World vs Open World</h2>
+        <p><b>Closed World Assumption (CWA)</b>: DBan ez dagoena faltsua da (SQL)</p>
+        <p><b>Open World Assumption (OWA)</b>: esaten ez dena egia edo faltsua izan daiteke (OWL)</p>
+        <p>Adibidea: Mariaren adinari buruzko informaziorik ez badago, SQLk NULL/adinik gabe suposatzen du; OWLek ez dakiela suposatzen du (Esplizituki esan behar da Mariak ez duela adinik)</p>
+    </section>
+
+
+
+    <section class="slide">
+        <h2>No Unique Name Assumption</h2>
+        <p>Bi URI ezberdinek entitate berari erreferentzia egin diezaiokete</p>
+        <p>ex:Bilbao eta ex:Bilbo owl:sameAs izan daitezke</p>
+        <p>Iturri ezberdinetako datuen integraziorako baliagarria</p>
+        <p>Arrazonamenduaren bidez bateratzea automatikoa ahalbidetzen du</p>
+        <p>owl:differentFrom bereizketa behartzeko</p>
     </section>
 
     <section class="slide">
-        <h2>OWL semantika</h2>
-        <p>Entitateak: ezagutza-arloko entitateak, URIekin identifikatuta, garatzaileak sartutakoak ("Mikel", "parte_hartzen_du", ...)</p>
-        <p>Axiomak: entitateak logika-hiztegiaren bidez lotzen dituzte, OWLek eskaintzen duena (OWL Namespace)</p>
-        <p>Ontologia batek beste bat inportatu dezake (owl:import) eta bere entitateei erreferentzia egin axiomak erabiliz</p>
-        
+        <h2>OWL</h2>
+        <p><b>Entitateak</b>: domeinuko objektuei erreferentzia egiten dieten elementuak: <i>Jon, Pertsona, adinaDu, ...</i></p>
+        <p><b>Axiomak</b>: ontologia baten oinarrizko baieztapenak (egiazkotzat hartzen dira): <i>Jon Pertsona bat da, Helduek 18 baino adin handiagoa dute, ...</i></p>
+        <p><b>Adierazpenak</b>: entitateen eta axiomen konbinazioak deskribapen konplexuak osatzeko: <i>funtzionarioa heldu bat da, gutxienez iraupen mugagabeko lan bat duena funtsa publikoak jasotzen dituen erakunde batean ...</i></p>
     </section>
 
     <section class="slide">
-        <h2>OWL semantika</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/entidades.png" alt="Entidades OWL" width="60%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>OWL semantika</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/axioma.png" alt="Axioma OWL" width="60%"></p>
-    </section>
-
-    <section class="slide">
-        <h2>Banakoak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_inds.png" alt="Individuos" width="60%"></p>
+        <h2>Entitateak</h2>
+        <p><b>Banakoak</b> (individuals): objektu zehatzak (Jon, Maria, ...)</p>
+        <p><b>Klaseak</b> (classes): banakoak biltzen dituzten kategoriak (Pertsona, Emakumea, ...)</p>
+        <p><b>Propietateak</b> (properties): entitateen arteko erlazioak (adinaDu, bikotea, ...)</p>
     </section>
 
     <section class="slide">
         <h2>Propietateak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_props.png" alt="Propiedades" width="60%"></p>
+        <ul>
+            <li><b>Object properties</b>: objektua objektuarekin erlazionatzen dute (bikotea, ...)</li>
+            <li><b>Datatype properties</b>: datu-balioak objektuei esleitzen dizkiete (adinaDu, ...)</li>
+            <li><b>Annotation properties</b>: ereduaren parte ez diren metadatuak (rdfs:comment, rdfs:label, ...)</li>
+        </ul>
     </section>
 
     <section class="slide">
-        <h2>Klaseak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_clases.png" alt="Clases" width="60%"></p>
+        <h2>Arrazonamendua</h2>
+        <p><b>Arrazonatzaileek</b> (reasoners) automatikoki kalkula ditzakete axiomen <b>ondorioak</b></p>
+        <p>A axioma-multzo batek a axioma <b>inplikatzen du</b> (entails) a egia bada A egia den bakoitzean</p>
+        <p>Axioma-multzo bat <b>konsistentea</b> izan daiteke (egoera posible bat dago non guztiak egiazkoak diren) edo <b>inkonsistentea</b></p>
+    </section>
+
+        <section class="slide">
+        <h2>OWL inkonsistentziak</h2>
+        <p>Ontologia inkonsistentea: kontradikzio logikoak ditu</p>
+        <p>Klase ezin betegarria (Non satisfiable): ezin du instantziarik izan (owl:Nothing-en baliokidea)</p>
+        <p>Arrazonatzailea erabili inkonsistentziak detektatu eta azaltzeko</p>
     </section>
 
     <section class="slide">
-        <h2>Klaseak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Clase_OWL.png" alt="Clases" width="40%"></p>
+        <h2>OWL 2 Sintaxia</h2>
+        <p><b>Functional-Style Syntax</b>: espezifikazio eta inplementaziorako</p>
+        <p><b>RDF/XML</b>: OWL 2 tresna guztientzat derrigorrezkoa</p>
+        <p><b>Turtle</b>: RDF serializazio irakurgarria</p>
+        <p><b>Manchester OWL Syntax</b>: gizakientzat</p>
+        <p><b>OWL/XML</b>: XML Schema-n oinarritua</p>
     </section>
 
     <section class="slide">
-        <h2>Klasea azpiklase</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Clase_SubClase_OWL.png" alt="Clase subclase" width="40%"></p>
+        <h1>Klaseak, Propietateak eta Banakoak</h1>
+        <p>OWL 2-rekin oinarrizko modelaketa</p>
+        <p style="font-size:10px;font-family: monospace">[protege]</p>
+    </section>
+
+    <section class="slide">
+        <h2>Klaseak eta instantziak</h2>
+        <p>Banako bat klase batekoa dela deklaratzea:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:Mary rdf:type :Person .<br>
+:Mary rdf:type :Woman .
+        </pre>
+        <p style="font-size:10px;font-family: monospace">[OWL RDF Turtle syntax]</p>
+        <p>Banako bat hainbat klasetakoa izan daiteke aldi berean (RDF! Web Semantikoa! NoSQL!)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Klaseen hierarkia (SubClassOf)</h2>
+        <p>"Emakume guztiak pertsonak dira" → azpiklase-erlazioa</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:Woman rdfs:subClassOf :Person .<br>
+:Mother rdfs:subClassOf :Woman .
+        </pre>
     </section>
 
     <section class="slide">
         <h2>Klase baliokideak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Clase_equiv_OWL.png" alt="Clases equivalentes" width="40%"></p>
+        <p>Bi klaseek banako berberak dituzte:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:Person owl:equivalentClass :Human .
+        </pre>
+        <p>SubClassOf bi norabideetan deklaratzea bezalakoa da</p>
     </section>
 
     <section class="slide">
-        <h2>Klaseen hierarkia (Taxonomia)</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_is_a.png" alt="Jerarquía de clases (Taxonomía)" width="30%"></p>
+        <h2>Klaseen disjuntzioa (DisjointClasses)</h2>
+        <p>Ezin da banakorik egon bi klaseetakoa dena:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:Woman owl:disjointWith :Man .
+        </pre>
+        <p>Maria Emakumea bada, arrazonatzaileak ondorioztatzen du Maria <b>ez</b> dela Gizona</p>
+        <p>[Arrazonatzailea aktibatu; inkonsistentea; explain]</p>
     </section>
 
     <section class="slide">
-        <h2>Beharrezko baldintzak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_necessary.png" alt="Condiciones necesarias" width="60%"></p>
+        <h2>Object Properties</h2>
+        <p>Banakoak elkarren artean erlazionatzen dituzte (Positiboa edo negatiboa):</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:Jon rdf:type owl:NamedIndividual ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:pareja :Mary .<br><br>
+
+[ rdf:type owl:NegativePropertyAssertion ;<br>
+&nbsp;&nbsp;owl:sourceIndividual :Jon ;<br>
+&nbsp;&nbsp;owl:assertionProperty :pareja ;<br>
+&nbsp;&nbsp;owl:targetIndividual :Mary<br>
+ ] .
+        </pre>
+        <p>[Arrazonatzailea aktibatu]</p>
     </section>
 
     <section class="slide">
-        <h2>Beharrezkoak eta nahikoak diren baldintzak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_necessary_and_sufficient.png" alt="Condiciones necesarias y suficientes" width="60%"></p>
+        <h2>Propietateen hierarkia</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:pareja rdfs:subPropertyOf :relacion .
+        </pre>
+        <p>B A-ren bikotea bada → B-k A-rekin erlazioa du</p>
+        <p>(Alderantzizko erlazioa ez da nahitaez egia)</p>
+        <p>[Arrazonatzailea aktibatu]</p>
     </section>
 
     <section class="slide">
-        <h2>Murrizketa existentziala</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_existential.png" alt="Restricción existencial" width="60%"></p>
+        <h2>Domain eta Range</h2>
+        <p>Propietate batek zer entitate mota konektatzen dituen adierazteko:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:tieneHijo rdfs:domain :persona .<br>
+:tieneHijo rdfs:range :menor .
+        </pre>
+        <p>"Pedro tieneHijo Mikel (Adulto klasea)" bada → inferentzia?</p>
     </section>
 
     <section class="slide">
-        <h2>Murrizketa unibertsala</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_universal.png" alt="Restricción universal" width="60%"></p>
+        <h2>Domain eta Range</h2>
+        <p>Adulto disjointWith menor → inferentzia?</p>
+        <p>"Pedro tieneHijo Maria" bada → inferentzia?</p>
+        <p>⚠ Domain/Range <b>ez dira murrizketak</b>, <b>inferentzia-axiomak</b> dira</p>
     </section>
 
     <section class="slide">
-        <h2>Banako bateko murrizketa (value)</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_has_value.png" alt="Restricción un individuo (value)" width="60%"></p>
+        <h2>⚠ Domain/Range-rekin ohiko errorea</h2>
+        <p>Adibidea: edad domain Pertsona</p>
+        <p>"Felix edad 9" eta "Felix rdf:type Katua" esaten badugu</p>
+        <p>→ Arrazonatzaileak ondorioztatzen du Felix <b>baita ere</b> Pertsona dela</p>
+        <p>Domain/Range-k ez dute balioztatzen: klase berriak <b>inferitzen</b> dituzte</p>
+        <p>(Irtenbidea?)</p>
     </section>
 
     <section class="slide">
-        <h2>Murrizketa kardinalak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Pizza_cardinality.png" alt="Restricciones cardinales" width="60%"></p>
+        <h2>Banakoen berdintasuna eta ezberdintasuna</h2>
+        <p>OWLek <b>ez du suposatzen</b> izen desberdinak = banako desberdinak (No Unique Name Assumption)</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:James owl:sameAs :Jim .<br>
+:John owl:differentFrom :Bill .
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>disjointFrom, not, or, and</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/owl_boolean.png" alt="Boolean" width="60%"></p>
+        <h2>Datatype Properties</h2>
+        <p>Banakoak datu-balioekin (literalak) erlazionatzen dituzte:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+:John :hasAge "51"^^xsd:integer .<br><br>
+
+[]  a owl:NegativePropertyAssertion ;<br>
+&nbsp;&nbsp;owl:sourceIndividual :Jack ;<br>
+&nbsp;&nbsp;owl:assertionProperty :hasAge ;<br>
+&nbsp;&nbsp;owl:targetValue "53"^^xsd:integer .<br><br>
+
+:hasAge rdfs:domain :Person .<br><br>
+
+:hasAge rdfs:range xsd:nonNegativeInteger .<br>
+        </pre>
+        <p>XML Schema-ren datatypes: xsd:integer, xsd:string, xsd:boolean, ...</p>
     </section>
 
     <section class="slide">
-        <h2>Adierazpen konplexuak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_complex_expression.png" alt="Expresiones complejas" width="60%"></p>
+        <h1>Klaseen erlazio aurreratuak</h1>
+        <p>Klase konplexuetarako eraikitzaile logikoak</p>
     </section>
 
     <section class="slide">
-        <h2>Propietateak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/OWL_props.png" alt="Propiedades" width="60%"></p>
+        <h2>Klaseen intersekzioa (AND)</h2>
+        <p>Klaseak <b>bi</b> klaseetan dauden banakoak ditu:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+EquivalentClasses(:Mother ObjectIntersectionOf(:Parent :Woman))
+] .
+        </pre>
+        <p style="font-size:10px;font-family: monospace">[OWL functional syntax]</p>
+        <p>→ Mother guztiak Woman dira eta Mother guztiak Parent dira</p>
     </section>
 
     <section class="slide">
-        <h2>Propietateak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/props_f_1.png" alt="Propiedades" width="60%"></p>
+        <h2>Klaseen bilketa (OR)</h2>
+        <p>Klaseak <b>gutxienez klase bateko</b> banakoak ditu:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+Class: Parent <br>
+&nbsp;&nbsp;EquivalentTo: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;Father or Mother
+        </pre>
+            <p style="font-size:10px;font-family: monospace">[Manchester OWL syntax]</p>
     </section>
 
     <section class="slide">
-        <h2>Propietateak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/props_f_2.png" alt="Propiedades" width="60%"></p>
+        <h2>Klaseen osagarria (NOT)</h2>
+        <p>Klasekoak <b>ez</b> diren banakoak:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# ChildlessPerson = Person AND NOT Parent<br><br>
+
+:ChildlessPerson owl:equivalentClass [<br>
+&nbsp;&nbsp;owl:intersectionOf ( :Person [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rdf:type owl:Class ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;owl:complementOf :Parent<br>
+&nbsp;&nbsp;] )<br>
+] .
+
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Propietateak</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/props_f_3.png" alt="Propiedades" width="60%"></p>
+        <h2>SubClassOf adierazpen konplexuekin</h2>
+        <p>Beharrezko baldintzak baina ez nahikoak:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Grandfather guztiak Man AND Parent dira<br>
+# (baina Man AND Parent guztiak ez dira Grandfather)<br>
+SubClassOf(<br>
+&nbsp;&nbsp;:Grandfather<br>
+&nbsp;&nbsp;ObjectIntersectionOf( :Man :Parent )<br>
+)
+        </pre>
+        <p>EquivalentClasses = <b>beharrezko eta nahiko</b> baldintza</p>
+        <p>SubClassOf = <b>beharrezko</b> baldintza soilik</p>
     </section>
 
     <section class="slide">
-        <h2>Banakoak</h2>
-        <p>Klase bateko edo gehiagoko kidea: rdf:type (RDF! Web Semantikoa! NoSQL!)</p>
-        <p>Berdin (owl:sameas) edo desberdin (owl:differentfrom) beste norbaitengandik</p>
-        <p>Beste norbait edo datuekin dituen erlazio binarioak (hirukoitza), positiboak edo negatiboak</p>
+        <h2>Murrizketa existentziala (∃, SOME)</h2>
+        <p>Gutxienez erlazionatutako balio bat klase batekoa da:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Parent = gutxienez seme/alaba bat du Person dena<br>
+EquivalentClasses(<br>
+&nbsp;&nbsp;:Parent<br>
+&nbsp;&nbsp;ObjectSomeValuesFrom( :hasChild :Person )<br>
+)
+        </pre>
+        <p>Hizkuntza naturaleko adierazleak: "bat", "gutxienez bat"</p>
     </section>
 
     <section class="slide">
-        <h2>Arrazonamendu automatikoa</h2>
-        <p>Arrazonatzaile batek ontologian sartu ditugun axiomak dakartzaten "berriak" diren axiomak ondorioztatzen ditu</p>
-        <p>Arrazonatzaileak axiomak guztiak ondorioztatzen ditu; ezagutza konplexuarekin lan egiteko baliagarria da</p>
-        <p>Open World Assumption</p>
-        <p>No Unique Name Assumption</p>
+        <h2>Murrizketa unibertsala (∀, ONLY)</h2>
+        <p>Erlazionatutako balio <b>guztiak</b> klase batekoak dira:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# HappyPerson = bere seme-alaba guztiak HappyPerson dira<br>
+EquivalentClasses(<br>
+&nbsp;&nbsp;:HappyPerson<br>
+&nbsp;&nbsp;ObjectAllValuesFrom( :hasChild :HappyPerson )<br>
+)
+        </pre>
+        <p>Adierazleak: "soilik", "esklusiboki", "beste ezer ez"</p>
     </section>
 
     <section class="slide">
-        <h2>Arrazonamendu automatikoa: taxonomia mantendu</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Normalisation_instance.png" alt="Arrazonamendu automatikoa: mantener taxonomía" width="30%"></p>
+        <h2>⚠ Murrizketa unibertsalaren tranpa</h2>
+        <p>ObjectAllValuesFrom( :hasChild :HappyPerson )</p>
+        <p>Semerik <b>gabeko</b> pertsona batek murrizketa hau betetzen du!</p>
+        <p>Gainera gutxienez seme zoriontsu bat izatea exigitzeko:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+EquivalentClasses(<br>
+&nbsp;&nbsp;:HappyPerson<br>
+&nbsp;&nbsp;ObjectIntersectionOf(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ObjectAllValuesFrom( :hasChild :HappyPerson )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ObjectSomeValuesFrom( :hasChild :HappyPerson )<br>
+&nbsp;&nbsp;)<br>
+)
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Arrazonamendu automatikoa: konsistentzia</h2>
-        <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/consistencia.png" alt="Arrazonamendu automatikoa: Consistencia" width="40%"></p>
+        <h2>HasValue eta HasSelf</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# John-en semeak = aita John dutenak<br>
+EquivalentClasses(<br>
+&nbsp;&nbsp;:JohnsChildren<br>
+&nbsp;&nbsp;ObjectHasValue( :hasParent :John )<br>
+)<br>
+<br>
+# Nartzisista = bere burua maite du<br>
+EquivalentClasses(<br>
+&nbsp;&nbsp;:NarcisticPerson<br>
+&nbsp;&nbsp;ObjectHasSelf( :loves )<br>
+)
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Arrazonamendu automatikoa: klasifikatu</h2>
-        <p>Entitateak sailkatu: entitate berri bat emanda, nola erlazionatzen den beste entitateekin (mota, equivalentTo, subClassOf, hirukoitza)</p>
-        <p>Kontsulta entitate anonimo bat da, ontologiaren kontra sailkatzen duguna, entitate bat balitz bezala</p>
+        <h2>Kardinalitate-murrizketak</h2>
+        <p>Erlazionatutako banako kopurua zehaztea:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# John-ek gehienez 4 seme-alaba ditu Parent direnak<br>
+ClassAssertion(<br>
+&nbsp;&nbsp;ObjectMaxCardinality( 4 :hasChild :Parent )<br>
+&nbsp;&nbsp;:John )<br>
+<br>
+# John-ek gutxienez 2 seme-alaba ditu Parent direnak<br>
+ClassAssertion(<br>
+&nbsp;&nbsp;ObjectMinCardinality( 2 :hasChild :Parent )<br>
+&nbsp;&nbsp;:John )<br>
+<br>
+# John-ek zehazki 3 seme-alaba ditu Parent direnak<br>
+ClassAssertion(<br>
+&nbsp;&nbsp;ObjectExactCardinality( 3 :hasChild :Parent )<br>
+&nbsp;&nbsp;:John )
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Kardinalitate-murrizketak: Turtle</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Zehazki 5 seme-alaba<br>
+:John rdf:type [<br>
+&nbsp;&nbsp;rdf:type owl:Restriction ;<br>
+&nbsp;&nbsp;owl:onProperty :hasChild ;<br>
+&nbsp;&nbsp;owl:cardinality "5"^^xsd:nonNegativeInteger<br>
+] .<br>
+<br>
+# Gehienez 4 seme-alaba Parent direnak<br>
+:John rdf:type [<br>
+&nbsp;&nbsp;rdf:type owl:Restriction ;<br>
+&nbsp;&nbsp;owl:onProperty :hasChild ;<br>
+&nbsp;&nbsp;owl:maxQualifiedCardinality<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"4"^^xsd:nonNegativeInteger ;<br>
+&nbsp;&nbsp;owl:onClass :Parent<br>
+] .
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Banakoen enumerazioa (OneOf)</h2>
+        <p>Klase bat bere kide guztiak zerrendatuz definitzea:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Klase itxia: Bill, John eta Mary soilik<br>
+EquivalentClasses(<br>
+&nbsp;&nbsp;:MyBirthdayGuests<br>
+&nbsp;&nbsp;ObjectOneOf( :Bill :John :Mary )<br>
+)<br>
+<br>
+# Turtle:<br>
+:MyBirthdayGuests owl:equivalentClass [<br>
+&nbsp;&nbsp;owl:oneOf ( :Bill :John :Mary )<br>
+] .
+        </pre>
+        <p>Jeff MyBirthdayGuests bada → Jeff = Bill, John edo Mary</p>
+    </section>
+
+    <section class="slide">
+        <h1>Adierazpen konplexuak klaseetan</h1>
+        <p>Adibideak/ExpresionCompleja.ttl</p>
+        <p><a href="http://odps.sf.net">ONTOLOGY DESIGN PATTERNS (ODPs) PUBLIC CATALOG</a> (Adibideak/odp_1.6)</p>
+    </section>
+
+    <section class="slide">
+        <h1>Propietateen erabilera aurreratua</h1>
+        <p>Ezaugarri eta eraikuntza aurreratuak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Alderantzizko propietateak</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# hasParent hasChild-en alderantzizkoa da<br>
+InverseObjectProperties( :hasParent :hasChild )<br>
+<br>
+# Turtle:<br>
+:hasParent owl:inverseOf :hasChild .<br>
+<br>
+# Erabilera anonimoa adierazpenetan:<br>
+EquivalentClasses(<br>
+&nbsp;&nbsp;:Orphan<br>
+&nbsp;&nbsp;ObjectAllValuesFrom(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ObjectInverseOf( :hasChild )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:Dead<br>
+&nbsp;&nbsp;)<br>
+)
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Propietate simetrikoak eta asimetrikoak</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# A hasSpouse B bada → B hasSpouse A<br>
+SymmetricObjectProperty( :hasSpouse )<br>
+<br>
+# A hasChild B bada → INOIZ EZ B hasChild A<br>
+AsymmetricObjectProperty( :hasChild )<br>
+<br>
+# Turtle:<br>
+:hasSpouse rdf:type owl:SymmetricProperty .<br>
+:hasChild rdf:type owl:AsymmetricProperty .
+        </pre>
+        <p>Asimetrikoa ≠ ez-simetrikoa (asimetrikoa indartsuagoa da)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Propietate erreflexiboak eta irreflexiboak</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Banako guztiak bere buruaren senideak dira<br>
+ReflexiveObjectProperty( :hasRelative )<br>
+<br>
+# Inor ezin da bere buruaren aita izan<br>
+IrreflexiveObjectProperty( :parentOf )<br>
+<br>
+# Turtle:<br>
+:hasRelative rdf:type owl:ReflexiveProperty .<br>
+:parentOf rdf:type owl:IrreflexiveProperty .
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Propietate funtzionalak</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Pertsona bakoitzak gehienez senar bat du<br>
+FunctionalObjectProperty( :hasHusband )<br>
+<br>
+# Senar bakoitza gehienez pertsona batena da<br>
+InverseFunctionalObjectProperty( :hasHusband )<br>
+<br>
+# Turtle:<br>
+:hasHusband rdf:type owl:FunctionalProperty .<br>
+:hasHusband rdf:type owl:InverseFunctionalProperty .
+        </pre>
+        <p>Mary hasHusband James eta Mary hasHusband Jim bada → James = Jim</p>
+    </section>
+
+    <section class="slide">
+        <h2>Propietate iragankorrak</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# A hasAncestor B eta B hasAncestor C bada<br>
+# → A hasAncestor C<br>
+TransitiveObjectProperty( :hasAncestor )<br>
+<br>
+# Turtle:<br>
+:hasAncestor rdf:type owl:TransitiveProperty .
+        </pre>
+        <p>hasParent hasAncestor-en azpipropietatea da: gurasoen gurasoen gurasoak automatikoki sartzen dira</p>
+        <p>(Adibideak/TransitivaFuncional)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Propietate disjuntuak</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Inor ez da pertsona beraren aita eta semea<br>
+DisjointObjectProperties( :hasParent :hasSpouse )
+        </pre>
+        <p>Ezin dira bi banako aldi berean bi propietateen bidez konektatuta egon</p>
+    </section>
+
+    <section class="slide">
+        <h2>Propietate-kateak (Property Chains)</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# hasParent o hasParent = hasGrandparent<br>
+SubObjectPropertyOf(<br>
+&nbsp;&nbsp;ObjectPropertyChain( :hasParent :hasParent )<br>
+&nbsp;&nbsp;:hasGrandparent<br>
+)<br>
+<br>
+# hasFather o hasBrother = hasUncle<br>
+SubObjectPropertyOf(<br>
+&nbsp;&nbsp;ObjectPropertyChain( :hasFather :hasBrother )<br>
+&nbsp;&nbsp;:hasUncle<br>
+)
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Gakoak (Keys)</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Gizarte Segurantzaren zenbakia Person bakoitza<br>
+# modu bakarrean identifikatzen du<br>
+HasKey( :Person () ( :hasSSN ) )<br>
+<br>
+# Turtle:<br>
+:Person owl:hasKey ( :hasSSN ) .
+        </pre>
+        <p>Klasearen instantzia izendatu bakoitza propietate horien balioen bidez modu bakarrean identifikatzen da</p>
+    </section>
+
+    <section class="slide">
+        <h1>Datatype-n erabilera aurreratua</h1>
+        <p>Datatype-n murrizketak eta definizioak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Datatype-n definizioa</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# Adina 0 eta 150 artean (XML Schema-ren fazetak)<br>
+DatatypeDefinition(<br>
+&nbsp;&nbsp;:personAge<br>
+&nbsp;&nbsp;DatatypeRestriction( xsd:integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xsd:minInclusive "0"^^xsd:integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xsd:maxInclusive "150"^^xsd:integer<br>
+&nbsp;&nbsp;)<br>
+)<br>
+<br>
+# majorAge = personAge AND NOT minorAge<br>
+DatatypeDefinition(<br>
+&nbsp;&nbsp;:majorAge<br>
+&nbsp;&nbsp;DataIntersectionOf(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:personAge<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataComplementOf( :minorAge )<br>
+&nbsp;&nbsp;)<br>
+)
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Datuen enumerazioa eta murrizketak</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+# toddlerAge = {1, 2}<br>
+DatatypeDefinition(<br>
+&nbsp;&nbsp;:toddlerAge<br>
+&nbsp;&nbsp;DataOneOf( "1"^^xsd:integer "2"^^xsd:integer )<br>
+)<br>
+<br>
+# hasAge funtzionala da: pertsona bakoitzak adin bakarra du<br>
+FunctionalDataProperty( :hasAge )<br>
+<br>
+# Teenager: adina 13 eta 19 artean<br>
+SubClassOf(<br>
+&nbsp;&nbsp;:Teenager<br>
+&nbsp;&nbsp;DataSomeValuesFrom( :hasAge<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DatatypeRestriction( xsd:integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xsd:minExclusive "12"^^xsd:integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xsd:maxInclusive "19"^^xsd:integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;)<br>
+)
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h1>Anotazioak eta ontologien kudeaketa</h1>
+        <p>Metadatuak eta antolaketa</p>
+    </section>
+
+    <section class="slide">
+        <h2>Anotazioak (Annotations)</h2>
+        <p>Anotazioek <b>ez dute esanahi logikorik</b>: annotation property-en bidez kodetutako metadatuak dira (rdfs:label, rdfs:comment, ...)</p>
+        <p>Entitateak anotatu</p>
+        <p>Axiomak anotatu</p>
+        <p>Ontologiak anotatu</p>        
+    </section>
+
+    <section class="slide">
+        <h2>Ontologien kudeaketa</h2>
+        <p>URI ontologia: Adibideak/ehu.ttl, URI entitateak?</p>
+        <p>Ontologiak fitxategien bidez inportatu: Adibideak/ehu-pdi.ttl, Adibideak/ehu-estudiante.ttl</p>
+        <p>Entitateak ontologien artean axiomen bidez lotu: owl:sameAs Adibideak/ehu.ttl-n</p>
+    </section>
+
+    <section class="slide">
+        <h2>Ontologien kudeaketa</h2>
+        <p>Entitateen bateratzea URIen bidez: schema:Person</p>
+        <p>Ontologiak URIen bidez inportatu: LOV; Category tab: academy; edu- Education Ontology</p>
+    </section>
+
+    <section class="slide">
+        <h1>OWL 2 DL eta OWL 2 Full</h1>
+        <p>OWL 2 interpretatzeko bi modu</p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL 2 DL</h2>
+        <p><b>Direct Semantics</b>:</p>
+        <ul>
+            <li>Sintaktikoki mugatutako azpimultzoa</li>
+            <li>Erabakigarria: arrazonatzaileek erantzuna bermatzen dute</li>
+            <li>Kalitatezko arrazonatzaile anitz eskuragarri</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>OWL 2 Full</h2>
+        <p><b>RDF-Based Semantics</b>:</p>
+        <ul>
+            <li>RDFSren luzapen naturala</li>
+            <li>Erabakiezina: ez dago arrazonatzaile osorik</li>
+            <li>Guztiz erreflexiboa (dena hirukote bat da)</li>
+        </ul>
+    </section>
+
+    <!-- <section class="slide">
+        <h2>OWL 2 DL vs OWL 2 Full: desberdintasunak</h2>
+        <table style="border-collapse: collapse; width: 100%; text-align: left; font-size: 14px;">
+            <tr style="background-color: #f0f0f0;">
+                <th style="border: 1px solid #ccc; padding: 6px;">Alderdia</th>
+                <th style="border: 1px solid #ccc; padding: 6px;">OWL 2 DL</th>
+                <th style="border: 1px solid #ccc; padding: 6px;">OWL 2 Full</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Semantika</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Direct Semantics</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">RDF-Based Semantics</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Erabakigarritasuna</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Erabakigarria</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Erabakiezina</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Anotazioak</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Esanahi formalik gabe</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Inferentziak sor ditzakete</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Punning</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Klasea eta banakoa ikuspegi desberdinak dira</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">SameIndividual-ek EquivalentClasses inplikatzen du</td>
+            </tr>
+        </table>
+    </section> -->
+
+    <section class="slide">
+        <h1>OWL 2 Profiles</h1>
+    </section>
+
+    <section class="slide">
+        <h2>OWL 2 Profiles</h2>
+        <p>OWL 2 osoa oso adierazgarria da baina konputazionalki garestia</p>
+        <p>Profilak propietate konputazional onak dituzten <b>azpimultzo sintaktikoak</b> dira</p>
+        <p>Profil bat ez da bestearen azpimultzoa</p>
+        <p>OWL 2 DL arrazonatzaile guztiak hiru profiletarako baliozkoak dira (baina motelago izan daitezke)</p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL 2 EL (Existential Language)</h2>
+        <p><b>Optimizatua</b>: deskribapen estruktural konplexuak dituzten ontologia handientzat: <a href="http://purl.bioontology.org/ontology/SNOMEDCT/">SNOMED-CT</a>, <a href="https://geneontology.org">Gene Ontology</a></p>
+        <p><b>Onartzen du</b>: klase-adierazpen aberatsak, propietate-kateak, intersekzioa</p>
+        <p><b>Ez du onartzen</b>: ezeztapena, disjuntzioa, kuantifikazio unibertsala, alderantzizkoak</p>
+        <p><b>Konplexutasuna</b>: polinomikoa (PTIME)</p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL 2 QL (Query Language)</h2>
+        <p><b>Optimizatua</b>: datu-bolumen handien gaineko kontsultentzat</p>
+        <p><b>DL-Lite-n oinarritua</b>: kontsulten itzulpena SQLra</p>
+        <p><b>Onartzen du</b>: alderantzizkoak, propietate-hierarkiak, ER/UML diagramak</p>
+        <p><b>Ez du onartzen</b>: kuantifikazio existentziala klase-adierazpenera, propietate-kateak, berdintasuna</p>
+        <p><b>Konplexutasuna</b>: LogSpace datuetan (NLOGSPACE)</p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL 2 RL (Rule Language)</h2>
+        <p><b>Optimizatua</b>: arau bidezko arrazonamendu eskalagarria</p>
+        <p><b>Bateragarria</b>: RDF(S), arauak (forward/backward chaining)</p>
+        <p><b>Onartzen du</b>: intersekzioa, propietate-kateak, gehienezko kardinalitatea</p>
+        <p><b>Ez du onartzen</b>: banako ezezagunen existentzia behartzen duten existentzialak</p>
+        <p><b>Konplexutasuna</b>: polinomikoa (PTIME)</p>
+    </section>
+
+    <section class="slide">
+        <h2>OWL 2 profilen konparaketa</h2>
+        <table style="border-collapse: collapse; width: 100%; text-align: left; font-size: 13px;">
+            <tr style="background-color: #f0f0f0;">
+                <th style="border: 1px solid #ccc; padding: 5px;">Profila</th>
+                <th style="border: 1px solid #ccc; padding: 5px;">Erabilera-kasua</th>
+                <th style="border: 1px solid #ccc; padding: 5px;">Inplementazioa</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 5px;">OWL 2 EL</td>
+                <td style="border: 1px solid #ccc; padding: 5px;">Ontologia handien sailkapena</td>
+                <td style="border: 1px solid #ccc; padding: 5px;">Arrazonatzaile espezializatuak (ELK, CEL)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 5px;">OWL 2 QL</td>
+                <td style="border: 1px solid #ccc; padding: 5px;">Kontsultak + ontologia arina</td>
+                <td style="border: 1px solid #ccc; padding: 5px;">SPARQL → SQL berridazketa (Ontop)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 5px;">OWL 2 RL</td>
+                <td style="border: 1px solid #ccc; padding: 5px;">RDF datuen aberastea</td>
+                <td style="border: 1px solid #ccc; padding: 5px;">Arau-motorrak (GraphDB)</td>
+            </tr>
+        </table>
     </section>
 
     <section class="slide">
@@ -217,13 +799,26 @@
         <p><img  style="border: 1px solid #555;"  src="pictures-abd-01/Plain-KG_KG_KGI-Ok.svg" alt="Knowledge Graph" width="70%"></p>
     </section>
 
-    <section class="slide">
-        <h2>Knowledge Graphs</h2>
-        <p>WikiData: <a href="https://www.wikidata.org/">https://www.wikidata.org/</a></p>
-        <p>DBPedia: <a href="https://www.dbpedia.org/about/">https://www.dbpedia.org/about/</a></p>
-        <p>Uniprot: <a href="https://sparql.uniprot.org/">https://sparql.uniprot.org/</a></p>
-        <p>...</p>
+        <section class="slide">
+        <h2>OWL eta SPARQL</h2>
+        <p>SPARQLek RDF grafoa kontsultatzen du, berez ez ditu inferitutako axiomak kontuan hartzen</p>
+        <p>GraphDB inference on: inferentziak materializatzen ditu (hirukote berriak) edo arrazonamendua aplikatzen du SPARQL emaitza hobeak lortzeko</p>
+        <p>Kontsulta federatuak interoperableagoak dira endpoint-ek ontologiak partekatzen badituzte</p>
     </section>
+
+
+
+    <section class="slide">
+        <h2>Ontologia publikoak</h2>
+        <p>Ontologia-biltegiak: <a href="https://lov.linkeddata.es/dataset/lov">Linked Open Vocabularies</a>, <a href="https://bioportal.bioontology.org">NCBO Bioportal</a>, ...</p>
+        <p><a href="https://schema.org">Schema</a></p>
+        <p><a href="https://op.europa.eu/en/web/eu-vocabularies/ontologies"></a>EU vocabularies: <a href="https://www.w3.org/TR/vocab-owl2/">European Legislation Identifier</a>, ...</p>
+        <p>...</p>
+
+    </section>
+
+
+
 
     <!-- FOOTER -->
 
