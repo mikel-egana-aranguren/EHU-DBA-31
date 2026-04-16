@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eu">
 <head>
-    <title>SHACL</title>
+    <title>SHACL 1.2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
@@ -9,11 +9,8 @@
         .shower {
             --slide-ratio: calc(16 / 9);
         }
+        pre code { font-size: 0.7em; }
     </style>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
 </head>
 <body class="shower list">
 
@@ -32,68 +29,593 @@
 
     <section class="slide">
         <h2>SHACL</h2>
-        <p><a href="https://github.com/mikel-egana-aranguren/ABD">https://github.com/mikel-egana-aranguren/ABD</a></p>
+        <p><a href="https://github.com/mikel-egana-aranguren/DBA">https://github.com/mikel-egana-aranguren/DBA</a></p>
         <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
     </section>
 
-    <section class="slide">
+        <section class="slide">
         <h2>SHACL</h2>
         <p>SHApes Constraint Language</p>
         <p>RDF grafo batek izan beharko lukeen forma definitzen du: zein erlazio, zein nodorekin, zein baliorekin, etab.</p>
-        <p>RDF datuak forma horren aurka balioztatzen dira, eta txosten bat sortzen da, datuek forma betetzen duten edo ez esaten duena (ValidationReport, RDF-n)</p>
+        <p>RDF datuak forma horren aurka balioztatzen dira, eta datuek forma betetzen duten ala ez adierazten duen txostena sortzen da (ValidationReport, RDFn)</p>
     </section>
 
     <section class="slide">
         <h2>SHACL</h2>
-        <p>SHACL W3C estandarra da: (<a href="https://www.w3.org/TR/shacl/">W3C</a>)</p>
-        <p><a href="https://www.w3.org/ns/shacl.ttl">SHACL hiztegiak</a>, RDF-n definitua, SHACL hizkuntza osoa dauka</p>
-        <p>RDF hizkuntza bera datuak (RDF) eskema (SHACL) eta emaitzen txostenak (ValidationReport) definitzeko (NoSQL!RDF!)</p>
-    </section>
-
-    <section class="slide">
-        <h2>SHACL vs OWL</h2> 
-        <p>Oso ohikoa den nahasketa: OWL eskema hizkuntza bezala</p>
-        <p>OWL inferentzia hizkuntza bat da, ez eskema hizkuntza bat (*): adibidez, ez du esaten zenbat erlazio izan behar dituen banako batek, baizik eta erlazio horiek dituen banakoa aurkitzen badugu, klase jakin batekoa dela ondorioztatzen da</p>
-        <p>(*) OWL-n "itxi" daiteke mundua, baina axioma jakin batzuekin eta ez lehenetsita</p>
+        <p>SHACL W3C-ek proposaturiko estandarra da: (<a href="https://www.w3.org/TR/shacl/">W3C</a>)</p>
+        <p>RDFn definitutako <a href="https://www.w3.org/ns/shacl.ttl">SHACL hiztegiak</a> SHACL lengoaia osoa dauka</p>
+        <p>RDF hizkuntza bera datuak (RDF), eskema (SHACL) eta emaitzen txostenak (ValidationReport) definitzeko (NoSQL!RDF!)</p>
     </section>
 
     <section class="slide">
         <h2>SHACL vs OWL</h2>
-        <p>Oso ohikoa den nahasketa: OWL eskema hizkuntza bezala</p>
+        <p>Ohiko nahasketa: OWL eskema hizkuntza bezala</p>
+        <p>OWL inferentzia hizkuntza da, ez eskema hizkuntza (*): adibidez, ez du esaten instantzia batek zenbat erlazio izan behar dituen; baizik eta erlazio horiek dituen instantzia aurkitzen badugu, klase jakin batekoa dela ondorioztatzen da</p>
+        <p>(*) OWLn mundua "itxi" daiteke, baina axioma jakin batzuekin eta ez lehenetsita</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL vs OWL</h2>
+        <p>Ohiko nahasketa: OWL eskema hizkuntza bezala</p>
         <p>SHACL bai dela eskema hizkuntza: adibidez, instantzia batek zenbat erlazio izan behar dituen esaten digu, eta instantzia horrek ez baditu, baliogabea da</p>
+        <p>Hala ere, SHACL testuinguru batzuetan OWL ordezkatzera eboluzionatzen ari da</p>
     </section>
 
     <section class="slide">
-        <h2>Shape SHACL</h2>
-        <p><img style="border: 1px solid #555;" src="pictures-abd-01/ejemplo_W3C.svg" alt="Shape SHACL" width="65%"></p>
+        <h2>SHACL shapea Turtle-n</h2>
+        <p><img  style="border: 1px solid #555;"  src="pictures-dba-31/ejemplo_W3C.svg" alt="Shape SHACL" width="65%"></p>
     </section>
 
     <section class="slide">
-        <h2>SHACL GraphDB-n</h2>
+        <h2>SHACL: Core osagaiak</h2>
+        <p>sh:NodeShape: grafoaren nodoei buruzko murriztapenak definitzen ditu</p>
+        <p>sh:PropertyShape: propietateei buruzko murriztapenak definitzen ditu</p>
+        <p>sh:targetClass, sh:targetNode, sh:targetSubjectsOf, sh:targetObjectsOf: zein nodo balioztatu</p>
+        <p>sh:path: zein propietate balioztatu</p>
+    </section>
+
+
+    <section class="slide">
+        <h2>SHACL: Kardinalitate murriztapenak</h2>
+        <p>sh:minCount: balioen gutxieneko kopurua</p>
+        <p>sh:maxCount: balioen gehieneko kopurua</p>
+        <pre><code>ex:PersonShape a sh:NodeShape ;
+    sh:targetClass ex:Person ;
+    sh:property [
+        sh:path ex:name ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Mota murriztapenak</h2>
+        <p>sh:class: balioa klase baten instantzia izan behar da</p>
+        <p>sh:datatype: balioak datatype zehatz bat izan behar du</p>
+        <p>sh:nodeKind: nodo mota (IRI, Literal, BlankNode)</p>
+        <pre><code>sh:property [
+    sh:path ex:birthDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1
+] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Balio murriztapenak</h2>
+        <p>sh:in: balioa zerrenda jakin batean egon behar da</p>
+        <p>sh:hasValue: balio zehatz bat existitu behar da</p>
+        <p>sh:minExclusive, sh:maxExclusive: zenbakizko tarteak</p>
+        <p>sh:minInclusive, sh:maxInclusive: zenbakizko tarte inklusiboak</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Kate murriztapenak</h2>
+        <p>sh:minLength, sh:maxLength: string-en luzera</p>
+        <p>sh:pattern: bete beharreko adierazpen erregularra</p>
+        <p>sh:languageIn: literaletarako baimendutako hizkuntzak</p>
+        <p>sh:uniqueLang: hizkuntza bakoitza behin bakarrik ager daiteke</p>
+
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Kate murriztapenak</h2>
+        <pre><code>sh:property [
+    sh:path rdfs:label ;
+    sh:uniqueLang true
+] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Murriztapen logikoak</h2>
+        <p>sh:not: shape baten ezeztapena</p>
+        <p>sh:and: shape guztiak bete behar dira</p>
+        <p>sh:or: gutxienez shape bat bete behar da</p>
+        <p>sh:xone: zehazki bat bete behar da</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Forma murriztapenak</h2>
+        <p>sh:node: balioak beste shape bat bete behar du</p>
+        <p>sh:property: beste murriztapenak barnean definitzen ditu</p>
+        <p>sh:qualifiedValueShape + sh:qualifiedMinCount/MaxCount: zenbat baliok bete behar duten shape bat</p>
+        <p>Baliozkotze konplexuak eta shapeen konposizioa ahalbidetzen ditu</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Closed Shapes</h2>
+        <p>sh:closed true: deklaratutako propietateak bakarrik onartzen dira</p>
+        <p>sh:ignoredProperties: salbuespen propietateen zerrenda</p>
+        <pre><code>ex:PersonShape a sh:NodeShape ;
+    sh:targetClass ex:Person ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [
+        sh:path ex:name
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Severity mailak</h2>
+        <p>sh:severity: urraketa baten larritasun maila</p>
+        <p>sh:Violation (lehenetsia): errore kritikoa</p>
+        <p>sh:Warning: abisua</p>
+        <p>sh:Info: informazioa</p>
+        <p>Derrigorrezko baliozkotzeak eta gomendioak bereizteko aukera ematen du</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Mezu pertsonalizatuak</h2>
+        <p>sh:message: urraketetarako mezu deskribatzailea</p>
+        <p>Hizkuntza etiketak erabiliz eleanitza izan daiteke</p>
+        <pre><code>sh:property [
+    sh:path ex:age ;
+    sh:datatype xsd:integer ;
+    sh:minInclusive 0 ;
+    sh:message "La edad debe ser un entero no negativo"@es ;
+    sh:message "Age must be a non-negative integer"@en
+] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Property Paths</h2>
+        <p>sh:path-ek bide konplexuak onartzen ditu:</p>
+        <p>Sekuentzia: ( ex:parent ex:age ) - gurasoa.adina</p>
+        <p>Aukera: [ sh:alternativePath ( ex:email ex:phone ) ]</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Property Paths</h2>
+        <p>Alderantzizkoa: [ sh:inversePath ex:knows ]</p>
+        <p>Zero edo gehiago: [ sh:zeroOrMorePath ex:parent ]</p>
+        <p>Bat edo gehiago: [ sh:oneOrMorePath ex:subClassOf ]</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL-SPARQL</h2>
+        <p>Hedapen aurreratua: SPARQL query-ekin egindako baliozkotzeak</p>
+        <p>sh:sparql-ek arbitrarioki konplexuak diren murriztapenak ahalbidetzen ditu</p>
+        <p>SHACL Core baino adierazkorragoa da, baina garestiagoa</p>
+        <p>Arrazoiketa konplexua behar duten baliozkotzeetarako erabilgarria</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL-SPARQL: Adibidea</h2>
+        <pre><code>ex:UniqueEmailShape a sh:NodeShape ;
+    sh:targetClass ex:Person ;
+    sh:sparql [
+        sh:message "Email must be unique" ;
+        sh:select """
+            SELECT $this ?email WHERE {
+                $this ex:email ?email .
+                ?other ex:email ?email .
+                FILTER ($this != ?other)
+            }
+        """
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Validation Report</h2>
+        <p>Baliozkotzearen emaitza RDFn (NoSQL!RDF!)</p>
+        <p>sh:ValidationReport, sh:conforms-ekin (true/false)</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Validation Report</h2>
+        <p>sh:ValidationResult urraketa bakoitzerako:</p>
+        <ul>
+            <li>sh:focusNode: murriztapena urratzen duen nodoa</li>
+            <li>sh:resultPath: urratutako propietatea</li>
+            <li>sh:value: balio problematikoa</li>
+            <li>sh:resultMessage: errorearen deskribapena</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL: Tresnak</h2>
+        <p><a href="https://www.topquadrant.com/products/shacl-playground/">SHACL Playground</a>: online editorea</p>
+        <p><a href="https://github.com/TopQuadrant/shacl">pySHACL</a>: Python balioztatzailea</p>
+        <p><a href="https://github.com/apache/jena/tree/main/jena-shacl">Apache Jena SHACL</a>: Java</p>
+        <p>GraphDB, Stardog: SHACL integratuta</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL GraphDBn</h2>
         <ol>
-            <li>Shapes kargatu (RDF)</li>
+            <li>Shapes-ak kargatu (RDF)</li>
             <li>Datuak kargatu</li>
             <li>Baliozkoak badira, datuak kargatzen dira</li>
-            <li>Baliogabeak badira, ez dira kargatzen eta akatsaren arrazoia Validation Report-ean agertzen da</li>
+            <li>Baliogabeak badira, ez dira kargatzen eta huts egitearen arrazoia Validation Report-ean agertzen da</li>
         </ol>
+
     </section>
 
     <section class="slide">
-        <h2>SHACL GraphDB-n</h2>
+        <h2>SHACL GraphDBn</h2>
         <p>Errepositorioa sortu SHACL aukera aktibatuz</p>
-        <p>Shape-ak grafo berezian daude:
+        <p>Shape-ak grafo espezifiko batean daude:
             <ul>
-                <li>Lehenetsita http://rdf4j.org/schema/rdf4j#SHACLShapeGraph</li>
-                <li>Shape-ak edozein grafotan defini daitezke eta datuekin lotu: ex:dataGraph sh:shapesGraph ex:GraphConShapes</li>
+                <li>Lehenetsita: http://rdf4j.org/schema/rdf4j#SHACLShapeGraph</li>
+                <li>Shape-ak edozein grafotan defini daitezke eta datuekin lotu: ex:dataGraph sh:shapesGraph URI_SHAPES_GRAPH</li>
             </ul>
         </p>
 
-        <p>[ex1, rdf_type adibideak exekutatu]</p>
+        <p>[Adibideak/ex1_person]</p>
     </section>
 
+    <!-- <section class="slide">
+        <h2>SHACL 1.2</h2>
+        <p>W3Cren <b>Working Draft</b>-a (2026ko martxoa), SHACL 1.0rekiko eboluzio esanguratsua</p>
+        <p>Esparru berria OWLen funtzioetara zabaldua: "SHACL <b>baliozkotzeko</b>, <b>inferentzia egiteko</b>, <b>domeinuen modelaketa</b>, <b>erabiltzaile interfazeen sorrera</b>, <b>kodearen sorrera</b> eta <b>datu integrazioa</b> egiteko erabil daiteke"</p>
+    </section>
 
+    <section class="slide">
+        <h2>SHACL 1.2</h2>
+        <ul>
+            <li><a href="https://www.w3.org/TR/shacl12-core/">SHACL 1.2 Core</a>: lengoaiaren nukleoa</li>
+            <li><a href="https://www.w3.org/TR/shacl12-sparql/">SHACL 1.2 SPARQL Extensions</a>: SPARQLen oinarritutako murriztapenak definitzea</li>
+            <li><a href="https://www.w3.org/TR/shacl12-rules/">SHACL 1.2 Rules (SRL)</a>: arauetan oinarritutako inferentzia</li>
+            <li><a href="https://w3c.github.io/data-shapes/shacl12-ui/">SHACL 1.2 UI</a>: erabiltzaile interfazeen sorrera</li>
+            <li><a href="https://www.w3.org/TR/shacl12-profiling/">SHACL 1.2 Profiling</a>: grafoak irudikatzen dituzten profilak sortzea</li>
+        </ul>
+    </section>
 
-    
+    <section class="slide">
+        <h2>SHACL 1.2 Core: Berritasun nagusiak</h2>
+        <p><b>target</b> mekanismo berriak: sh:targetWhere, sh:shape</p>
+        <p>Murriztapen berriak: sh:someValue, sh:singleLine, zerrenda murriztapenak</p>
+        <p>sh:ShapeClass: aldi berean klase eta shape den elementua</p>
+        <p><b>RDF 1.2</b>rako euskarria: sh:reifierShape</p>
+        <p><b>IArako propietate ez-balioztatzaileak: sh:intent, sh:agentInstruction</b></p>
+    </section>
+
+    <section class="slide">
+        <h2>Core: sh:ShapeClass</h2>
+        <p>Shape gisa ere jokatzen duen klasea, definizioa sinplifikatuz</p>
+        <p>Klasearen instantzia guztiak automatikoki balioztatzen dira shapearen aurka</p>
+        <p>sh:NodeShape + sh:targetClass bereizita definitzearen baliokidea da</p>
+    </section>
+
+    <section class="slide">
+        <h2>Core: sh:ShapeClass</h2>
+        <pre><code>ex:Person a sh:ShapeClass, rdfs:Class ;
+    sh:property [
+        sh:path ex:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] .</code></pre>     
+    </section>
+
+    <section class="slide">
+        <h2>Core: sh:targetWhere</h2>
+        <p>Shapearen <b>baldintzetan</b> oinarritutako target mekanismo berria</p>
+        <p>Baldintzak betetzen dituzten datu-grafoko nodoak izango dira focus nodes</p>
+    </section>
+
+        <section class="slide">
+        <h2>Core: sh:targetWhere</h2>
+        <pre><code>ex:HighScoreShape a sh:NodeShape ;
+    sh:targetWhere [
+            sh:property [
+                sh:path ex:score ;
+                sh:minInclusive 90
+            ]
+        ] ;
+            sh:property [
+            sh:path ex:award ;
+            sh:minCount 1
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Core: sh:shape target inplizitu gisa</h2>
+        <p><b>sh:shape</b>: shape bat helburu inplizitu gisa markatzen du, grafoko eta hautagai den edozein nodo automatikoki balioztatuz</p>
+        <p>sh:targetClass-ek ez bezala, ez du eskatzen nodoak klase baten instantzia esplizituak izatea</p>
+    </section>
+
+        <section class="slide">
+        <h2>Core: sh:shape target inplizitu gisa</h2>
+        <pre><code>ex:PersonShape a sh:NodeShape ;
+    sh:shape true ;
+    sh:property [
+        sh:path ex:name ;
+        sh:minCount 1
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Core: Node Expressions</h2>
+        <p>Propietateen balioak <b>dinamikoki kalkulatzeko</b> aukera ematen dute</p>
+        <p>sh:values: propietate bati balio eratorriak esleitzen dizkio</p>
+        <p>Funciones: sh:concat, sh:limit, sh:offset, sh:orderBy, sh:count, sh:sum...</p>
+    </section>
+
+        <section class="slide">
+        <h2>Core: Node Expressions</h2>
+        <pre><code>ex:Person-fullName a sh:PropertyShape ;
+    sh:path ex:fullName ;
+    sh:values [
+        sh:concat (
+            [ sh:path ex:firstName ]
+            " "
+            [ sh:path ex:lastName ]
+        )
+    ] .</code></pre>
+    </section>
+
+   
+    <section class="slide">
+        <h2>Core: Severity maila berriak</h2>
+        <p>sh:Violation, sh:Warning eta sh:Infoz gain, SHACL 1.2k honakoak gehitzen ditu:</p>
+        <ul>
+            <li><b>sh:Trace</b>: garapenean arazketa egiteko</li>
+            <li><b>sh:Debug</b>: diagnostiko informazioa</li>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Core: IA agenteentzako propietateak</h2>
+        <p>Agente adimendunekin integratzeko propietate <b>ez-balioztatzaile</b> berriak:</p>
+        <ul>
+            <li><b>sh:intent</b>: shapearen asmoa deskribatzen du (gizakientzat eta agenteentzat)</li>
+            <li><b>sh:agentInstruction</b>: IA/LLM agenteentzako jarraibide espezifikoak</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Core: sh:singleLine eta sh:conformanceDisallows</h2>
+        <p><b>sh:singleLine</b>: balio literal bat lerro bakarrekoa izan behar den adierazten du (lerro-jauzirik gabe). Erabiltzaile interfazeek widget egokia aukeratzeko erabiltzen dute</p>
+        <p><b>sh:conformanceDisallows</b>: konformantzia zerk eragozten duen definitzeko aukera ematen du, baliozkotze eredua zabalduz</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL 1.2 Rules</h2>
+        <p><b>Arauetan oinarritutako inferentziarako</b> espezifikazio berria</p>
+        <p><b>Shape Rules Language (SRL)</b> aurkezten du</p>
+        <p>Arauak shape-ei erantsi dakizkieke triple berriak sortzeko</p>
+        <p><b>Errekurtsioa</b> eta <b>negation as failure</b> onartzen ditu</p>
+    </section>
+
+    <section class="slide">
+        <h2>Rules: SRL sintaxia</h2>
+        <p>Arauek <b>RULE/WHERE</b> sintaxia erabiltzen dute:</p>
+        <p>WHERE klausulak baldintzak definitzen ditu; RULE klausulak sortu beharreko tripleak definitzen ditu</p>
+</code></pre>    
+    </section>
+
+        <section class="slide">
+        <h2>Rules: SRL sintaxia</h2>
+        <pre><code>PREFIX ex: &lt;http://example.com/ns#&gt;
+
+RULE {
+    ?person ex:fullName ?fullName .
+}
+WHERE {
+    ?person ex:firstName ?first .
+    ?person ex:lastName ?last .
+    BIND(CONCAT(?first, " ", ?last) AS ?fullName)
+}</code></pre>    
+    </section>
+
+    <section class="slide">
+        <h2>Rules: Ezeztapena eta errekurtsioa</h2>
+        <p><b>Negation as failure</b>: zerbait EZ dagoenerako arauak</p>
+        <p><b>Errekurtsioa</b>: arauek beste arau batzuk aktibatzen dituzten tripleak sor ditzakete, emaitza koherenteak bermatzeko <b>estratifikazioarekin</b></p>
+    </section>
+
+    <section class="slide">
+        <h2>Rules: Arauak shape-ei erantsi</h2>
+        <p>Arauak shape zehatzei lotu dakizkieke, shape horren focus node-etan bakarrik aplikatzeko</p>
+        <pre><code>ex:PersonShape a sh:NodeShape ;
+    sh:targetClass ex:Person ;
+    sh:rule [
+        a sh:SRLRule ;
+        sh:construct """
+            RULE { $this ex:fullName ?fn }
+            WHERE {
+                $this ex:firstName ?f .
+                $this ex:lastName ?l .
+                BIND(CONCAT(?f," ",?l) AS ?fn)
+            }
+        """
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Rules: Estratifikazioa</h2>
+        <p>Arauak <b>estratifikazio geruzetan</b> ebaluatzen dira mendekotasunak eta ezeztapena ebazteko:</p>
+        <ol>
+            <li>Arauen arteko mendekotasun-grafoa aztertzen da</li>
+            <li>Beste arau batzuen ezeztapenetan oinarritzen diren arauak goiko geruzetan kokatzen dira</li>
+            <li>Geruza bakoitza osorik ebaluatzen da hurrengora igaro aurretik</li>
+        </ol>
+        <p>Eredu semantiko bakar eta koherentea bermatzen du</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL 1.2 SPARQL Extensions</h2>
+        <p><b>SPARQL 1.2</b>n oinarritutako SHACL hedapenak definitzen ditu</p>
+        <ul>
+            <li><b>SPARQLen oinarritutako murriztapenak</b> (sh:sparql)</li>
+            <li>Berrerabil daitezkeen <b>murriztapen osagaiak</b> (sh:ConstraintComponent)</li>
+            <li><b>SPARQL nodo adierazpenak</b> (sh:SelectExpression, sh:SPARQLExprExpression)</li>
+        </ul>
+        <p>SHACL Core baino adierazkorragoa da, baina gutxiago eraginkorra</p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL: sh:sparql bidezko murriztapenak</h2>
+        <p>SELECT queryak erabiliz <b>arbitrarioki konplexuak</b> diren murriztapenak ahalbidetzen dituzte</p>
+        <p><b>$this</b> aldagaia uneko focus node-ari aurrez lotzen zaio</p>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL: sh:sparql bidezko murriztapenak</h2>
+        <pre><code>ex:LanguageShape a sh:NodeShape ;
+    sh:targetClass ex:Country ;
+    sh:sparql [
+        sh:message "Debe tener etiqueta en alemán" ;
+        sh:prefixes ex: ;
+        sh:select """
+            SELECT $this ?value WHERE {
+                $this ex:germanLabel ?value .
+                FILTER (!langMatches(lang(?value), "de"))
+            }
+        """
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL: Murriztapen osagaiak</h2>
+        <p>SPARQL baliozkotze-logika <b>abstraitu eta berrerabiltzeko</b> aukera ematen dute</p>
+        <p>sh:ConstraintComponent + sh:parameter + balioztatzailea erabiliz deklaratzen dira</p>
+    </section>
+
+        <section class="slide">
+        <h2>SPARQL: Murriztapen osagaiak</h2>
+        <pre><code>ex:LangComponent a sh:ConstraintComponent ;
+    sh:parameter [ sh:path ex:lang ] ;
+    sh:validator [
+        a sh:SPARQLAskValidator ;
+        sh:message "Idioma incorrecto: {$lang}" ;
+        sh:ask """ASK {
+            FILTER (isLiteral($value) &amp;&amp;
+              langMatches(lang($value), $lang))
+        }"""
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>SPARQL: ASK vs SELECT balioztatzaileak</h2>
+        <p>Bi SPARQL balioztatzaile mota:</p>
+        <ul>
+            <li><b>ASK</b> (sh:SPARQLAskValidator): true itzultzen du balioak murriztapena <b>betetzen</b> badu</li>
+            <li><b>SELECT</b> (sh:SPARQLSelectValidator): <b>EZ betetzen</b> duten balioak itzultzen ditu</li>
+        </ul>
+        <p>Balioztatzailearen hautaketa: sh:nodeValidator (NodeShape-rako), sh:propertyValidator (PropertyShape-rako), sh:validator (bietarako, ASK bakarrik)</p>
+    </section>
+
+    <section class="slide">
+        <h2>SHACL 1.2 UI (User Interfaces)</h2>
+        <p>SHACL shape-etatik abiatuta <b>erabiltzaile interfazeak sortzeko</b> espezifikazio berria</p>
+        <p><b>SHACL Renderer</b> kontzeptua definitzen du: shape-ak eta datuak prozesatzen dituen softwarea, UI dinamikoki sortzeko</p>
+        <p>Namespace berria: <b>shui:</b> (http://www.w3.org/ns/shacl-ui#)</p>
+        <p>Bi modu: <b>bista</b> (bistaratzea) eta <b>edizioa</b> (datuen aldaketa)</p>
+    </section>
+
+    <section class="slide">
+        <h2>UI: Widgets</h2>
+        <ul>
+            <li><b>Editoreak</b> (shui:Editor): datuak aldatzeko — TextFieldEditor, DatePickerEditor, BooleanSelectEditor, AutoCompleteEditor, EnumSelectEditor...</li>
+            <li><b>Bistaratzaileak</b> (shui:Viewer): datuak erakusteko — LabelViewer, LiteralViewer, HTMLViewer, ImageViewer, URIViewer...</li>
+        </ul>
+        <p>Eskuz hautatzen dira (shui:editor, shui:viewer) edo automatikoki <b>puntuazio sistema</b> baten bidez</p>
+    </section>
+
+    <section class="slide">
+        <h2>UI: Editoreen adibidea</h2>
+        <pre><code>ex:Person-married a sh:PropertyShape ;
+    sh:path ex:married ;
+    sh:datatype xsd:boolean .
+# → BooleanSelectEditor (score 10)
+
+ex:Person-dateOfBirth a sh:PropertyShape ;
+    sh:path ex:dateOfBirth ;
+    sh:datatype xsd:date .
+# → DatePickerEditor (score 10)
+
+ex:Address-region a sh:PropertyShape ;
+    sh:path schema:addressRegion ;
+    sh:in ("ACT" "NSW" "QLD" "SA" "VIC") .
+# → EnumSelectEditor (score 10)</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>UI: Property Paths bista eta edizio moduan</h2>
+        <p><b>Bista modua</b>: MUST predicate paths eta inverse paths onartu; SHOULD path konplexuak onartu (sekuentzia, alternatiba, etab.)</p>
+        <p><b>Edizio modua</b>: MUST predicate eta inverse paths onartu; SHOULD alternative paths onartu</p>
+        <pre><code>ex:PersonShape a sh:NodeShape ;
+    sh:property [
+        sh:path foaf:name ;
+        sh:name "Nombre"
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath ex:member ] ;
+        sh:name "Departamento"
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>UI: Property Roles</h2>
+        <p>Interfazean propietate baten <b>rola</b> adierazteko anotazioak</p>
+        <p><b>shui:propertyRole</b>: propietate bat nola tratatu behar den adierazten du (adib. bistaratze etiketa gisa)</p>
+        <pre><code>ex:Label a sh:PropertyShape ;
+    sh:path skos:prefLabel ;
+    shui:propertyRole shui:LabelRole .</code></pre>
+        <p><b>Lehentasun kualifikatuarekin</b> (sh:order) eta <b>RDF 1.2 triple anotazioetarako</b> euskarriarekin:</p>
+        <pre><code>ex:PrefLabel a sh:PropertyShape ;
+    sh:path skos:prefLabel ;
+    shui:propertyRole shui:LabelRole
+        {| sh:order 0 |} .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>UI: DetailsEditor eta habiaratutako formularioak</h2>
+        <p><b>shui:DetailsEditor</b>: nodo konplexuak habiaratutako formulario gisa editatzeko aukera ematen du</p>
+        <pre><code>ex:Product-weight a sh:PropertyShape ;
+    sh:path ex:weight ;
+    shui:editor shui:DetailsEditor ;
+    sh:maxCount 1 ;
+    sh:node ex:ValueWithWeight ;
+    sh:nodeKind sh:BlankNode .
+
+ex:ValueWithWeight a sh:NodeShape ;
+    sh:property [
+        sh:path ex:numericValue ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1
+    ] ;
+    sh:property [
+        sh:path ex:unit ;
+        sh:class qudt:Unit ;
+        sh:minCount 1
+    ] .</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>UI: ValueTableViewer</h2>
+        <p><b>shui:ValueTableViewer</b>: balio anitz erakusten ditu <b>HTML taula</b> gisa</p>
+        <p>Multi Viewer bat da: propietate baten balio guztien kontrola hartzen du</p>
+        <p>Zutabeak sh:node-rekin erreferentziatutako node shape-tik eratorriak dira</p>
+        <p>Zutabeen ordena sh:order bidez kontrolatzen da</p>
+        <pre><code>ex:Concept-narrower a sh:PropertyShape ;
+    sh:path [ sh:inversePath skos:broader ] ;
+    sh:name "narrower (tabla)" ;
+    shui:viewer shui:ValueTableViewer ;
+    sh:node ex:ConceptTableShape .</code></pre>
+    </section> -->
+
     <!-- FOOTER -->
 
     <footer class="badge">
@@ -103,7 +625,6 @@
     <div class="progress"></div>
 
     <script src="../ShowerTemplate/shower/shower.js"></script>
-    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
 
 </body>
 </html>
