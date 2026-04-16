@@ -5,6 +5,13 @@
 * NoSQL Sarrera, Grafoak, RDF
 * SPARQL
 * OWL
+* SHACL
+
+## 2025-2026-3
+
+* NoSQL Sarrera, Grafoak, RDF
+* SPARQL
+* OWL
 
 ## 2025-2026-2
 
