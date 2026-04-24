@@ -1,0 +1,21 @@
+db.alumni.insertMany([
+  {
+    nombre: "Jon Aguirre",
+    email: "jon@ehu.eus",
+    edad: 22,
+    notas: [
+      { asignatura: "ABD", nota: 7.5 }
+    ]
+  },
+  {
+    nombre: "Miren Etxebarria",
+    email: "miren@ehu.eus",
+    edad: 20
+  },
+  {
+    nombre: "Unai López",
+    email: "unai@ehu.eus",
+    edad: 23,
+    becado: true
+  }
+])

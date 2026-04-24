@@ -1,0 +1,72 @@
+ehu> db.alumni1000.find({ email: "alumno0680@ikasle.ehu.eus" }).explain("executionStats")
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'ehu.alumni1000',
+    parsedQuery: { email: { '$eq': 'alumno0680@ikasle.ehu.eus' } },
+    indexFilterSet: false,
+    queryHash: '2C2F10E4',
+    planCacheShapeHash: '2C2F10E4',
+    planCacheKey: 'FAA42045',
+    optimizationTimeMillis: 0,
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    prunedSimilarIndexes: false,
+    winningPlan: {
+      isCached: false,
+      stage: 'COLLSCAN',
+      filter: { email: { '$eq': 'alumno0680@ikasle.ehu.eus' } },
+      direction: 'forward'
+    },
+    rejectedPlans: []
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 1,
+    executionTimeMillis: 1,
+    totalKeysExamined: 0,
+    totalDocsExamined: 1008,
+    executionStages: {
+      isCached: false,
+      stage: 'COLLSCAN',
+      filter: { email: { '$eq': 'alumno0680@ikasle.ehu.eus' } },
+      nReturned: 1,
+      executionTimeMillisEstimate: 0,
+      works: 1009,
+      advanced: 1,
+      needTime: 1007,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      direction: 'forward',
+      docsExamined: 1008
+    }
+  },
+  queryShapeHash: '6AFDC43186299E6BB52F2478CD3EBDA9937654AA9353F189495B68A973E41692',
+  command: {
+    find: 'alumni1000',
+    filter: { email: 'alumno0680@ikasle.ehu.eus' },
+    '$db': 'ehu'
+  },
+  serverInfo: {
+    host: 'U113356',
+    port: 27017,
+    version: '8.2.7',
+    gitVersion: '8f6785264a643d2eeb5e4046f7876a23e40e1a09'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted',
+    internalQueryPlannerIgnoreIndexWithCollationForRegex: 1
+  },
+  ok: 1
+}

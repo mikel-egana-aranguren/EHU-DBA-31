@@ -1,0 +1,41 @@
+[
+  {
+    "nombre": "Laptop Pro 15",
+    "categoria": "electronica",
+    "precio": 1299.99,
+    "stock": 42,
+    "activo": true,
+    "etiquetas": ["portatil", "trabajo", "gaming"],
+    "especificaciones": {
+      "marca": "TechCorp",
+      "modelo": "LP-15X",
+      "garantia_meses": 24
+    }
+  },
+  {
+    "nombre": "Teclado Mecánico RGB",
+    "categoria": "perifericos",
+    "precio": 89.95,
+    "stock": 150,
+    "activo": true,
+    "etiquetas": ["teclado", "gaming", "rgb"],
+    "especificaciones": {
+      "marca": "KeyMaster",
+      "modelo": "KM-RGB100",
+      "garantia_meses": 12
+    }
+  },
+  {
+    "nombre": "Monitor 27\" 4K",
+    "categoria": "electronica",
+    "precio": 499.00,
+    "stock": 30,
+    "activo": false,
+    "etiquetas": ["monitor", "4k", "trabajo"],
+    "especificaciones": {
+      "marca": "ViewMax",
+      "modelo": "VM-27UHD",
+      "garantia_meses": 36
+    }
+  }
+]

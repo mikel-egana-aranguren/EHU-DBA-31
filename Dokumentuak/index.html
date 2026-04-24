@@ -1,0 +1,972 @@
+<!-- synced: Documentos -> Dokumentuak, 2026-04-24 -->
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <title>Dokumentuak</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../ShowerTemplate/shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+        .source-slide {
+            overflow-y: auto;
+            padding-bottom: 2rem;
+        }
+        .source-slide h1 {
+            margin-bottom: 0.35em;
+            font-size: 1.6em;
+            line-height: 1.1;
+        }
+        .source-slide h2 {
+            font-size: 1.1em;
+            line-height: 1.1;
+        }
+        .source-slide p,
+        .source-slide li,
+        .source-slide td,
+        .source-slide th {
+            font-size: 0.72em;
+            line-height: 1.15;
+        }
+        .source-slide ul {
+            margin-top: 0.2em;
+            margin-bottom: 0.35em;
+        }
+        .source-slide table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.4em;
+        }
+        .source-slide td,
+        .source-slide th {
+            border: 1px solid #bbb;
+            padding: 0.2em 0.35em;
+            vertical-align: top;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Dokumentuak: MongoDB</h1>
+        <p>Mikel Egaña Aranguren</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>Dokumentuak: MongoDB</h2>
+        <p>Mikel Egaña Aranguren</p>
+        <p><a href="https://mikel-egana-aranguren.github.io/">mikel-egana-aranguren.github.io</a></p>
+        <p><a href="mailto:mikel.egana@ehu.eus">mikel.egana@ehu.eus</a></p>
+        <img src="../ShowerTemplate/pictures/ehu.png" alt="UPV/EHU ingenieros San Mames" height="25%" style="border: 1px solid #555;">
+    </section>
+
+    <section class="slide">
+        <h2>Dokumentuak: MongoDB</h2>
+        <p><a href="https://github.com/mikel-egana-aranguren/DBA">https://github.com/mikel-egana-aranguren/DBA</a></p>
+        <img src="../ShowerTemplate/pictures/by.png" alt="Creative Commons BY" height="10%">
+    </section>
+
+    <section class="slide">
+        <h2>MongoDB</h2>
+        <p><strong>Dokumentuetan</strong> oinarritutako NoSQL datu-basea: datuak JSON dokumentu gisa gordetzen dira</p>
+        <p>Ez du eskema finkorik (schemaless)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Tresnak</h2>
+        <ul>
+            <li><strong>mongod</strong> — datu basearen zerbitzaria</li>
+        <li><strong>mongosh</strong> — shell interaktiboa komandoak exekutatzeko</li>
+        <li><strong>MongoDB Compass</strong> — interfaze grafikoa kolekzioak aztertzeko</li>
+            <li><strong>MongoDB Atlas</strong> — kudeaturiko cloud zerbitzua</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Datu eredua</h2>
+        <table style="border-collapse: collapse; width: 100%; text-align: left; font-size: 18px;">
+            <tr style="background-color: #f0f0f0;">
+          <th style="border: 1px solid #ccc; padding: 8px;">Kontzeptua</th>
+          <th style="border: 1px solid #ccc; padding: 8px;">MongoDB</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Datu basea</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Datu basea</td>
+            </tr>
+            <tr>
+          <td style="border: 1px solid #ccc; padding: 8px;">Antolakuntza unitatea</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Kolekzioa</td>
+            </tr>
+            <tr>
+          <td style="border: 1px solid #ccc; padding: 8px;">Datu unitatea</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Dokumentua</td>
+            </tr>
+            <tr>
+          <td style="border: 1px solid #ccc; padding: 8px;">Atributua</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Eremua (field)</td>
+            </tr>
+            <tr>
+          <td style="border: 1px solid #ccc; padding: 8px;">Identifikatzailea</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">_id</td>
+            </tr>
+            <tr>
+          <td style="border: 1px solid #ccc; padding: 8px;">Erlazioak</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">Dokumentuen arteko erlazioak: dokumentu txertatuak / erreferentziak</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>JSON: JavaScript Object Notation</h2>
+        <p>Datu-trukerako formatu arina, gizakientzat eta makinentzat irakurgarria</p>
+        <p><a href="https://www.json.org/">JSON</a> (<a href="https://ecma-international.org/publications-and-standards/standards/ecma-404/">ECMA 404</a>)</p>
+        <p>Gako-balio bikoteetan oinarritua</p>
+        <p>Datu motak: string-ak, zenbakiak, boolearrak, array-ak, objektuak, null</p>
+        <p>Objektuak beste objektuak eta objektuen array-ak eduki ditzakete: datuak jerarkikoki zuzenean modelatzea</p>
+    </section>
+
+    <section class="slide">
+        <h2>JSON dokumentuak</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+{<br>
+&nbsp;&nbsp;"nombre": "Javier Cansado",<br>
+&nbsp;&nbsp;"direccion": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"calle": "Gran Vía 1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"ciudad": "Bilbao",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"cp": "48001"<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"telefonos": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"tipo": "movil", "numero": "666111222"},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"tipo": "casa", "numero": "944123456"}<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"viviendas": ["Deusto", "Abando", "Begoña"]<br>
+}
+        </pre>
+
+    </section>
+
+    <section class="slide">
+        <h2>BSON: Binary JSON</h2>
+        <p>MongoDB-k dokumentuak barnean BSON formatuan gordetzen ditu</p>
+        <p>JSON-aren adierazpen binarioa, biltegirako eraginkorragoa</p>
+    </section>
+
+        <section class="slide">
+        <h2>BSON: Binary JSON</h2>
+        <p>JSON-ek ez dituen datatype osagarriak onartzen ditu:</p>
+        <ul>
+            <li><code>ObjectId</code> — 12 byteko identifikatzaile bakarra</li>
+            <li><code>Date</code> — milisegundoko doitasuna duten datak</li>
+            <li><code>NumberInt</code>, <code>NumberLong</code>, <code>NumberDecimal</code></li>
+            <li><code>BinData</code> — datu binarioak</li>
+            <li><code>Regex</code> — adierazpen erregularrak</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>ObjectId</h2>
+        <p>Dokumentu bakoitzak <code>_id</code> eremua du gako nagusi bezala</p>
+        <p>Ez badago JSON dokumentuan, MongoDB-k <code>ObjectId</code> bat automatikoki sortzen du</p>
+        <p>Datu Base osoan bakarra da, sorreraren ordenen arabera ordenatua</p>
+        <p>Automatikoki sortzen da eta banatutako sistemetan ondo funtzionatzen du</p>
+    </section>
+
+    <section class="slide">
+        <h2>Konektatu eta datu-base bat sortu</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+// Konektatu zerbitzarira (Terminal edo GUI)<br>
+$ mongosh<br>
+$ mongodb-compass<br>
+<br>
+// MongoDB-n datu basea erabiltzea nahikoa da (txertatzean sortzen da)<br>
+test> use ehu<br>
+<br>
+// Uneko datu basearen kolekzioak ikusi<br>
+ehu> show collections<br>
+        </pre>
+        <p>MongoDB-k datu-baseak eta kolekzioak modu inplizituan sortzen ditu lehenengo dokumentua txertatzean</p>
+    </section>
+
+    <section class="slide">
+        <h2>CRUD: Oinarrizko eragiketak</h2>
+        <table style="border-collapse: collapse; width: 100%; text-align: left; font-size: 18px;">
+            <tr style="background-color: #f0f0f0;">
+                <th style="border: 1px solid #ccc; padding: 8px;">Eragiketa</th>
+          <th style="border: 1px solid #ccc; padding: 8px;">MongoDB metodoak</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Sortu</td>
+          <td style="border: 1px solid #ccc; padding: 8px;">insertOne() / insertMany()</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Irakurri</td>
+          <td style="border: 1px solid #ccc; padding: 8px;">find() / findOne()</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Eguneratu</td>
+          <td style="border: 1px solid #ccc; padding: 8px;">updateOne() / updateMany()</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Ezabatu</td>
+          <td style="border: 1px solid #ccc; padding: 8px;">deleteOne() / deleteMany()</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>insertOne()</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.insertOne({<br>
+&nbsp;&nbsp;nombre: "Javier Cansado",<br>
+&nbsp;&nbsp;email: "javi@ehu.eus",<br>
+&nbsp;&nbsp;edad: 21<br>
+})
+        </pre>
+        <p>Ez da beharrezkoa aurretik kolekzioa definitzea</p>
+        <p>Ez da beharrezkoa dokumentu guztiek eremu berberak izatea</p>
+        <p>MongoDB-k ID bat automatikoki txertatzen du</p>
+        <p>db.alumni.findOne({ _id: ObjectId("XXX") }) / db.alumni.find()</p>
+    </section>
+
+    <section class="slide">
+        <h2>insertMany()</h2>
+        <pre style="font-size:12px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.insertMany([<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nombre: "Jon Aguirre",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;email: "jon@ehu.eus",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;edad: 22,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;notas: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ asignatura: "ABD", nota: 7.5 }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nombre: "Miren Etxebarria",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;email: "miren@ehu.eus",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;edad: 20<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nombre: "Unai López",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;email: "unai@ehu.eus",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;edad: 23,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;becado: true<br>
+&nbsp;&nbsp;}<br>
+])<br>
+        </pre>
+
+    </section>
+
+    <section class="slide">
+        <h2>Schemaless: malgukortasuna</h2>
+        <p>Dokumentu bakoitzak eremu desberdinak eduki ditzake</p>
+        <p>Guztiak kolekzio berean arazorik gabe bizi daitezke</p>
+    </section>
+
+    <section class="slide">
+        <h2>find(): dokumentuak kontsultatu</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.find()<br>
+<br>
+db.alumni.find({ edad: 20 })<br>
+<br>
+db.alumni.find({ nombre: "Jon Aguirre" })<br>
+<br>
+// findOne() lehenengo emaitza soilik itzultzen du<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Alderapen operadoreak</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.find({ edad: { $gt: 21 } })<br>
+<br>
+db.alumni.find({ edad: { $gte: 20, $lte: 23 } })<br>
+<br>
+db.alumni.find({ edad: { $ne: 21 } })<br>
+<br>
+db.alumni.find({ edad: { $in: [20, 21, 22] } })<br>
+        </pre>
+        <p><code>$gt</code>, <code>$gte</code>, <code>$lt</code>, <code>$lte</code>, <code>$eq</code>, <code>$ne</code>, <code>$in</code>, <code>$nin</code></p>
+    </section>
+
+    <section class="slide">
+        <h2>Logika operadoreak</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.find({<br>
+&nbsp;&nbsp;$and: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ edad: { $gt: 20 } },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ nombre: "Javier Cansado" }<br>
+&nbsp;&nbsp;]<br>
+})<br>
+<br>
+db.alumni.find({<br>
+&nbsp;&nbsp;$or: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ edad: { $lt: 22 } },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ becado: true }<br>
+&nbsp;&nbsp;]<br>
+})<br>
+        </pre>
+        <p><code>$and</code>, <code>$or</code>, <code>$not</code>, <code>$nor</code></p>
+    </section>
+
+    <section class="slide">
+        <h2>AND inplizitua</h2>
+        <p>Eremu desberdinak daudenean, MongoDB-k AND aplikatzen du:</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.find({ edad: 21, nombre: "Javier Cansado" })<br>
+<br>
+<br>
+db.alumni.find({<br>
+&nbsp;&nbsp;$and: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ edad: 21 },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ nombre: "Javier Cansado" }<br>
+&nbsp;&nbsp;]<br>
+})<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Proiekzioa (eremuak aukeratu)</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.find(<br>
+&nbsp;&nbsp;{},                          // iragazkia: guztiak<br>
+&nbsp;&nbsp;{ nombre: 1, email: 1 }     // proiekzioa: eremu hauek bakarrik<br>
+)<br>
+<br>
+// Eremuak baztertu (guztia erakutsi email kenduta):<br>
+db.alumni.find(<br>
+&nbsp;&nbsp;{},<br>
+&nbsp;&nbsp;{ email: 0 }<br>
+)<br>
+<br>
+// _id eremua lehenespenez sartzen da<br>
+// Baztertzeko:<br>
+db.alumni.find({}, { nombre: 1, _id: 0 })<br>
+        </pre>
+        <p>1 = sartu, 0 = baztertu. Ezin dira nahastu (_id izan ezik)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Ordenatu, mugatu</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.find().sort({ edad: 1 })<br>
+<br>
+db.alumni.find().sort({ edad: -1 })<br>
+<br>
+db.alumni.find().limit(3)<br>
+<br>
+db.alumni.find().sort({ edad: -1 }).limit(2)<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Dokumentuak zenbatu</h2>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.countDocuments()<br>
+<br>
+db.alumni.countDocuments({ edad: { $gt: 21 } })<br>
+<br>
+// Estimazio kalkuluarekin zenbatu (kolekzio handientzat):<br>
+db.alumni.estimatedDocumentCount()<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>updateOne()</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.updateOne(<br>
+&nbsp;&nbsp;{ nombre: "Javier Cansado" },    // iragazkia<br>
+&nbsp;&nbsp;{ $set: { edad: 22 } }       // eguneraketa (UPSERT)<br>
+)<br>
+<br>
+// $set -ek adierazitako eremuak bakarrik aldatzen ditu<br>
+// Eremua ez badago, sortzen du:<br>
+db.alumni.updateOne(<br>
+&nbsp;&nbsp;{ nombre: "Javier Cansado" },<br>
+&nbsp;&nbsp;{ $set: { telefono: "666111222" } }<br>
+)<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Eguneraketa operadoreak</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+// Zenbaki balioa gehitu<br>
+db.alumni.updateOne(<br>
+&nbsp;&nbsp;{ nombre: "Jon Aguirre" },<br>
+&nbsp;&nbsp;{ $inc: { edad: 1 } }<br>
+)<br>
+<br>
+// Dokumentutik eremua ezabatu<br>
+db.alumni.updateOne(<br>
+&nbsp;&nbsp;{ nombre: "Unai López" },<br>
+&nbsp;&nbsp;{ $unset: { becado: "" } }<br>
+)<br>
+<br>
+// Eremua berrizzentzatu<br>
+db.alumni.updateOne(<br>
+&nbsp;&nbsp;{ nombre: "Javier Cansado" },<br>
+&nbsp;&nbsp;{ $rename: { "telefono": "tlfno" } }<br>
+)<br>
+        </pre>
+        <p><code>$set</code>, <code>$unset</code>, <code>$inc</code>, <code>$rename</code>, <code>$min</code>, <code>$max</code>, <code>$mul</code></p>
+    </section>
+
+    <section class="slide">
+        <h2>updateMany()</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.updateMany(<br>
+&nbsp;&nbsp;{ edad: { $gte: 20 } },<br>
+&nbsp;&nbsp;{ $set: { activo: true } }<br>
+)<br>
+<br>
+// Emaitza:<br>
+// { acknowledged: true,<br>
+//   matchedCount: 4,<br>
+//   modifiedCount: 4 }<br>
+        </pre>
+        <p><code>updateOne</code>-k bat datorren lehen dokumentua soilik aldatzen du</p>
+        <p><code>updateMany</code> bat datozen dokumentu guztiak aldatzen ditu</p>
+    </section>
+
+    <section class="slide">
+        <h2>Array-en arteko eragiketak</h2>
+        <pre style="font-size:12px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+// Elementu bat array-an gehitu<br>
+db.alumni.updateOne(<br>
+&nbsp;&nbsp;{ nombre: "Jon Aguirre" },<br>
+&nbsp;&nbsp;{ $push: { notas: { asignatura: "SI", nota: 8.0 } } }<br>
+)<br>
+<br>
+// Hainbat elementu array-an gehitu<br>
+db.alumni.updateOne(<br>
+&nbsp;&nbsp;{ nombre: "Jon Aguirre" },<br>
+&nbsp;&nbsp;{ $push: { notas: { $each: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ asignatura: "ED", nota: 6.5 },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ asignatura: "SO", nota: 7.0 }<br>
+&nbsp;&nbsp;]}}}<br>
+)<br>
+<br>
+// Elementu bat array-an ezabatu<br>
+db.alumni.updateOne(<br>
+&nbsp;&nbsp;{ nombre: "Jon Aguirre" },<br>
+&nbsp;&nbsp;{ $pull: { notas: { asignatura: "ED" } } }<br>
+)<br>
+        </pre>
+        <p><code>$push</code>, <code>$pull</code>, <code>$addToSet</code>, <code>$pop</code>, <code>$each</code></p>
+    </section>
+
+    <section class="slide">
+        <h2>deleteOne() eta deleteMany()</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.deleteOne({ nombre: "Unai López" })<br>
+<br>
+db.alumni.deleteMany({ edad: { $lt: 20 } })<br>
+<br>
+// Kolekzioko dokumentu guztiak ezabatu<br>
+db.alumni.deleteMany({})<br>
+<br>
+// Kolekzio osoa ezabatu<br>
+db.alumni.drop()<br>
+<br>
+// Uneko datu basea ezabatu<br>
+db.dropDatabase()<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>replaceOne()</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+// Dokumentu OSO bat ordezten du (ez banakako eremuak)<br>
+db.alumni.replaceOne(<br>
+&nbsp;&nbsp;{ nombre: "Javier Cansado" },<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nombre: "Javier Cansado Fernández",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;email: "javier.cansado.fernandez@ehu.eus",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;edad: 22,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grado: "Ingeniería Informática"<br>
+&nbsp;&nbsp;}<br>
+)<br>
+        </pre>
+        <p><strong>Kontuz:</strong> <code>replaceOne()</code>-k dokumentu osoa ordezkatzen du</p>
+        <p><code>updateOne()</code> + <code>$set</code> erabiliz, eremu espezifikoak bakarrik aldatzen dira</p>
+    </section>
+
+    <section class="slide">
+        <h2>Dokumentu bateratuen kontsultak</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+Datuak: mongodb-compass; gehitu datuak; txertatu dokumentua (nested.json)<br>
+<br>
+// Eremu bateratua bilatu (dot notation):<br>
+db.alumni.find({ "direccion.ciudad": "Bilbao" }) // mongosh<br>
+{ "direccion.ciudad": "Bilbao" } // mongodb-compass<br>
+        </pre>
+        <p>Dot notation: <code>"eremua.azpi-eremua"</code> eremu kapsulatuetara sartzeko</p>
+    </section>
+
+    <section class="slide">
+        <h2>Array-etan kontsultak</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+Datuak: nested-arrays.json (mongodb-compass: inportatu)<br>
+<br>
+// "euskera" array-an edukitzea dokumentuak bilatu:<br>
+db.alumni.find({ idiomas: "euskera" })<br>
+// Emaitza: Jon<br>
+<br>
+// Array-an balio zehatzak duten dokumentuak bilatu:<br>
+db.alumni.find({ idiomas: ["castellano", "francés"] })<br>
+// Emaitza: Mikel (ordenak garrantzia du)<br>
+<br>
+// Array-aren tamainaren bidez bilatu:<br>
+db.alumni.find({ idiomas: { $size: 3 } })<br>
+// Emaitza: Jon (3 hizkuntza ditu)<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Objektuen array-etan kontsultak</h2>
+        <pre style="font-size:12px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+{<br>
+&nbsp;&nbsp;nombre: "Jon",<br>
+&nbsp;&nbsp;notas: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ asignatura: "ABD", nota: 7.5 },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ asignatura: "SI", nota: 8.0 }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ asignatura: "SO", nota: 7.0 }<br>
+&nbsp;&nbsp;]<br>
+}<br>
+<br>
+// ehu bilatu nota > 7 duten ikasgaia batean:<br>
+db.alumni.find({ "notas.nota": { $gt: 7 } })<br>
+<br>
+// ehu bilatu nota > 7 duten ABD zehatz-mehatz:<br>
+db.alumni.find({<br>
+&nbsp;&nbsp;notas: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$elemMatch: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asignatura: "ABD",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nota: { $gt: 7 }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+})<br>
+        </pre>
+        <p><code>$elemMatch</code>: elementu berak baldintza guztiak bete behar ditu</p>
+    </section>
+
+    <section class="slide">
+        <h2>$exists eta $type</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+// "becado" eremua DUTEN dokumentuak bilatu:<br>
+db.alumni.find({ becado: { $exists: true } })<br>
+<br>
+// "telefono" eremua ez DUTEN dokumentuak bilatu:<br>
+db.alumni.find({ telefono: { $exists: false } })<br>
+<br>
+// "edad" zenbaki motatakoa den dokumentuak bilatu:<br>
+db.alumni.find({ edad: { $type: "number" } })<br>
+<br>
+// "nombre" string bat den dokumentuak bilatu:<br>
+db.alumni.find({ nombre: { $type: "string" } })<br>
+        </pre>
+        <p>Oso baliagarriak dira schemaless kolekzioetan, dokumentu guztiek ez baitituzte eremu berak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Adierazpen erregularrak</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.find({ nombre: /^Mi*/ })<br>
+<br>
+db.alumni.find({ email: /ehu\.eus$/ })<br>
+<br>
+// Maiuskula minuskula ez den bilaketa:<br>
+db.alumni.find({ nombre: { $regex: "Cansado", $options: "i" } })<br>
+        </pre>
+        <p>PCRE (Perl Compatible Regular Expressions) adierazpen erregularrak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Aggregation Pipeline</h2>
+        <p>Etapetan (stages) datuak prozesatzeko sistema</p>
+        <p>Dokumentuak transformazioen kate bat zeharkatzen dute</p>
+    <p>Datuak iragaztea, eraldatzea, taldekatzea eta aberastea pausoz pauso ahalbidetzen du</p>
+        <pre style="font-size:14px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.kolekzioa.aggregate([
+  { $etapa1: { ... } },
+  { $etapa2: { ... } },
+  { $etapa3: { ... } }
+])
+        </pre>
+        <p>Etapa baten irteera hurrengoarena da</p>
+    </section>
+
+    <section class="slide">
+        <h2>Pipeline-ren etapa nagusiak</h2>
+        <table style="border-collapse: collapse; width: 100%; text-align: left; font-size: 16px;">
+            <tr style="background-color: #f0f0f0;">
+                <th style="border: 1px solid #ccc; padding: 6px;">Etapa</th>
+                <th style="border: 1px solid #ccc; padding: 6px;">Deskribapena</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$match</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Dokumentuak iragazi</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$group</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Taldekatu eta kalkulatu</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$project</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Eremuak aukeratu/aldatu</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$sort</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Emaitzak ordenatu</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$limit</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Emaitzak mugatu</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$unwind</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Array-ak deskonposatu</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$lookup</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Kolekzioak batzea</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>$match: iragaztea</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.aggregate([<br>
+&nbsp;&nbsp;{ $match: { edad: { $gt: 20 } } }<br>
+])<br>
+<br>
+// Iragazkiaren sintaxia find()-n berdin da<br>
+// $match ahalik eta lehenengo joan beharko litzateke murrizteko<br>
+// hurrengo etapetara pasatzen diren dokumentuen kopurua<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>$group: taldekatu eta kalkulatu</h2>
+        <pre style="font-size:12px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+"pedidos" kolekzio berria, pedidos.json kargatu<br>
+<br>
+db.pedidos.aggregate([<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$group: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: "$cliente",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total: { $sum: "$precio" },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_pedidos: { $sum: 1 }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+])
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>$group funtzioak</h2>
+        <table style="border-collapse: collapse; width: 100%; text-align: left; font-size: 17px;">
+            <tr style="background-color: #f0f0f0;">
+                <th style="border: 1px solid #ccc; padding: 6px;">MongoDB</th>
+                <th style="border: 1px solid #ccc; padding: 6px;">Deskribapena</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$sum</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Balioak batu edo zenbatu</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$avg</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Batezbestekoa</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$min</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Gutxieneko balioa</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$max</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Gehieneko balioa</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$first</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Taldearen lehenengo balioa</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;"><code>$push</code></td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Balio guztien array-a</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>Pipeline osoa: adibidea</h2>
+        <pre style="font-size:11px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+db.pedidos.aggregate([<br>
+&nbsp;&nbsp;{ $match: { precio: { $gt: 30 } } },&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// WHERE<br>
+&nbsp;&nbsp;{ $group: {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// GROUP BY<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: "$cliente",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total: { $sum: "$precio" }<br>
+&nbsp;&nbsp;}},<br>
+&nbsp;&nbsp;{ $match: { total: { $gt: 200 } } },&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// HAVING<br>
+&nbsp;&nbsp;{ $sort: { total: -1 } }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ORDER BY<br>
+])<br>
+        </pre>
+        <p>Pipeline-ak kontsulta konplexuak pausoz pauso eraikitzea ahalbidetzen du</p>
+    </section>
+
+    <section class="slide">
+        <h2>$project: eremuak aldatu</h2>
+        <pre style="font-size:12px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni.aggregate([<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$project: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nombre: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email_mayus: { $toUpper: "$email" },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;anio_nacimiento: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$subtract: [2026, "$edad"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+])<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>$unwind: array-ak deskonposatu</h2>
+        <pre style="font-size:11px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+// Datua: { nombre: "Jon", notas: [{asig: "ABD", nota: 7.5},<br>
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{asig: "SI", nota: 8.0}] }<br>
+// $unwind array-aren eremu bakoitzerako dokumentua sortzen du:<br>
+<br>
+db.alumni.aggregate([<br>
+&nbsp;&nbsp;{ $unwind: "$notas" }<br>
+])<br>
+// Emaitza:<br>
+// { nombre: "Jon", notas: { asig: "ABD", nota: 7.5 } }<br>
+// { nombre: "Jon", notas: { asig: "SI", nota: 8.0 } }<br>
+<br>
+// Geroago ikasgaian $group egiteko erabilgarria:<br>
+db.alumni.aggregate([<br>
+&nbsp;&nbsp;{ $unwind: "$notas" },<br>
+&nbsp;&nbsp;{ $group: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: "$notas.asignatura",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;media: { $avg: "$notas.nota" }<br>
+&nbsp;&nbsp;}}<br>
+])<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>$lookup: kolekzioak batzea</h2>
+        <pre style="font-size:11px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+db.pedidos.aggregate([<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$lookup: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from: "alumni",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localField: "cliente",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreignField: "nombre",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as: "alumniMatch"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}<br>
+])<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>MongoDB-n eskema diseinua</h2>
+        <p>MongoDB schemaless bada ere, eskema diseinua oinarrizkoa da</p>
+                <p>Gako-galdera: <strong>txertatu</strong> ala <strong>erreferentziatu</strong>?</p>
+        <ul>
+                        <li><strong>Txertatu</strong>: erlazionatutako datuak dokumentuaren barruan sartu</li>
+                <li><strong>Erreferentziatu</strong>: erlazionatutako dokumentuaren _id gorde</li>
+        </ul>
+            <p>Aukera atzipen-patroietan, tamainan eta eguneratze-maiztasunean oinarritzen da</p>
+    </section>
+
+    <section class="slide">
+        <h2>Txertatzea (desnormalizatzea)</h2>
+        <pre style="font-size:12px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+// Informazio guztia dokumentu bakarrean<br>
+{<br>
+&nbsp;&nbsp;nombre: "Javier Cansado",<br>
+&nbsp;&nbsp;direccion: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;calle: "Gran Vía 1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ciudad: "Bilbao"<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;pedidos: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ producto: "Monitor", precio: 250, fecha: "2026-01-15" },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ producto: "Ratón", precio: 25, fecha: "2026-02-20" }<br>
+&nbsp;&nbsp;]<br>
+}<br>
+        </pre>
+        <p><strong>Abantailak:</strong> irakurketa oso azkarra (kontsulta bakarra)</p>
+        <p><strong>Mugak:</strong> datuen bikoizketa eta dokumentu handiak</p>
+    </section>
+
+    <section class="slide">
+        <h2>Erreferentziatzea (normalizatzea)</h2>
+        <pre style="font-size:12px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+// "clientes" kolekzioa<br>
+{<br>
+&nbsp;&nbsp;_id: ObjectId("aaa..."),<br>
+&nbsp;&nbsp;nombre: "Javier Cansado",<br>
+&nbsp;&nbsp;direccion: { calle: "Gran Vía 1", ciudad: "Bilbao" }<br>
+}<br>
+<br>
+// "pedidos" kolekzioa<br>
+{<br>
+&nbsp;&nbsp;cliente_id: ObjectId("aaa..."),<br>
+&nbsp;&nbsp;producto: "Monitor",<br>
+&nbsp;&nbsp;precio: 250,<br>
+&nbsp;&nbsp;fecha: "2026-01-15"<br>
+}<br>
+        </pre>
+        <p><strong>Abantailak:</strong> bikoizketarik gabe, dokumentu txikiagoak</p>
+        <p><strong>Mugak:</strong> $lookup behar du (motelagoa) eta kontsulta gehiago</p>
+    </section>
+
+    <section class="slide">
+        <h2>Noiz txertatu? Noiz erreferentziatu?</h2>
+        <table style="border-collapse: collapse; width: 100%; text-align: left; font-size: 16px;">
+            <tr style="background-color: #f0f0f0;">
+                <th style="border: 1px solid #ccc; padding: 6px;">Irizpidea</th>
+                <th style="border: 1px solid #ccc; padding: 6px;">Txertatu</th>
+                <th style="border: 1px solid #ccc; padding: 6px;">Erreferentzia</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Erlazioa</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">1:1, 1: gutxi</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">1: asko, N:M</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Datuak elkarrekin irakurtzen dira</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Bai</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Ez beti</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Datuak asko aldatzen dira</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Ez</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Bai</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Subdatu neurria</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Txikia/mugatua</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Handia/mugagabea</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 6px;">Lehentasuna</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Irakurketa abiadura</td>
+                <td style="border: 1px solid #ccc; padding: 6px;">Koherentzia</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>MongoDB-n indizeak</h2>
+        <p>Indizerik gabe, MongoDB-k dokumentu guztiak aztertu behar ditu (collection scan)</p>
+        <p>Indize batek dokumentuak aurkitzea ahalbidetzen du, kolekzio osoa eskaneatu gabe</p>
+        <p>MongoDB-k automatikoki _id gainean indize bat sortzen du</p>
+        <p>Edozein eremuren gainean edo eremuen konbinazioetan indizeak sor daitezke</p>
+    </section>
+
+    <section class="slide">
+        <h2>Indizeak sortu eta kudeatu</h2>
+        <pre style="font-size:13px; line-height:1.4; overflow:auto; background:#f7f7f7; padding:8px;">
+// Kargatu ehu.alumni.json ehu.alumni1000 kolekzioan<br>
+<br>
+// Existitzen diren indizeak ikusi:<br>
+db.alumni1000.getIndexes()<br>
+<br>
+// Indize sinplea sortu:<br>
+db.alumni1000.createIndex({ email: 1 })   // 1 = goraka; -1 = behera<br>
+<br>
+// Indize konposatua (eremu anitzetan):<br>
+db.alumni1000.createIndex({ nombre: 1, edad: -1 })<br>
+<br>
+// Indize bakarra (ez du bikoiztua baimentzen):<br>
+db.alumni1000.createIndex({ email: 1 }, { unique: true })<br>
+<br>
+// Indizea ezabatu:<br>
+db.alumni1000.dropIndex({ email: 1 })<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>explain(): kontsultak aztertu</h2>
+        <pre style="font-size:12px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+db.alumni1000.find({ email: "alumno0680@ikasle.ehu.eus" }).explain("executionStats")<br>
+// COLLSCAN: indizerik gabe, kolekzio osoa eskaneatzen du<br>
+// IXSCAN: indizearekin, zuzenean bilatzen du<br>
+        </pre>
+        
+        <p>Kontsultetan maiz erabiltzen diren eremuetan indizeak sortu</p>
+        <p>Indizeek irakurketak bizkortzen dituzte, baina idazketak moteldu</p>
+    </section>
+
+    
+    <section class="slide">
+        <h2>Eskema egiaztapena</h2>
+        <p>MongoDB schemaless bada ere, balidazio aukerakoa defini daiteke</p>
+        <p>JSON Schema erabil daiteke dokumentuetan arauak definitzeko</p>
+        <pre style="font-size:11px; line-height:1.3; overflow:auto; background:#f7f7f7; padding:8px;">
+db.createCollection("ehu-schema", {<br>
+&nbsp;&nbsp;validator: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$jsonSchema: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bsonType: "object",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required: ["nombre", "email", "edad"],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nombre: { bsonType: "string",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: "string bat izan behar du" },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:&nbsp;&nbsp;{ bsonType: "string",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern: "^.+@.+$" },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;edad:&nbsp;&nbsp;&nbsp;{ bsonType: "int",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 16, maximum: 99 }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+})<br>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Egiaztapena: mailak</h2>
+<p>"strict" maila (lehenespenez): insert eta update eragiketetan balioztatzen du</p>
+<p>"moderate" maila: dokumentu berriak eta lehendik baliozkoak diren dokumentuak balioztatzen ditu</p>
+<p>Eskema malgukortasuna eta datuen integritatea orekatzea ahalbidetzen du</p>
+<p>collMod_moderate, collMod_strict, productos_ejemplo, invalid_productos</p>
+    </section>
+
+    <section class="slide">
+      <h2>MongoDB erabilera egokia</h2>
+      <ul>
+                <li>Dokumentuak kontsulta-patroi ohikoenen arabera diseinatu</li>
+                <li>Txertatzearen eta erreferentziatzearen artean aukeratu atzipenaren eta tamainaren irizpideen arabera</li>
+                <li>Iragazkietan eta ordenazioan erabilitako eremuetan indizeak sortu</li>
+        <li>Integritatea kritikoa denean eskema egiaztapena aplikatu</li>
+                <li>explain() eta errendimendu-metrikak erabiliz kontsultak monitorizatu</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+        <h2>MongoDB / Triple Stores</h2>
+        RDF (JSON-LD) artxibo bat MongoDB-n kargatu al daiteke?<br>
+        GraphDB / Ontop?
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/mikel-egana-aranguren/ShowerTemplate">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../ShowerTemplate/shower/shower.js"></script>
+</body>
+</html>

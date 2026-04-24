@@ -1,0 +1,6 @@
+[
+	{ "cliente": "Mikel", "producto": "Monitor", "precio": 250 },
+	{ "cliente": "Jon", "producto": "Teclado", "precio": 45 },
+	{ "cliente": "Mikel", "producto": "Ratón", "precio": 25 },
+	{ "cliente": "Jon", "producto": "Monitor", "precio": 250 }
+]

@@ -1,0 +1,20 @@
+// Añadir un elemento a un array
+db.alumni.updateOne(
+  { nombre: "Jon Aguirre" },
+  { $push: { notas: { asignatura: "SI", nota: 8.0 } } }
+)
+
+// Añadir varios elementos a un array
+db.alumni.updateOne(
+  { nombre: "Jon Aguirre" },
+  { $push: { notas: { $each: [
+    { asignatura: "ED", nota: 6.5 },
+    { asignatura: "SO", nota: 7.0 }
+  ]}}}
+)
+
+// Eliminar un elemento de un array
+db.alumni.updateOne(
+  { nombre: "Jon Aguirre" },
+  { $pull: { notas: { asignatura: "ED" } } }
+)

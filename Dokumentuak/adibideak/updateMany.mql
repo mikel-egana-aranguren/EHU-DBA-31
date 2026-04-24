@@ -1,0 +1,4 @@
+db.alumni.updateMany(
+  { edad: { $gte: 20 } },
+  { $set: { activo: true } }
+)

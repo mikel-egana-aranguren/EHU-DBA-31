@@ -1,0 +1,13 @@
+db.alumni.find({
+  $and: [
+    { edad: { $gt: 20 } },
+    { nombre: "Javier Cansado" }
+  ]
+})
+
+db.alumni.find({
+  $or: [
+    { edad: { $lt: 22 } },
+    { becado: true }
+  ]
+})

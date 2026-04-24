@@ -1,0 +1,17 @@
+// Incrementar un valor numérico
+db.alumni.updateOne(
+  { nombre: "Jon Aguirre" },
+  { $inc: { edad: 1 } }
+)
+
+// Eliminar un campo del documento
+db.alumni.updateOne(
+  { nombre: "Unai López" },
+  { $unset: { becado: "" } }
+)
+
+// Renombrar un campo
+db.alumni.updateOne(
+  { nombre: "Javier Cansado" },
+  { $rename: { "telefono": "tlfno" } }
+)

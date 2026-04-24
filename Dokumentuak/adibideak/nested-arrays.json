@@ -1,0 +1,9 @@
+[
+    {
+        "nombre": "Jon", 
+        "idiomas": ["euskera", "castellano", "inglés"] },
+    { 
+        "nombre": "Mikel", 
+        "idiomas": ["castellano", "francés"] 
+    }
+]

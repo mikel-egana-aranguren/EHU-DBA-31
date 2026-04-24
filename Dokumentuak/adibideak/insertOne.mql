@@ -1,0 +1,5 @@
+db.alumni.insertOne({
+  nombre: "Javier Cansado",
+  email: "javi@ehu.eus",
+  edad: 21
+})

@@ -1,0 +1,5 @@
+// Missing required field "stock" → should fail with strict validation
+db.productos.insertOne({ nombre: "Test", categoria: "electronica", precio: 9.99, activo: true })
+
+// Wrong type for "precio" (string instead of double) → should fail
+db.productos.insertOne({ nombre: "Test", categoria: "electronica", precio: "barato", stock: 1, activo: true })
