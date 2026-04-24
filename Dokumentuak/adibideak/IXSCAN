@@ -1,0 +1,116 @@
+ehu> db.alumni1000.find({ email: "alumno0680@ikasle.ehu.eus" }).explain("executionStats")
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'ehu.alumni1000',
+    parsedQuery: { email: { '$eq': 'alumno0680@ikasle.ehu.eus' } },
+    indexFilterSet: false,
+    queryHash: '2C2F10E4',
+    planCacheShapeHash: '2C2F10E4',
+    planCacheKey: 'F713C797',
+    optimizationTimeMillis: 0,
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    prunedSimilarIndexes: false,
+    winningPlan: {
+      isCached: false,
+      stage: 'FETCH',
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: { email: 1 },
+        indexName: 'email_1',
+        isMultiKey: false,
+        multiKeyPaths: { email: [] },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          email: [
+            '["alumno0680@ikasle.ehu.eus", "alumno0680@ikasle.ehu.eus"]'
+          ]
+        }
+      }
+    },
+    rejectedPlans: []
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 1,
+    executionTimeMillis: 1,
+    totalKeysExamined: 1,
+    totalDocsExamined: 1,
+    executionStages: {
+      isCached: false,
+      stage: 'FETCH',
+      nReturned: 1,
+      executionTimeMillisEstimate: 0,
+      works: 2,
+      advanced: 1,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      docsExamined: 1,
+      alreadyHasObj: 0,
+      inputStage: {
+        stage: 'IXSCAN',
+        nReturned: 1,
+        executionTimeMillisEstimate: 0,
+        works: 2,
+        advanced: 1,
+        needTime: 0,
+        needYield: 0,
+        saveState: 0,
+        restoreState: 0,
+        isEOF: 1,
+        keyPattern: { email: 1 },
+        indexName: 'email_1',
+        isMultiKey: false,
+        multiKeyPaths: { email: [] },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          email: [
+            '["alumno0680@ikasle.ehu.eus", "alumno0680@ikasle.ehu.eus"]'
+          ]
+        },
+        keysExamined: 1,
+        seeks: 1,
+        dupsTested: 0,
+        dupsDropped: 0
+      }
+    }
+  },
+  queryShapeHash: '6AFDC43186299E6BB52F2478CD3EBDA9937654AA9353F189495B68A973E41692',
+  command: {
+    find: 'alumni1000',
+    filter: { email: 'alumno0680@ikasle.ehu.eus' },
+    '$db': 'ehu'
+  },
+  serverInfo: {
+    host: 'U113356',
+    port: 27017,
+    version: '8.2.7',
+    gitVersion: '8f6785264a643d2eeb5e4046f7876a23e40e1a09'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted',
+    internalQueryPlannerIgnoreIndexWithCollationForRegex: 1
+  },
+  ok: 1
+}

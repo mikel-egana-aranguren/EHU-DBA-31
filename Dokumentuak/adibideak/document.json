@@ -1,0 +1,13 @@
+{
+  "nombre": "Javier Cansado",
+  "direccion": {
+    "calle": "Gran Vía 1",
+    "ciudad": "Bilbao",
+    "cp": "48001"
+  },
+  "telefonos": [
+    {"tipo": "movil", "numero": "666111222"},
+    {"tipo": "casa", "numero": "944123456"}
+  ],
+  "viviendas": ["Deusto", "Abando", "Begoña"]
+}

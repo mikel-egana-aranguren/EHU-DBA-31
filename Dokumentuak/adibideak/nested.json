@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "Mikel",
+        "direccion": {
+            "ciudad": "Bilbao",
+            "cp": "48001"
+        }
+    },
+    {
+        "nombre": "Jon",
+        "direccion": {
+            "ciudad": "Donostia",
+            "cp": "20001"
+        }
+    }
+]

@@ -1,0 +1,61 @@
+// ============================================================
+// collMod con validación MODERADA (validationLevel: "moderate")
+// Se aplica a las inserciones y a las actualizaciones de
+// documentos que YA cumplen el esquema.
+// Los documentos preexistentes inválidos pueden seguir
+// actualizándose aunque no cumplan el esquema.
+// ============================================================
+
+db.runCommand({
+  collMod: "productos",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      title: "Esquema de producto (validación moderada)",
+      required: ["nombre", "categoria", "precio"],
+      properties: {
+        _id: {
+          bsonType: "objectId"
+        },
+        nombre: {
+          bsonType: "string",
+          minLength: 2,
+          maxLength: 100,
+          description: "Nombre del producto. Obligatorio."
+        },
+        categoria: {
+          bsonType: "string",
+          enum: ["electronica", "perifericos", "accesorios", "software"],
+          description: "Categoría del producto. Obligatoria."
+        },
+        precio: {
+          bsonType: ["double", "int"],
+          minimum: 0,
+          description: "Precio en euros. Obligatorio, no negativo."
+        },
+        stock: {
+          bsonType: "int",
+          minimum: 0,
+          description: "Unidades disponibles. Opcional."
+        },
+        activo: {
+          bsonType: "bool",
+          description: "Disponibilidad del producto. Opcional."
+        },
+        etiquetas: {
+          bsonType: "array",
+          items: {
+            bsonType: "string"
+          },
+          description: "Etiquetas descriptivas. Opcional."
+        },
+        especificaciones: {
+          bsonType: "object",
+          description: "Especificaciones adicionales. Opcional, sin estructura forzada."
+        }
+      }
+    }
+  },
+  validationLevel: "moderate",  // solo valida docs que ya cumplían el esquema
+  validationAction: "warn"      // registra en el log pero NO rechaza el documento
+});

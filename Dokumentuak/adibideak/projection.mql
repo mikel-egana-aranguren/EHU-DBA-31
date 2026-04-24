@@ -1,0 +1,14 @@
+db.alumni.find(
+  {}, // filtro: todos
+  { nombre: 1, email: 1 } // proyección: solo estos campos
+)
+
+// Excluir campos (mostrar todos menos email):
+db.alumni.find(
+  {},
+  { email: 0 }
+)
+
+// El campo _id se incluye siempre por defecto
+// Para excluirlo:
+db.alumni.find({}, { nombre: 1, _id: 0 })

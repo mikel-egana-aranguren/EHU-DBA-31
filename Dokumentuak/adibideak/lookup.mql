@@ -1,0 +1,12 @@
+use ehu
+
+db.pedidos.aggregate([
+   {
+    $lookup: {
+         from: "alumni",
+         localField: "cliente",
+         foreignField: "nombre",
+         as: "alumniMatch"
+     }
+   }
+])

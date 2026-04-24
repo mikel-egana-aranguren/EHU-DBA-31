@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@id": "http://ehu.eus/mikel",
+  "@type": "Person",
+  "name": "Mikel Egaña",
+  "jobTitle": "Profesor",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "UPV/EHU"
+  }
+}

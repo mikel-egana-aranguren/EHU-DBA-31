@@ -1,0 +1,11 @@
+db.alumni.updateOne(
+  { nombre: "Javier Cansado" }, // filtro
+  { $set: { edad: 22 } } // actualización (UPSERT)
+)
+
+// $set modifica solo los campos indicados
+// Si el campo no existe, lo crea:
+db.alumni.updateOne(
+  { nombre: "Javier Cansado" },
+  { $set: { telefono: "666111222" } }
+)
